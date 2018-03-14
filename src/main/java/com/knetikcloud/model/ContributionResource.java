@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ContributionResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T10:36:54.503-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-14T13:34:39.715-04:00")
 public class ContributionResource {
   @SerializedName("artist")
   private SimpleReferenceResourcelong artist = null;
