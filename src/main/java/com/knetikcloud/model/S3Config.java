@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * S3Config
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-16T11:20:39.188-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-16T15:25:08.809-04:00")
 public class S3Config {
   @SerializedName("bucket_name")
   private String bucketName = null;

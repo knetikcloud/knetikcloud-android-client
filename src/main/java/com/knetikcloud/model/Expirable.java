@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Expirable
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-16T11:20:39.188-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-16T15:25:08.809-04:00")
 public class Expirable extends Behavior {
   @SerializedName("time_length")
   private Integer timeLength = null;
