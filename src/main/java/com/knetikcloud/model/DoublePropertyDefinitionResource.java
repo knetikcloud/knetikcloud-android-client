@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * DoublePropertyDefinitionResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-14T13:34:39.715-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-16T11:20:39.188-04:00")
 public class DoublePropertyDefinitionResource extends PropertyDefinitionResource {
   @SerializedName("max")
   private Double max = null;

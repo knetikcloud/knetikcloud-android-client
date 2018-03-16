@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * TimePeriodGettable
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-14T13:34:39.715-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-16T11:20:39.188-04:00")
 public class TimePeriodGettable extends Behavior {
   @SerializedName("get_limit")
   private Integer getLimit = null;

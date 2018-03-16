@@ -47,7 +47,7 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 ChatApi apiInstance = new ChatApi();
 String id = "id_example"; // String | The thread id
-Integer readCount = 56; // Integer | The amount of messages read
+IntWrapper readCount = new IntWrapper(); // IntWrapper | The amount of messages read
 try {
     Void result = apiInstance.acknowledgeChatMessage(id, readCount);
     System.out.println(result);
@@ -62,7 +62,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The thread id |
- **readCount** | **Integer**| The amount of messages read | [optional]
+ **readCount** | [**IntWrapper**](IntWrapper.md)| The amount of messages read | [optional]
 
 ### Return type
 

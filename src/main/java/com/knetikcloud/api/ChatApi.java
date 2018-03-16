@@ -9,6 +9,7 @@ import okhttp3.RequestBody;
 
 import com.knetikcloud.model.ChatBlacklistResource;
 import com.knetikcloud.model.ChatMessageResource;
+import com.knetikcloud.model.IntWrapper;
 import com.knetikcloud.model.PageResourceChatMessageResource;
 import com.knetikcloud.model.PageResourceChatUserThreadResource;
 import com.knetikcloud.model.Result;
@@ -32,7 +33,7 @@ public interface ChatApi {
   })
   @PUT("chat/threads/{id}/acknowledge")
   Call<Void> acknowledgeChatMessage(
-    @retrofit2.http.Path("id") String id, @retrofit2.http.Body Integer readCount
+    @retrofit2.http.Path("id") String id, @retrofit2.http.Body IntWrapper readCount
   );
 
   /**
