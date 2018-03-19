@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * IntegerPropertyDefinitionResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-16T15:25:08.809-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-19T12:00:31.936-04:00")
 public class IntegerPropertyDefinitionResource extends PropertyDefinitionResource {
   @SerializedName("max")
   private Integer max = null;
