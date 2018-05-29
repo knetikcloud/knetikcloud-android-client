@@ -4,7 +4,6 @@ import com.knetikcloud.client.ApiClient;
 import com.knetikcloud.model.ChatMessageRequest;
 import com.knetikcloud.model.ChatMessageResource;
 import com.knetikcloud.model.GroupMemberResource;
-import com.knetikcloud.model.GroupMemberStatusWrapper;
 import com.knetikcloud.model.GroupResource;
 import com.knetikcloud.model.PageResourceChatMessageResource;
 import com.knetikcloud.model.PageResourceGroupMemberResource;
@@ -37,7 +36,7 @@ public class UsersGroupsApiTest {
     /**
      * Adds a new member to the group
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN or self if open
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST or JOIN if self
      */
     @Test
     public void addMemberToGroupTest() {
@@ -50,7 +49,7 @@ public class UsersGroupsApiTest {
     /**
      * Adds multiple members to the group
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      */
     @Test
     public void addMembersToGroupTest() {
@@ -63,7 +62,7 @@ public class UsersGroupsApiTest {
     /**
      * Create a group
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      */
     @Test
     public void createGroupTest() {
@@ -99,7 +98,7 @@ public class UsersGroupsApiTest {
     /**
      * Removes a group from the system
      *
-     * All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group&#39;s parent if they were not added to it directly as well. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+     * All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group&#39;s parent if they were not added to it directly as well. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      */
     @Test
     public void deleteGroupTest() {
@@ -151,7 +150,7 @@ public class UsersGroupsApiTest {
     /**
      * Loads a specific group&#39;s details
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      */
     @Test
     public void getGroupTest() {
@@ -175,7 +174,7 @@ public class UsersGroupsApiTest {
     /**
      * Get a user from a group
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      */
     @Test
     public void getGroupMemberTest() {
@@ -214,7 +213,7 @@ public class UsersGroupsApiTest {
     /**
      * Lists members of the group
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      */
     @Test
     public void getGroupMembersTest() {
@@ -269,7 +268,7 @@ public class UsersGroupsApiTest {
     /**
      * List groups a user is in
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST_GROUPS
      */
     @Test
     public void getGroupsForUserTest() {
@@ -282,7 +281,7 @@ public class UsersGroupsApiTest {
     /**
      * List and search groups
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      */
     @Test
     public void listGroupsTest() {
@@ -315,7 +314,7 @@ public class UsersGroupsApiTest {
     /**
      * Removes a user from a group
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN or self if open
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      */
     @Test
     public void removeGroupMemberTest() {
@@ -328,7 +327,7 @@ public class UsersGroupsApiTest {
     /**
      * Update a group
      *
-     * If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN or admin of the group
+     * If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateGroupTest() {
@@ -341,7 +340,7 @@ public class UsersGroupsApiTest {
     /**
      * Change a user&#39;s order
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateGroupMemberPropertiesTest() {
@@ -355,7 +354,7 @@ public class UsersGroupsApiTest {
     /**
      * Change a user&#39;s membership properties
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateGroupMemberProperties1Test() {
@@ -369,13 +368,13 @@ public class UsersGroupsApiTest {
     /**
      * Change a user&#39;s status
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateGroupMemberStatusTest() {
         String uniqueName = null;
         Integer userId = null;
-        GroupMemberStatusWrapper status = null;
+        StringWrapper status = null;
         // Void response = api.updateGroupMemberStatus(uniqueName, userId, status);
 
         // TODO: test validations

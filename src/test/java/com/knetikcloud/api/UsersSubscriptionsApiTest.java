@@ -133,8 +133,8 @@ public class UsersSubscriptionsApiTest {
     public void setUserSubscriptionPriceTest() {
         Integer userId = null;
         Integer inventoryId = null;
-        SubscriptionPriceOverrideRequest theOverrideDetails = null;
-        // Void response = api.setUserSubscriptionPrice(userId, inventoryId, theOverrideDetails);
+        SubscriptionPriceOverrideRequest override = null;
+        // Void response = api.setUserSubscriptionPrice(userId, inventoryId, override);
 
         // TODO: test validations
     }

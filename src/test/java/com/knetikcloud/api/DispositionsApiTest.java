@@ -68,9 +68,10 @@ public class DispositionsApiTest {
      */
     @Test
     public void getDispositionCountsTest() {
+        String filterCreatedDate = null;
         String filterContext = null;
         String filterOwner = null;
-        // List<DispositionCount> response = api.getDispositionCounts(filterContext, filterOwner);
+        // List<DispositionCount> response = api.getDispositionCounts(filterCreatedDate, filterContext, filterOwner);
 
         // TODO: test validations
     }
@@ -81,12 +82,13 @@ public class DispositionsApiTest {
      */
     @Test
     public void getDispositionsTest() {
+        String filterCreatedDate = null;
         String filterContext = null;
         String filterOwner = null;
         Integer size = null;
         Integer page = null;
         String order = null;
-        // PageResourceDispositionResource response = api.getDispositions(filterContext, filterOwner, size, page, order);
+        // PageResourceDispositionResource response = api.getDispositions(filterCreatedDate, filterContext, filterOwner, size, page, order);
 
         // TODO: test validations
     }

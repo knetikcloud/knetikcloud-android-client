@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * UserAchievementResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-19T12:00:31.936-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:44.564-04:00")
 public class UserAchievementResource {
   @SerializedName("achieved")
   private Boolean achieved = null;

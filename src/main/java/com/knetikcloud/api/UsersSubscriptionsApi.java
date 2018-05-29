@@ -131,7 +131,7 @@ public interface UsersSubscriptionsApi {
    * This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_SUBSCRIPTIONS_ADMIN
    * @param userId The id of the user (required)
    * @param inventoryId The id of the user&#39;s inventory (required)
-   * @param theOverrideDetails override (optional)
+   * @param override The override details (optional)
    * @return Call&lt;Void&gt;
    */
   @Headers({
@@ -139,7 +139,7 @@ public interface UsersSubscriptionsApi {
   })
   @PUT("users/{user_id}/subscriptions/{inventory_id}/price-override")
   Call<Void> setUserSubscriptionPrice(
-    @retrofit2.http.Path("user_id") Integer userId, @retrofit2.http.Path("inventory_id") Integer inventoryId, @retrofit2.http.Body SubscriptionPriceOverrideRequest theOverrideDetails
+    @retrofit2.http.Path("user_id") Integer userId, @retrofit2.http.Path("inventory_id") Integer inventoryId, @retrofit2.http.Body SubscriptionPriceOverrideRequest override
   );
 
 }

@@ -29,10 +29,13 @@ import java.util.List;
 /**
  * CouponDefinition
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-19T12:00:31.936-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:44.564-04:00")
 public class CouponDefinition {
   @SerializedName("code")
   private String code = null;
+
+  @SerializedName("coupon_id")
+  private Integer couponId = null;
 
   @SerializedName("description")
   private String description = null;
@@ -192,6 +195,24 @@ public class CouponDefinition {
 
   public void setCode(String code) {
     this.code = code;
+  }
+
+  public CouponDefinition couponId(Integer couponId) {
+    this.couponId = couponId;
+    return this;
+  }
+
+   /**
+   * The id of the coupon.
+   * @return couponId
+  **/
+  @ApiModelProperty(value = "The id of the coupon.")
+  public Integer getCouponId() {
+    return couponId;
+  }
+
+  public void setCouponId(Integer couponId) {
+    this.couponId = couponId;
   }
 
   public CouponDefinition description(String description) {
@@ -465,6 +486,7 @@ public class CouponDefinition {
     }
     CouponDefinition couponDefinition = (CouponDefinition) o;
     return Objects.equals(this.code, couponDefinition.code) &&
+        Objects.equals(this.couponId, couponDefinition.couponId) &&
         Objects.equals(this.description, couponDefinition.description) &&
         Objects.equals(this.discountType, couponDefinition.discountType) &&
         Objects.equals(this.exclusive, couponDefinition.exclusive) &&
@@ -483,7 +505,7 @@ public class CouponDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, description, discountType, exclusive, maxDiscount, maxQuantity, minCartTotal, name, selfExclusive, targetItemId, type, uniqueKey, validForTags, value, vendorId);
+    return Objects.hash(code, couponId, description, discountType, exclusive, maxDiscount, maxQuantity, minCartTotal, name, selfExclusive, targetItemId, type, uniqueKey, validForTags, value, vendorId);
   }
 
 
@@ -493,6 +515,7 @@ public class CouponDefinition {
     sb.append("class CouponDefinition {\n");
     
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    couponId: ").append(toIndentedString(couponId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    discountType: ").append(toIndentedString(discountType)).append("\n");
     sb.append("    exclusive: ").append(toIndentedString(exclusive)).append("\n");

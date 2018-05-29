@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **String** | A unique identifier for the discount. Can be used to remove the discount, and uniqueness within the cart will be enforced. | 
+**couponId** | **Integer** | The id of the coupon. |  [optional]
 **description** | **String** | A description for the discount. |  [optional]
 **discountType** | [**DiscountTypeEnum**](#DiscountTypeEnum) | The type of discount in terms of how it deducts price. | 
 **exclusive** | **Boolean** | Whether this discount is exclusive and cannot be used in conjunction with other discounts/coupons. default&#x3D;false |  [optional]

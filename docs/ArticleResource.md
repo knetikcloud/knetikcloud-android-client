@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **template** | **String** | An article template this article is validated against (private). May be null and no validation of additional_properties will be done |  [optional]
 **title** | **String** | The title of the article | 
 **updatedDate** | **Long** | The date/time this resource was last updated in seconds since unix epoch |  [optional]
+**viewCount** | **Integer** | The view count of the article |  [optional]
 
 
 

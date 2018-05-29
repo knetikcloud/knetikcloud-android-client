@@ -174,12 +174,13 @@ public interface MediaVideosApi {
   /**
    * Delete a video disposition
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
+   * @param videoId The video id (required)
    * @param dispositionId The disposition id (required)
    * @return Call&lt;Void&gt;
    */
   @DELETE("media/videos/{video_id}/dispositions/{disposition_id}")
   Call<Void> deleteVideoDisposition(
-    @retrofit2.http.Path("disposition_id") Long dispositionId
+    @retrofit2.http.Path("video_id") Long videoId, @retrofit2.http.Path("disposition_id") Long dispositionId
   );
 
   /**
@@ -259,13 +260,14 @@ public interface MediaVideosApi {
    * Returns a page of dispositions for a video
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
    * @param videoId The video id (required)
+   * @param filterCreatedDate Filters invoices by creation date. Multiple values possible for range search. Format: filter_created_date&#x3D;OP,ts&amp;... where OP in (GT, LT, GOE, LOE, EQ) and ts is a unix timestamp in seconds. Ex: filter_created_date&#x3D;GT,1452154258,LT,1554254874 (optional)
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @return Call&lt;PageResourceDispositionResource&gt;
    */
   @GET("media/videos/{video_id}/dispositions")
   Call<PageResourceDispositionResource> getVideoDispositions(
-    @retrofit2.http.Path("video_id") Integer videoId, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
+    @retrofit2.http.Path("video_id") Integer videoId, @retrofit2.http.Query("filter_created_date") String filterCreatedDate, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
   );
 
   /**

@@ -35,7 +35,7 @@ public class UsersApiTest {
     /**
      * Add a tag to a user
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TAGS
      */
     @Test
     public void addUserTagTest() {
@@ -87,7 +87,7 @@ public class UsersApiTest {
     /**
      * Get a single user
      *
-     * Additional private info is included as USERS_ADMIN. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * Additional private info is included if access controls allow GET. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
      */
     @Test
     public void getUserTest() {
@@ -99,7 +99,7 @@ public class UsersApiTest {
     /**
      * List tags for a user
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      */
     @Test
     public void getUserTagsTest() {
@@ -137,7 +137,7 @@ public class UsersApiTest {
     /**
      * List and search users
      *
-     * Additional private info is included as USERS_ADMIN. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * Additional private info is included with LIST_PRIVATE. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      */
     @Test
     public void getUsersTest() {
@@ -189,7 +189,7 @@ public class UsersApiTest {
     /**
      * Register a new user
      *
-     * Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      */
     @Test
     public void registerUserTest() {
@@ -201,7 +201,7 @@ public class UsersApiTest {
     /**
      * Remove a tag from a user
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TAGS
      */
     @Test
     public void removeUserTagTest() {
@@ -214,7 +214,7 @@ public class UsersApiTest {
     /**
      * Set a user&#39;s password
      *
-     * Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN or (USERS_USER and owner)
+     * Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void setPasswordTest() {
@@ -251,7 +251,7 @@ public class UsersApiTest {
     /**
      * Update a user
      *
-     * Password will not be edited on this endpoint, use password specific endpoints. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN or owner
+     * Password will not be edited on this endpoint, use password specific endpoints. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateUserTest() {

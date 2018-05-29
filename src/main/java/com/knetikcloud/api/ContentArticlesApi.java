@@ -23,7 +23,7 @@ import java.util.Map;
 public interface ContentArticlesApi {
   /**
    * Create a new article
-   * Articles are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.&lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions:&lt;/b&gt; ARTICLES_ADMIN
+   * Articles are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.&lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions:&lt;/b&gt; POST
    * @param articleResource The new article (optional)
    * @return Call&lt;ArticleResource&gt;
    */
@@ -66,7 +66,7 @@ public interface ContentArticlesApi {
 
   /**
    * Delete an existing article
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; ARTICLES_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param id The article id (required)
    * @return Call&lt;Void&gt;
    */
@@ -102,7 +102,7 @@ public interface ContentArticlesApi {
 
   /**
    * Get a single article
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param id The article id (required)
    * @return Call&lt;ArticleResource&gt;
    */
@@ -137,7 +137,7 @@ public interface ContentArticlesApi {
 
   /**
    * List and search articles
-   * Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use &#39;Get a single article&#39; to retrieve the full resource with assets for a given item as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use &#39;Get a single article&#39; to retrieve the full resource with assets for a given item as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param filterActiveOnly Filter for articles that are active (true) or inactive (false) (optional)
    * @param filterCategory Filter for articles from a specific category by id (optional)
    * @param filterTagset Filter for articles with at least one of a specified set of tags (separated by comma) (optional)
@@ -182,7 +182,7 @@ public interface ContentArticlesApi {
 
   /**
    * Update an existing article
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; ARTICLES_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The article id (required)
    * @param articleResource The article object (optional)
    * @return Call&lt;ArticleResource&gt;

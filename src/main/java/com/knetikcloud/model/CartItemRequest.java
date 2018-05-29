@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * CartItemRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-19T12:00:31.936-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:44.564-04:00")
 public class CartItemRequest {
   @SerializedName("affiliate_key")
   private String affiliateKey = null;
@@ -83,10 +83,10 @@ public class CartItemRequest {
   }
 
    /**
-   * Allows to override the price of an item, if the behavior configuration permits it
+   * Override the price of an item, if the behavior configuration permits it. Do not send if taking standard pricing. Minimum 0
    * @return priceOverride
   **/
-  @ApiModelProperty(required = true, value = "Allows to override the price of an item, if the behavior configuration permits it")
+  @ApiModelProperty(value = "Override the price of an item, if the behavior configuration permits it. Do not send if taking standard pricing. Minimum 0")
   public BigDecimal getPriceOverride() {
     return priceOverride;
   }

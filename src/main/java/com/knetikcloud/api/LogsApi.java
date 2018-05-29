@@ -23,20 +23,6 @@ import java.util.Map;
 
 public interface LogsApi {
   /**
-   * Add a user log entry
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; owner
-   * @param logEntry The user log entry to be added (optional)
-   * @return Call&lt;Void&gt;
-   */
-  @Headers({
-    "Content-Type:application/json"
-  })
-  @POST("audit/logs")
-  Call<Void> addUserLog(
-    @retrofit2.http.Body UserActionLog logEntry
-  );
-
-  /**
    * Get an existing BRE event log entry by id
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
    * @param id The BRE event log entry id (required)

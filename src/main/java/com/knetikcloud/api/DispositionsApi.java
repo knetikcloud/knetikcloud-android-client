@@ -58,18 +58,20 @@ public interface DispositionsApi {
   /**
    * Returns a list of disposition counts
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * @param filterCreatedDate Filters invoices by creation date. Multiple values possible for range search. Format: filter_created_date&#x3D;OP,ts&amp;... where OP in (GT, LT, GOE, LOE, EQ) and ts is a unix timestamp in seconds. Ex: filter_created_date&#x3D;GT,1452154258,LT,1554254874 (optional)
    * @param filterContext Filter for dispositions within a context type (games, articles, polls, etc). Optionally with a specific id like filter_context&#x3D;video:47 (optional)
    * @param filterOwner Filter for dispositions from a specific user by id or &#39;me&#39; (optional)
    * @return Call&lt;List&lt;DispositionCount&gt;&gt;
    */
   @GET("dispositions/count")
   Call<List<DispositionCount>> getDispositionCounts(
-    @retrofit2.http.Query("filter_context") String filterContext, @retrofit2.http.Query("filter_owner") String filterOwner
+    @retrofit2.http.Query("filter_created_date") String filterCreatedDate, @retrofit2.http.Query("filter_context") String filterContext, @retrofit2.http.Query("filter_owner") String filterOwner
   );
 
   /**
    * Returns a page of dispositions
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * @param filterCreatedDate Filters invoices by creation date. Multiple values possible for range search. Format: filter_created_date&#x3D;OP,ts&amp;... where OP in (GT, LT, GOE, LOE, EQ) and ts is a unix timestamp in seconds. Ex: filter_created_date&#x3D;GT,1452154258,LT,1554254874 (optional)
    * @param filterContext Filter for dispositions within a context type (games, articles, polls, etc). Optionally with a specific id like filter_context&#x3D;video:47 (optional)
    * @param filterOwner Filter for dispositions from a specific user by id or &#39;me&#39; (optional)
    * @param size The number of objects returned per page (optional, default to 25)
@@ -79,7 +81,7 @@ public interface DispositionsApi {
    */
   @GET("dispositions")
   Call<PageResourceDispositionResource> getDispositions(
-    @retrofit2.http.Query("filter_context") String filterContext, @retrofit2.http.Query("filter_owner") String filterOwner, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page, @retrofit2.http.Query("order") String order
+    @retrofit2.http.Query("filter_created_date") String filterCreatedDate, @retrofit2.http.Query("filter_context") String filterContext, @retrofit2.http.Query("filter_owner") String filterOwner, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page, @retrofit2.http.Query("order") String order
   );
 
 }

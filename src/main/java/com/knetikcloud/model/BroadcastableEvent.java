@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * BroadcastableEvent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-19T12:00:31.936-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:44.564-04:00")
 
 public class BroadcastableEvent {
   @SerializedName("client")
@@ -37,6 +37,9 @@ public class BroadcastableEvent {
 
   @SerializedName("do_not_broadcast")
   private Boolean doNotBroadcast = null;
+
+  @SerializedName("local")
+  private Boolean local = null;
 
   @SerializedName("section")
   private String section = null;
@@ -108,6 +111,24 @@ public class BroadcastableEvent {
 
   public void setDoNotBroadcast(Boolean doNotBroadcast) {
     this.doNotBroadcast = doNotBroadcast;
+  }
+
+  public BroadcastableEvent local(Boolean local) {
+    this.local = local;
+    return this;
+  }
+
+   /**
+   * Get local
+   * @return local
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isLocal() {
+    return local;
+  }
+
+  public void setLocal(Boolean local) {
+    this.local = local;
   }
 
   public BroadcastableEvent section(String section) {
@@ -231,6 +252,7 @@ public class BroadcastableEvent {
     return Objects.equals(this.client, broadcastableEvent.client) &&
         Objects.equals(this.customer, broadcastableEvent.customer) &&
         Objects.equals(this.doNotBroadcast, broadcastableEvent.doNotBroadcast) &&
+        Objects.equals(this.local, broadcastableEvent.local) &&
         Objects.equals(this.section, broadcastableEvent.section) &&
         Objects.equals(this.source, broadcastableEvent.source) &&
         Objects.equals(this.specifics, broadcastableEvent.specifics) &&
@@ -241,7 +263,7 @@ public class BroadcastableEvent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(client, customer, doNotBroadcast, section, source, specifics, synchronous, timestamp, type);
+    return Objects.hash(client, customer, doNotBroadcast, local, section, source, specifics, synchronous, timestamp, type);
   }
 
 
@@ -253,6 +275,7 @@ public class BroadcastableEvent {
     sb.append("    client: ").append(toIndentedString(client)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    doNotBroadcast: ").append(toIndentedString(doNotBroadcast)).append("\n");
+    sb.append("    local: ").append(toIndentedString(local)).append("\n");
     sb.append("    section: ").append(toIndentedString(section)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    specifics: ").append(toIndentedString(specifics)).append("\n");

@@ -4,7 +4,6 @@ All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.c
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addUserLog**](LogsApi.md#addUserLog) | **POST** audit/logs | Add a user log entry
 [**getBREEventLog**](LogsApi.md#getBREEventLog) | **GET** bre/logs/event-log/{id} | Get an existing BRE event log entry by id
 [**getBREEventLogs**](LogsApi.md#getBREEventLogs) | **GET** bre/logs/event-log | Returns a list of BRE event log entries
 [**getBREForwardLog**](LogsApi.md#getBREForwardLog) | **GET** bre/logs/forward-log/{id} | Get an existing forward log entry by id
@@ -12,63 +11,6 @@ Method | HTTP request | Description
 [**getUserLog**](LogsApi.md#getUserLog) | **GET** audit/logs/{id} | Returns a user log entry by id
 [**getUserLogs**](LogsApi.md#getUserLogs) | **GET** audit/logs | Returns a page of user logs entries
 
-
-<a name="addUserLog"></a>
-# **addUserLog**
-> Void addUserLog(logEntry)
-
-Add a user log entry
-
-&lt;b&gt;Permissions Needed:&lt;/b&gt; owner
-
-### Example
-```java
-// Import classes:
-//import com.knetikcloud.client.ApiClient;
-//import com.knetikcloud.client.ApiException;
-//import com.knetikcloud.client.Configuration;
-//import com.knetikcloud.client.auth.*;
-//import com.knetikcloud.api.LogsApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
-OAuth oauth2_client_credentials_grant = (OAuth) defaultClient.getAuthentication("oauth2_client_credentials_grant");
-oauth2_client_credentials_grant.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure OAuth2 access token for authorization: oauth2_password_grant
-OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_password_grant");
-oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
-
-LogsApi apiInstance = new LogsApi();
-UserActionLog logEntry = new UserActionLog(); // UserActionLog | The user log entry to be added
-try {
-    Void result = apiInstance.addUserLog(logEntry);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling LogsApi#addUserLog");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **logEntry** | [**UserActionLog**](UserActionLog.md)| The user log entry to be added | [optional]
-
-### Return type
-
-[**Void**](.md)
-
-### Authorization
-
-[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
 
 <a name="getBREEventLog"></a>
 # **getBREEventLog**

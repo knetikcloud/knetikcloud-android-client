@@ -29,18 +29,6 @@ public class LogsApiTest {
     }
 
     /**
-     * Add a user log entry
-     *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; owner
-     */
-    @Test
-    public void addUserLogTest() {
-        UserActionLog logEntry = null;
-        // Void response = api.addUserLog(logEntry);
-
-        // TODO: test validations
-    }
-    /**
      * Get an existing BRE event log entry by id
      *
      * &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN

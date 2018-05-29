@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 <a name="getDispositionCounts"></a>
 # **getDispositionCounts**
-> List&lt;DispositionCount&gt; getDispositionCounts(filterContext, filterOwner)
+> List&lt;DispositionCount&gt; getDispositionCounts(filterCreatedDate, filterContext, filterOwner)
 
 Returns a list of disposition counts
 
@@ -210,10 +210,11 @@ OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_pa
 oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 DispositionsApi apiInstance = new DispositionsApi();
+String filterCreatedDate = "filterCreatedDate_example"; // String | Filters invoices by creation date. Multiple values possible for range search. Format: filter_created_date=OP,ts&... where OP in (GT, LT, GOE, LOE, EQ) and ts is a unix timestamp in seconds. Ex: filter_created_date=GT,1452154258,LT,1554254874
 String filterContext = "filterContext_example"; // String | Filter for dispositions within a context type (games, articles, polls, etc). Optionally with a specific id like filter_context=video:47
 String filterOwner = "filterOwner_example"; // String | Filter for dispositions from a specific user by id or 'me'
 try {
-    List<DispositionCount> result = apiInstance.getDispositionCounts(filterContext, filterOwner);
+    List<DispositionCount> result = apiInstance.getDispositionCounts(filterCreatedDate, filterContext, filterOwner);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DispositionsApi#getDispositionCounts");
@@ -225,6 +226,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **filterCreatedDate** | **String**| Filters invoices by creation date. Multiple values possible for range search. Format: filter_created_date&#x3D;OP,ts&amp;... where OP in (GT, LT, GOE, LOE, EQ) and ts is a unix timestamp in seconds. Ex: filter_created_date&#x3D;GT,1452154258,LT,1554254874 | [optional]
  **filterContext** | **String**| Filter for dispositions within a context type (games, articles, polls, etc). Optionally with a specific id like filter_context&#x3D;video:47 | [optional]
  **filterOwner** | **String**| Filter for dispositions from a specific user by id or &#39;me&#39; | [optional]
 
@@ -243,7 +245,7 @@ Name | Type | Description  | Notes
 
 <a name="getDispositions"></a>
 # **getDispositions**
-> PageResourceDispositionResource getDispositions(filterContext, filterOwner, size, page, order)
+> PageResourceDispositionResource getDispositions(filterCreatedDate, filterContext, filterOwner, size, page, order)
 
 Returns a page of dispositions
 
@@ -269,13 +271,14 @@ OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_pa
 oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 DispositionsApi apiInstance = new DispositionsApi();
+String filterCreatedDate = "filterCreatedDate_example"; // String | Filters invoices by creation date. Multiple values possible for range search. Format: filter_created_date=OP,ts&... where OP in (GT, LT, GOE, LOE, EQ) and ts is a unix timestamp in seconds. Ex: filter_created_date=GT,1452154258,LT,1554254874
 String filterContext = "filterContext_example"; // String | Filter for dispositions within a context type (games, articles, polls, etc). Optionally with a specific id like filter_context=video:47
 String filterOwner = "filterOwner_example"; // String | Filter for dispositions from a specific user by id or 'me'
 Integer size = 25; // Integer | The number of objects returned per page
 Integer page = 1; // Integer | The number of the page returned, starting with 1
 String order = "id:ASC"; // String | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
 try {
-    PageResourceDispositionResource result = apiInstance.getDispositions(filterContext, filterOwner, size, page, order);
+    PageResourceDispositionResource result = apiInstance.getDispositions(filterCreatedDate, filterContext, filterOwner, size, page, order);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DispositionsApi#getDispositions");
@@ -287,6 +290,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **filterCreatedDate** | **String**| Filters invoices by creation date. Multiple values possible for range search. Format: filter_created_date&#x3D;OP,ts&amp;... where OP in (GT, LT, GOE, LOE, EQ) and ts is a unix timestamp in seconds. Ex: filter_created_date&#x3D;GT,1452154258,LT,1554254874 | [optional]
  **filterContext** | **String**| Filter for dispositions within a context type (games, articles, polls, etc). Optionally with a specific id like filter_context&#x3D;video:47 | [optional]
  **filterOwner** | **String**| Filter for dispositions from a specific user by id or &#39;me&#39; | [optional]
  **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
