@@ -1,6 +1,6 @@
 # StoreVendorsApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**getVendorTemplates**](StoreVendorsApi.md#getVendorTemplates) | **GET** vendors/templates | List and search vendor templates
 [**getVendors**](StoreVendorsApi.md#getVendors) | **GET** vendors | List and search vendors
 [**updateVendor**](StoreVendorsApi.md#updateVendor) | **PUT** vendors/{id} | Update a vendor
-[**updateVendorTemplate**](StoreVendorsApi.md#updateVendorTemplate) | **PUT** vendors/templates/{id} | Update a vendor template
+[**updateVendorTemplate**](StoreVendorsApi.md#updateVendorTemplate) | **PATCH** vendors/templates/{id} | Update a vendor template
 
 
 <a name="createVendor"></a>
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 Create a vendor template
 
-Vendor Templates define a type of vendor and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+Vendor Templates define a type of vendor and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
 
 ### Example
 ```java
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 Delete a vendor template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
 
 ### Example
 ```java
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 
 Get a single vendor template
 
-Vendor Templates define a type of vendor and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+Vendor Templates define a type of vendor and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
 
 ### Example
 ```java
@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
 
 List and search vendor templates
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -545,11 +545,11 @@ Name | Type | Description  | Notes
 
 <a name="updateVendorTemplate"></a>
 # **updateVendorTemplate**
-> ItemTemplateResource updateVendorTemplate(id, vendorTemplateResource)
+> ItemTemplateResource updateVendorTemplate(id, templatePatchResource, testValidation)
 
 Update a vendor template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -572,9 +572,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 StoreVendorsApi apiInstance = new StoreVendorsApi();
 String id = "id_example"; // String | The id of the template
-ItemTemplateResource vendorTemplateResource = new ItemTemplateResource(); // ItemTemplateResource | The vendor template resource object
+PatchResource templatePatchResource = new PatchResource(); // PatchResource | The patch resource object
+Boolean testValidation = true; // Boolean | If true, this will test validation but not submit the patch request
 try {
-    ItemTemplateResource result = apiInstance.updateVendorTemplate(id, vendorTemplateResource);
+    ItemTemplateResource result = apiInstance.updateVendorTemplate(id, templatePatchResource, testValidation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StoreVendorsApi#updateVendorTemplate");
@@ -587,7 +588,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the template |
- **vendorTemplateResource** | [**ItemTemplateResource**](ItemTemplateResource.md)| The vendor template resource object | [optional]
+ **templatePatchResource** | [**PatchResource**](PatchResource.md)| The patch resource object | [optional]
+ **testValidation** | **Boolean**| If true, this will test validation but not submit the patch request | [optional]
 
 ### Return type
 

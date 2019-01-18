@@ -76,13 +76,13 @@ public interface StoreShoppingCartsApi {
    * You don&#39;t have to have a user to create a cart but the API requires authentication to checkout. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
    * @param owner Set the owner of a cart. If not specified, defaults to the calling user&#39;s id. If specified and is not the calling user&#39;s id, SHOPPING_CARTS_ADMIN permission is required (optional)
    * @param currencyCode Set the currency for the cart, by currency code. May be disallowed by site settings. (optional)
-   * @return Call&lt;String&gt;
+   * @return Call&lt;StringWrapper&gt;
    */
   @Headers({
     "Content-Type:application/json"
   })
   @POST("carts")
-  Call<String> createCart(
+  Call<StringWrapper> createCart(
     @retrofit2.http.Query("owner") Integer owner, @retrofit2.http.Query("currency_code") String currencyCode
   );
 

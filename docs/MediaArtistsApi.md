@@ -1,6 +1,6 @@
 # MediaArtistsApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**getArtistTemplates**](MediaArtistsApi.md#getArtistTemplates) | **GET** media/artists/templates | List and search artist templates
 [**getArtists**](MediaArtistsApi.md#getArtists) | **GET** media/artists | Search for artists
 [**updateArtist**](MediaArtistsApi.md#updateArtist) | **PUT** media/artists/{id} | Modifies an artist details
-[**updateArtistTemplate**](MediaArtistsApi.md#updateArtistTemplate) | **PUT** media/artists/templates/{id} | Update an artist template
+[**updateArtistTemplate**](MediaArtistsApi.md#updateArtistTemplate) | **PATCH** media/artists/templates/{id} | Update an artist template
 
 
 <a name="addArtist"></a>
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 Create an artist template
 
-Artist Templates define a type of artist and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+Artist Templates define a type of artist and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
 
 ### Example
 ```java
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 Delete an artist template
 
-If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
 
 ### Example
 ```java
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 
 Get a single artist template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ARTISTS_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
 
 ### Example
 ```java
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 List and search artist templates
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ARTISTS_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -547,11 +547,11 @@ Name | Type | Description  | Notes
 
 <a name="updateArtistTemplate"></a>
 # **updateArtistTemplate**
-> TemplateResource updateArtistTemplate(id, artistTemplateResource)
+> TemplateResource updateArtistTemplate(id, templatePatchResource, testValidation)
 
 Update an artist template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -574,9 +574,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 MediaArtistsApi apiInstance = new MediaArtistsApi();
 String id = "id_example"; // String | The id of the template
-TemplateResource artistTemplateResource = new TemplateResource(); // TemplateResource | The artist template resource object
+PatchResource templatePatchResource = new PatchResource(); // PatchResource | The patch resource object
+Boolean testValidation = true; // Boolean | If true, this will test validation but not submit the patch request
 try {
-    TemplateResource result = apiInstance.updateArtistTemplate(id, artistTemplateResource);
+    TemplateResource result = apiInstance.updateArtistTemplate(id, templatePatchResource, testValidation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MediaArtistsApi#updateArtistTemplate");
@@ -589,7 +590,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the template |
- **artistTemplateResource** | [**TemplateResource**](TemplateResource.md)| The artist template resource object | [optional]
+ **templatePatchResource** | [**PatchResource**](PatchResource.md)| The patch resource object | [optional]
+ **testValidation** | **Boolean**| If true, this will test validation but not submit the patch request | [optional]
 
 ### Return type
 

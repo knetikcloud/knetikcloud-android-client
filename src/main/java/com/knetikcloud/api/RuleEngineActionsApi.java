@@ -7,7 +7,7 @@ import retrofit2.http.*;
 
 import okhttp3.RequestBody;
 
-import com.knetikcloud.model.ActionResource;
+import com.knetikcloud.model.PageResourceActionResource;
 import com.knetikcloud.model.Result;
 
 import java.util.ArrayList;
@@ -24,11 +24,13 @@ public interface RuleEngineActionsApi {
    * @param filterName Filter for actions that have names containing the given string (optional)
    * @param filterTags Filter for actions that have all of the given tags (comma separated list) (optional)
    * @param filterSearch Filter for actions containing the given words somewhere within name, description and tags (optional)
-   * @return Call&lt;List&lt;ActionResource&gt;&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return Call&lt;PageResourceActionResource&gt;
    */
   @GET("bre/actions")
-  Call<List<ActionResource>> getBREActions(
-    @retrofit2.http.Query("filter_category") String filterCategory, @retrofit2.http.Query("filter_name") String filterName, @retrofit2.http.Query("filter_tags") String filterTags, @retrofit2.http.Query("filter_search") String filterSearch
+  Call<PageResourceActionResource> getBREActions(
+    @retrofit2.http.Query("filter_category") String filterCategory, @retrofit2.http.Query("filter_name") String filterName, @retrofit2.http.Query("filter_tags") String filterTags, @retrofit2.http.Query("filter_search") String filterSearch, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
   );
 
 }

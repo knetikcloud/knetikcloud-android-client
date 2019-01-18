@@ -9,6 +9,7 @@ import okhttp3.RequestBody;
 
 import com.knetikcloud.model.PageResourcePollResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.PollResource;
 import com.knetikcloud.model.PollResponseResource;
 import com.knetikcloud.model.Result;
@@ -53,7 +54,7 @@ public interface MediaPollsApi {
 
   /**
    * Create a poll template
-   * Poll templates define a type of poll and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * Poll templates define a type of poll and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param pollTemplateResource The poll template resource object (optional)
    * @return Call&lt;TemplateResource&gt;
    */
@@ -78,7 +79,7 @@ public interface MediaPollsApi {
 
   /**
    * Delete a poll template
-   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param id The id of the template (required)
    * @param cascade The value needed to delete used templates (optional)
    * @return Call&lt;Void&gt;
@@ -112,7 +113,7 @@ public interface MediaPollsApi {
 
   /**
    * Get a single poll template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or POLLS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param id The id of the template (required)
    * @return Call&lt;TemplateResource&gt;
    */
@@ -123,7 +124,7 @@ public interface MediaPollsApi {
 
   /**
    * List and search poll templates
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or POLLS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
@@ -167,17 +168,18 @@ public interface MediaPollsApi {
 
   /**
    * Update a poll template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the template (required)
-   * @param pollTemplateResource The poll template resource object (optional)
+   * @param templatePatchResource The patch resource object (optional)
+   * @param testValidation If true, this will test validation but not submit the patch request (optional)
    * @return Call&lt;TemplateResource&gt;
    */
   @Headers({
     "Content-Type:application/json"
   })
-  @PUT("media/polls/templates/{id}")
+  @PATCH("media/polls/templates/{id}")
   Call<TemplateResource> updatePollTemplate(
-    @retrofit2.http.Path("id") String id, @retrofit2.http.Body TemplateResource pollTemplateResource
+    @retrofit2.http.Path("id") String id, @retrofit2.http.Body PatchResource templatePatchResource, @retrofit2.http.Query("test_validation") Boolean testValidation
   );
 
 }

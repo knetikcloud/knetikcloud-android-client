@@ -52,10 +52,10 @@ public interface UsersFriendshipsApi {
    * Returns the invite token
    * This is a unique invite token that allows direct connection to the request user.  Exposing that token presents privacy issues if the token is leaked. Use friend request flow instead if confirmation is required. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
    * @param userId The id of the user or &#39;me&#39; if logged in (required)
-   * @return Call&lt;String&gt;
+   * @return Call&lt;StringWrapper&gt;
    */
   @GET("users/{user_id}/invite-token")
-  Call<String> getInviteToken(
+  Call<StringWrapper> getInviteToken(
     @retrofit2.http.Path("user_id") String userId
   );
 

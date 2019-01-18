@@ -3,6 +3,7 @@ package com.knetikcloud.api;
 import com.knetikcloud.client.ApiClient;
 import com.knetikcloud.model.ApplyPaymentRequest;
 import com.knetikcloud.model.Result;
+import com.knetikcloud.model.StringWrapper;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -31,7 +32,7 @@ public class PaymentsAppleApiTest {
     @Test
     public void verifyAppleReceiptTest() {
         ApplyPaymentRequest request = null;
-        // String response = api.verifyAppleReceipt(request);
+        // StringWrapper response = api.verifyAppleReceipt(request);
 
         // TODO: test validations
     }

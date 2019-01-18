@@ -1,6 +1,6 @@
 # GamificationLeaderboardsApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 <a name="getLeaderboardStrategies"></a>
 # **getLeaderboardStrategies**
-> List&lt;String&gt; getLeaderboardStrategies()
+> PageResourcestring getLeaderboardStrategies(size, page)
 
 Get a list of available leaderboard strategy names
 
@@ -163,8 +163,10 @@ OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_pa
 oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 GamificationLeaderboardsApi apiInstance = new GamificationLeaderboardsApi();
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<String> result = apiInstance.getLeaderboardStrategies();
+    PageResourcestring result = apiInstance.getLeaderboardStrategies(size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GamificationLeaderboardsApi#getLeaderboardStrategies");
@@ -173,11 +175,15 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-**List&lt;String&gt;**
+[**PageResourcestring**](PageResourcestring.md)
 
 ### Authorization
 

@@ -21,7 +21,7 @@ public interface AuthUsersApi {
   /**
    * Add a sid to a user
    * No error returned if the user already has the sid. &lt;b&gt;Resources Needed:&lt;/b&gt; ROLE_SUPER_ADMIN
-   * @param userId The resource type (required)
+   * @param userId The user id (required)
    * @param sid The new sid for the user (optional)
    * @return Call&lt;UserSidResource&gt;
    */
@@ -34,18 +34,6 @@ public interface AuthUsersApi {
   );
 
   /**
-   * Get a user sid
-   * Http error 404 means the user does not have the sid&lt;b&gt;Resources Needed:&lt;/b&gt; VIEW_ACCESS
-   * @param userId The resource type (required)
-   * @param sid The resource id (required)
-   * @return Call&lt;UserSidResource&gt;
-   */
-  @GET("access/users/{user_id}/sids/{sid}")
-  Call<UserSidResource> getSid(
-    @retrofit2.http.Path("user_id") Integer userId, @retrofit2.http.Path("sid") String sid
-  );
-
-  /**
    * List and search user sids
    * &lt;b&gt;Resources Needed:&lt;/b&gt; VIEW_ACCESS
    * @param userId The resource type (required)
@@ -55,8 +43,20 @@ public interface AuthUsersApi {
    * @return Call&lt;PageResourceUserSidResource&gt;
    */
   @GET("access/users/{user_id}/sids")
-  Call<PageResourceUserSidResource> getSids(
+  Call<PageResourceUserSidResource> getResources1(
     @retrofit2.http.Path("user_id") Integer userId, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page, @retrofit2.http.Query("order") String order
+  );
+
+  /**
+   * Get a user sid
+   * Http error 404 means the user does not have the sid&lt;b&gt;Resources Needed:&lt;/b&gt; VIEW_ACCESS
+   * @param userId The user id (required)
+   * @param sid The security id (required)
+   * @return Call&lt;UserSidResource&gt;
+   */
+  @GET("access/users/{user_id}/sids/{sid}")
+  Call<UserSidResource> getSid(
+    @retrofit2.http.Path("user_id") Integer userId, @retrofit2.http.Path("sid") String sid
   );
 
   /**

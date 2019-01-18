@@ -1,9 +1,9 @@
 package com.knetikcloud.api;
 
 import com.knetikcloud.client.ApiClient;
-import com.knetikcloud.model.BreTriggerResource;
 import com.knetikcloud.model.IntWrapper;
 import com.knetikcloud.model.LevelingResource;
+import com.knetikcloud.model.PageResourceBreTriggerResource;
 import com.knetikcloud.model.PageResourceLevelingResource;
 import com.knetikcloud.model.PageResourceUserLevelingResource;
 import com.knetikcloud.model.Result;
@@ -71,7 +71,9 @@ public class GamificationLevelingApiTest {
      */
     @Test
     public void getLevelTriggersTest() {
-        // List<BreTriggerResource> response = api.getLevelTriggers();
+        Integer size = null;
+        Integer page = null;
+        // PageResourceBreTriggerResource response = api.getLevelTriggers(size, page);
 
         // TODO: test validations
     }
@@ -156,7 +158,7 @@ public class GamificationLevelingApiTest {
     public void updateLevelTest() {
         String name = null;
         LevelingResource newLevel = null;
-        // LevelingResource response = api.updateLevel(name, newLevel);
+        // Void response = api.updateLevel(name, newLevel);
 
         // TODO: test validations
     }

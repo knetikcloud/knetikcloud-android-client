@@ -12,6 +12,7 @@ import com.knetikcloud.model.BreRule;
 import com.knetikcloud.model.Expressionobject;
 import com.knetikcloud.model.PageResourceBreRule;
 import com.knetikcloud.model.Result;
+import com.knetikcloud.model.StringWrapper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -49,13 +50,13 @@ public interface RuleEngineRulesApi {
    * Returns a string representation of the provided expression
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_RULES_ADMIN
    * @param expression The expression (optional)
-   * @return Call&lt;String&gt;
+   * @return Call&lt;StringWrapper&gt;
    */
   @Headers({
     "Content-Type:application/json"
   })
   @POST("bre/rules/expression-as-string")
-  Call<String> getBREExpressionAsString(
+  Call<StringWrapper> getBREExpressionAsString(
     @retrofit2.http.Body Expressionobject expression
   );
 

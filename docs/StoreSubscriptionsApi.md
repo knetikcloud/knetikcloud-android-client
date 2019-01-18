@@ -1,6 +1,6 @@
 # StoreSubscriptionsApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**getSubscriptions**](StoreSubscriptionsApi.md#getSubscriptions) | **GET** subscriptions | List available subscription items and associated plans
 [**processSubscriptions**](StoreSubscriptionsApi.md#processSubscriptions) | **POST** subscriptions/process | Processes subscriptions and charge dues
 [**updateSubscription**](StoreSubscriptionsApi.md#updateSubscription) | **PUT** subscriptions/{id} | Updates a subscription item and associated plans
-[**updateSubscriptionTemplate**](StoreSubscriptionsApi.md#updateSubscriptionTemplate) | **PUT** subscriptions/templates/{id} | Update a subscription template
+[**updateSubscriptionTemplate**](StoreSubscriptionsApi.md#updateSubscriptionTemplate) | **PATCH** subscriptions/templates/{id} | Update a subscription template
 
 
 <a name="createSubscription"></a>
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 Create a subscription template
 
-Subscription Templates define a type of subscription and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+Subscription Templates define a type of subscription and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
 
 ### Example
 ```java
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 Delete a subscription template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
 
 ### Example
 ```java
@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
 
 Get a single subscription template
 
-Subscription Templates define a type of subscription and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+Subscription Templates define a type of subscription and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
 
 ### Example
 ```java
@@ -369,7 +369,7 @@ Name | Type | Description  | Notes
 
 List and search subscription templates
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or SUBSCRIPTIONS_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or SUBSCRIPTIONS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -599,11 +599,11 @@ Name | Type | Description  | Notes
 
 <a name="updateSubscriptionTemplate"></a>
 # **updateSubscriptionTemplate**
-> SubscriptionTemplateResource updateSubscriptionTemplate(id, subscriptionTemplateResource)
+> SubscriptionTemplateResource updateSubscriptionTemplate(id, templatePatchResource, testValidation)
 
 Update a subscription template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -626,9 +626,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 StoreSubscriptionsApi apiInstance = new StoreSubscriptionsApi();
 String id = "id_example"; // String | The id of the template
-SubscriptionTemplateResource subscriptionTemplateResource = new SubscriptionTemplateResource(); // SubscriptionTemplateResource | The subscription template resource object
+PatchResource templatePatchResource = new PatchResource(); // PatchResource | The patch resource object
+Boolean testValidation = true; // Boolean | If true, this will test validation but not submit the patch request
 try {
-    SubscriptionTemplateResource result = apiInstance.updateSubscriptionTemplate(id, subscriptionTemplateResource);
+    SubscriptionTemplateResource result = apiInstance.updateSubscriptionTemplate(id, templatePatchResource, testValidation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StoreSubscriptionsApi#updateSubscriptionTemplate");
@@ -641,7 +642,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the template |
- **subscriptionTemplateResource** | [**SubscriptionTemplateResource**](SubscriptionTemplateResource.md)| The subscription template resource object | [optional]
+ **templatePatchResource** | [**PatchResource**](PatchResource.md)| The patch resource object | [optional]
+ **testValidation** | **Boolean**| If true, this will test validation but not submit the patch request | [optional]
 
 ### Return type
 

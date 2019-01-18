@@ -1,6 +1,7 @@
 package com.knetikcloud.api;
 
 import com.knetikcloud.client.ApiClient;
+import com.knetikcloud.model.PageResourcePaymentMethodResource;
 import com.knetikcloud.model.PageResourcePaymentMethodTypeResource;
 import com.knetikcloud.model.PaymentAuthorizationResource;
 import com.knetikcloud.model.PaymentMethodResource;
@@ -107,7 +108,7 @@ public class PaymentsApiTest {
         Integer size = null;
         Integer page = null;
         String order = null;
-        // List<PaymentMethodResource> response = api.getPaymentMethods(userId, filterName, filterPaymentType, filterPaymentMethodTypeId, filterPaymentMethodTypeName, size, page, order);
+        // PageResourcePaymentMethodResource response = api.getPaymentMethods(userId, filterName, filterPaymentType, filterPaymentMethodTypeId, filterPaymentMethodTypeName, size, page, order);
 
         // TODO: test validations
     }

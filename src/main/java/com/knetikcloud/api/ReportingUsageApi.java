@@ -8,6 +8,7 @@ import retrofit2.http.*;
 import okhttp3.RequestBody;
 
 import com.knetikcloud.model.PageResourceUsageInfo;
+import com.knetikcloud.model.PageResourcestring;
 import com.knetikcloud.model.Result;
 
 import java.util.ArrayList;
@@ -107,10 +108,10 @@ public interface ReportingUsageApi {
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; USAGE_ADMIN
    * @param startDate The beginning of the range being requested, unix timestamp in seconds (required)
    * @param endDate The ending of the range being requested, unix timestamp in seconds (required)
-   * @return Call&lt;List&lt;String&gt;&gt;
+   * @return Call&lt;PageResourcestring&gt;
    */
   @GET("reporting/usage/endpoints")
-  Call<List<String>> getUsageEndpoints(
+  Call<PageResourcestring> getUsageEndpoints(
     @retrofit2.http.Query("start_date") Long startDate, @retrofit2.http.Query("end_date") Long endDate
   );
 

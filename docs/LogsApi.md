@@ -1,6 +1,6 @@
 # LogsApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,8 +8,8 @@ Method | HTTP request | Description
 [**getBREEventLogs**](LogsApi.md#getBREEventLogs) | **GET** bre/logs/event-log | Returns a list of BRE event log entries
 [**getBREForwardLog**](LogsApi.md#getBREForwardLog) | **GET** bre/logs/forward-log/{id} | Get an existing forward log entry by id
 [**getBREForwardLogs**](LogsApi.md#getBREForwardLogs) | **GET** bre/logs/forward-log | Returns a list of forward log entries
-[**getUserLog**](LogsApi.md#getUserLog) | **GET** audit/logs/{id} | Returns a user log entry by id
-[**getUserLogs**](LogsApi.md#getUserLogs) | **GET** audit/logs | Returns a page of user logs entries
+[**getUserLogs**](LogsApi.md#getUserLogs) | **GET** audit/logs/{id} | Returns a user log entry by id
+[**getUserLogs1**](LogsApi.md#getUserLogs1) | **GET** audit/logs | Returns a page of user logs entries
 
 
 <a name="getBREEventLog"></a>
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 Returns a list of BRE event log entries
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
+Logs are kept for 24 hours. &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
 
 ### Example
 ```java
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 Returns a list of forward log entries
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
+Logs are kept for 24 hours. &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
 
 ### Example
 ```java
@@ -264,9 +264,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getUserLog"></a>
-# **getUserLog**
-> UserActionLog getUserLog(id)
+<a name="getUserLogs"></a>
+# **getUserLogs**
+> UserActionLog getUserLogs(id)
 
 Returns a user log entry by id
 
@@ -294,10 +294,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 LogsApi apiInstance = new LogsApi();
 String id = "id_example"; // String | The user log entry id
 try {
-    UserActionLog result = apiInstance.getUserLog(id);
+    UserActionLog result = apiInstance.getUserLogs(id);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling LogsApi#getUserLog");
+    System.err.println("Exception when calling LogsApi#getUserLogs");
     e.printStackTrace();
 }
 ```
@@ -321,9 +321,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getUserLogs"></a>
-# **getUserLogs**
-> PageResourceUserActionLog getUserLogs(filterUser, filterActionName, size, page, order)
+<a name="getUserLogs1"></a>
+# **getUserLogs1**
+> PageResourceUserActionLog getUserLogs1(filterUser, filterActionName, size, page, order)
 
 Returns a page of user logs entries
 
@@ -355,10 +355,10 @@ Integer size = 25; // Integer | The number of objects returned per page
 Integer page = 1; // Integer | The number of the page returned, starting with 1
 String order = "timestamp:DESC"; // String | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
 try {
-    PageResourceUserActionLog result = apiInstance.getUserLogs(filterUser, filterActionName, size, page, order);
+    PageResourceUserActionLog result = apiInstance.getUserLogs1(filterUser, filterActionName, size, page, order);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling LogsApi#getUserLogs");
+    System.err.println("Exception when calling LogsApi#getUserLogs1");
     e.printStackTrace();
 }
 ```

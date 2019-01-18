@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bundleSku** | **String** |  |  [optional]
 **currentFulfillmentStatus** | **String** |  |  [optional]
+**discount** | [**Discount**](Discount.md) |  |  [optional]
 **id** | **Integer** |  |  [optional]
 **invoiceId** | **Integer** |  |  [optional]
 **itemId** | **Integer** |  |  [optional]

@@ -9,6 +9,7 @@ import okhttp3.RequestBody;
 
 import com.knetikcloud.model.ApplyPaymentRequest;
 import com.knetikcloud.model.Result;
+import com.knetikcloud.model.StringWrapper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,13 +22,13 @@ public interface PaymentsAppleApi {
    * Pay invoice with Apple receipt
    * Mark an invoice paid using Apple payment receipt. A receipt will only be accepted once and the details of the transaction must match the invoice, including the product_id matching the sku text of the item in the invoice. Returns the transaction ID if successful. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
    * @param request The request for paying an invoice through an Apple receipt (optional)
-   * @return Call&lt;String&gt;
+   * @return Call&lt;StringWrapper&gt;
    */
   @Headers({
     "Content-Type:application/json"
   })
   @POST("payment/provider/apple/receipt")
-  Call<String> verifyAppleReceipt(
+  Call<StringWrapper> verifyAppleReceipt(
     @retrofit2.http.Body ApplyPaymentRequest request
   );
 

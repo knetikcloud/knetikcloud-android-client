@@ -10,6 +10,7 @@ import okhttp3.RequestBody;
 import com.knetikcloud.model.BundleItem;
 import com.knetikcloud.model.ItemTemplateResource;
 import com.knetikcloud.model.PageResourceItemTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public interface StoreBundlesApi {
 
   /**
    * Create a bundle template
-   * Bundle Templates define a type of bundle and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
+   * Bundle Templates define a type of bundle and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param bundleTemplateResource The new bundle template (optional)
    * @return Call&lt;ItemTemplateResource&gt;
    */
@@ -61,7 +62,7 @@ public interface StoreBundlesApi {
 
   /**
    * Delete a bundle template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param id The id of the template (required)
    * @param cascade force deleting the template if it&#39;s attached to other objects, cascade &#x3D; detach (optional)
    * @return Call&lt;Void&gt;
@@ -84,7 +85,7 @@ public interface StoreBundlesApi {
 
   /**
    * Get a single bundle template
-   * Bundle Templates define a type of bundle and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * Bundle Templates define a type of bundle and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param id The id of the template (required)
    * @return Call&lt;ItemTemplateResource&gt;
    */
@@ -95,7 +96,7 @@ public interface StoreBundlesApi {
 
   /**
    * List and search bundle templates
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
@@ -124,17 +125,18 @@ public interface StoreBundlesApi {
 
   /**
    * Update a bundle template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the template (required)
-   * @param bundleTemplateResource The bundle template resource object (optional)
+   * @param templatePatchResource The patch resource object (optional)
+   * @param testValidation If true, this will test validation but not submit the patch request (optional)
    * @return Call&lt;ItemTemplateResource&gt;
    */
   @Headers({
     "Content-Type:application/json"
   })
-  @PUT("store/bundles/templates/{id}")
+  @PATCH("store/bundles/templates/{id}")
   Call<ItemTemplateResource> updateBundleTemplate(
-    @retrofit2.http.Path("id") String id, @retrofit2.http.Body ItemTemplateResource bundleTemplateResource
+    @retrofit2.http.Path("id") String id, @retrofit2.http.Body PatchResource templatePatchResource, @retrofit2.http.Query("test_validation") Boolean testValidation
   );
 
 }

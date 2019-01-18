@@ -5,6 +5,7 @@ import com.knetikcloud.model.ItemTemplateResource;
 import com.knetikcloud.model.ObjectResource;
 import com.knetikcloud.model.PageResourceItemTemplateResource;
 import com.knetikcloud.model.PageResourceObjectResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import org.junit.Before;
 import org.junit.Test;
@@ -43,7 +44,7 @@ public class ObjectsApiTest {
     /**
      * Create an object template
      *
-     * Object templates define a type of entitlement and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Object templates define a type of entitlement and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      */
     @Test
     public void createObjectTemplateTest() {
@@ -68,7 +69,7 @@ public class ObjectsApiTest {
     /**
      * Delete an entitlement template
      *
-     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      */
     @Test
     public void deleteObjectTemplateTest() {
@@ -109,7 +110,7 @@ public class ObjectsApiTest {
     /**
      * Get a single entitlement template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      */
     @Test
     public void getObjectTemplateTest() {
@@ -121,7 +122,7 @@ public class ObjectsApiTest {
     /**
      * List and search entitlement templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      */
     @Test
     public void getObjectTemplatesTest() {
@@ -150,13 +151,14 @@ public class ObjectsApiTest {
     /**
      * Update an entitlement template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateObjectTemplateTest() {
         String id = null;
-        ItemTemplateResource template = null;
-        // ItemTemplateResource response = api.updateObjectTemplate(id, template);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        // ItemTemplateResource response = api.updateObjectTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

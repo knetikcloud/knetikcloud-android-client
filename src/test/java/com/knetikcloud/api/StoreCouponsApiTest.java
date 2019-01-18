@@ -4,6 +4,7 @@ import com.knetikcloud.client.ApiClient;
 import com.knetikcloud.model.CouponItem;
 import com.knetikcloud.model.ItemTemplateResource;
 import com.knetikcloud.model.PageResourceItemTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import org.junit.Before;
 import org.junit.Test;
@@ -41,7 +42,7 @@ public class StoreCouponsApiTest {
     /**
      * Create a coupon template
      *
-     * Coupon Templates define a type of coupon and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Coupon Templates define a type of coupon and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      */
     @Test
     public void createCouponTemplateTest() {
@@ -65,7 +66,7 @@ public class StoreCouponsApiTest {
     /**
      * Delete a coupon template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      */
     @Test
     public void deleteCouponTemplateTest() {
@@ -102,7 +103,7 @@ public class StoreCouponsApiTest {
     /**
      * Get a single coupon template
      *
-     * Coupon Templates define a type of coupon and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or COUPONS_ADMIN
+     * Coupon Templates define a type of coupon and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or COUPONS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      */
     @Test
     public void getCouponTemplateTest() {
@@ -114,7 +115,7 @@ public class StoreCouponsApiTest {
     /**
      * List and search coupon templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or COUPONS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or COUPONS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      */
     @Test
     public void getCouponTemplatesTest() {
@@ -142,13 +143,14 @@ public class StoreCouponsApiTest {
     /**
      * Update a coupon template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateCouponTemplateTest() {
         String id = null;
-        ItemTemplateResource couponTemplateResource = null;
-        // ItemTemplateResource response = api.updateCouponTemplate(id, couponTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        // ItemTemplateResource response = api.updateCouponTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

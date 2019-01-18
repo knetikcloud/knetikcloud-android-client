@@ -3,6 +3,7 @@ package com.knetikcloud.api;
 import com.knetikcloud.client.ApiClient;
 import com.knetikcloud.model.OptimalPaymentRequest;
 import com.knetikcloud.model.Result;
+import com.knetikcloud.model.StringWrapper;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -31,7 +32,7 @@ public class PaymentsOptimalApiTest {
     @Test
     public void silentPostOptimalTest() {
         OptimalPaymentRequest request = null;
-        // String response = api.silentPostOptimal(request);
+        // StringWrapper response = api.silentPostOptimal(request);
 
         // TODO: test validations
     }

@@ -4,6 +4,7 @@ import com.knetikcloud.client.ApiClient;
 import com.knetikcloud.model.BundleItem;
 import com.knetikcloud.model.ItemTemplateResource;
 import com.knetikcloud.model.PageResourceItemTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import org.junit.Before;
 import org.junit.Test;
@@ -41,7 +42,7 @@ public class StoreBundlesApiTest {
     /**
      * Create a bundle template
      *
-     * Bundle Templates define a type of bundle and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
+     * Bundle Templates define a type of bundle and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      */
     @Test
     public void createBundleTemplateTest() {
@@ -65,7 +66,7 @@ public class StoreBundlesApiTest {
     /**
      * Delete a bundle template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      */
     @Test
     public void deleteBundleTemplateTest() {
@@ -90,7 +91,7 @@ public class StoreBundlesApiTest {
     /**
      * Get a single bundle template
      *
-     * Bundle Templates define a type of bundle and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * Bundle Templates define a type of bundle and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      */
     @Test
     public void getBundleTemplateTest() {
@@ -102,7 +103,7 @@ public class StoreBundlesApiTest {
     /**
      * List and search bundle templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      */
     @Test
     public void getBundleTemplatesTest() {
@@ -130,13 +131,14 @@ public class StoreBundlesApiTest {
     /**
      * Update a bundle template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateBundleTemplateTest() {
         String id = null;
-        ItemTemplateResource bundleTemplateResource = null;
-        // ItemTemplateResource response = api.updateBundleTemplate(id, bundleTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        // ItemTemplateResource response = api.updateBundleTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

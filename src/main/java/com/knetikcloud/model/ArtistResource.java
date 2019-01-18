@@ -32,7 +32,7 @@ import java.util.Map;
 /**
  * ArtistResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:44.564-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:20.820-05:00")
 public class ArtistResource {
   @SerializedName("additional_properties")
   private Map<String, Property> additionalProperties = null;
@@ -230,10 +230,10 @@ public class ArtistResource {
   }
 
    /**
-   * The sort order priority ofr the artist.  Default 100
+   * The sort order priority of the artist.  Default 100
    * @return priority
   **/
-  @ApiModelProperty(value = "The sort order priority ofr the artist.  Default 100")
+  @ApiModelProperty(value = "The sort order priority of the artist.  Default 100")
   public Integer getPriority() {
     return priority;
   }

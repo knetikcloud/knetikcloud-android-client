@@ -8,11 +8,15 @@ import retrofit2.http.*;
 import okhttp3.RequestBody;
 
 import com.knetikcloud.model.AnswerResource;
-import com.knetikcloud.model.DeltaResource;
 import com.knetikcloud.model.ImportJobResource;
+import com.knetikcloud.model.LongWrapper;
+import com.knetikcloud.model.PageResourceAnswerResource;
+import com.knetikcloud.model.PageResourceDeltaResource;
 import com.knetikcloud.model.PageResourceImportJobResource;
 import com.knetikcloud.model.PageResourceQuestionResource;
 import com.knetikcloud.model.PageResourceQuestionTemplateResource;
+import com.knetikcloud.model.PageResourcestring;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.QuestionResource;
 import com.knetikcloud.model.QuestionTemplateResource;
 import com.knetikcloud.model.Result;
@@ -107,7 +111,7 @@ public interface GamificationTriviaApi {
 
   /**
    * Create a question template
-   * Question templates define a type of question and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
+   * Question templates define a type of question and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param questionTemplateResource The question template resource object (optional)
    * @return Call&lt;QuestionTemplateResource&gt;
    */
@@ -155,7 +159,7 @@ public interface GamificationTriviaApi {
 
   /**
    * Delete a question template
-   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param id The id of the template (required)
    * @param cascade The value needed to delete used templates (optional)
    * @return Call&lt;Void&gt;
@@ -220,38 +224,44 @@ public interface GamificationTriviaApi {
    * List the answers available for a question
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
    * @param questionId The id of the question (required)
-   * @return Call&lt;List&lt;AnswerResource&gt;&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return Call&lt;PageResourceAnswerResource&gt;
    */
   @GET("trivia/questions/{question_id}/answers")
-  Call<List<AnswerResource>> getQuestionAnswers(
-    @retrofit2.http.Path("question_id") String questionId
+  Call<PageResourceAnswerResource> getQuestionAnswers(
+    @retrofit2.http.Path("question_id") String questionId, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
   );
 
   /**
    * List question deltas in ascending order of updated date
    * The &#39;since&#39; parameter is important to avoid getting a full list of all questions. Implementors should make sure they pass the updated date of the last resource loaded, not the date of the last request, in order to avoid gaps. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
    * @param since Timestamp in seconds (optional)
-   * @return Call&lt;List&lt;DeltaResource&gt;&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return Call&lt;PageResourceDeltaResource&gt;
    */
   @GET("trivia/questions/delta")
-  Call<List<DeltaResource>> getQuestionDeltas(
-    @retrofit2.http.Query("since") Long since
+  Call<PageResourceDeltaResource> getQuestionDeltas(
+    @retrofit2.http.Query("since") Long since, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
   );
 
   /**
    * List the tags for a question
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
    * @param id The id of the question (required)
-   * @return Call&lt;List&lt;String&gt;&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return Call&lt;PageResourcestring&gt;
    */
   @GET("trivia/questions/{id}/tags")
-  Call<List<String>> getQuestionTags(
-    @retrofit2.http.Path("id") String id
+  Call<PageResourcestring> getQuestionTags(
+    @retrofit2.http.Path("id") String id, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
   );
 
   /**
    * Get a single question template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or TRIVIA_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or TRIVIA_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param id The id of the template (required)
    * @return Call&lt;QuestionTemplateResource&gt;
    */
@@ -262,7 +272,7 @@ public interface GamificationTriviaApi {
 
   /**
    * List and search question templates
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or TRIVIA_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or TRIVIA_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
@@ -304,10 +314,10 @@ public interface GamificationTriviaApi {
    * @param filterTagset Filter for questions with specified tags (separated by comma) (optional)
    * @param filterType Filter for questions with specified type.  Allowable values: (&#39;TEXT&#39;, &#39;IMAGE&#39;, &#39;VIDEO&#39;, &#39;AUDIO&#39;) (optional)
    * @param filterPublished Filter for questions currenctly published or not (optional)
-   * @return Call&lt;Long&gt;
+   * @return Call&lt;LongWrapper&gt;
    */
   @GET("trivia/questions/count")
-  Call<Long> getQuestionsCount(
+  Call<LongWrapper> getQuestionsCount(
     @retrofit2.http.Query("filter_search") String filterSearch, @retrofit2.http.Query("filter_idset") String filterIdset, @retrofit2.http.Query("filter_category") String filterCategory, @retrofit2.http.Query("filter_tag") String filterTag, @retrofit2.http.Query("filter_tagset") String filterTagset, @retrofit2.http.Query("filter_type") String filterType, @retrofit2.http.Query("filter_published") Boolean filterPublished
   );
 
@@ -363,11 +373,13 @@ public interface GamificationTriviaApi {
    * @param filterSearch Filter for tags starting with the given text (optional)
    * @param filterCategory Filter for tags on questions from a specific category (optional)
    * @param filterImportId Filter for tags on questions from a specific import job (optional)
-   * @return Call&lt;List&lt;String&gt;&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return Call&lt;PageResourcestring&gt;
    */
   @GET("trivia/tags")
-  Call<List<String>> searchQuestionTags(
-    @retrofit2.http.Query("filter_search") String filterSearch, @retrofit2.http.Query("filter_category") String filterCategory, @retrofit2.http.Query("filter_import_id") Long filterImportId
+  Call<PageResourcestring> searchQuestionTags(
+    @retrofit2.http.Query("filter_search") String filterSearch, @retrofit2.http.Query("filter_category") String filterCategory, @retrofit2.http.Query("filter_import_id") Long filterImportId, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
   );
 
   /**
@@ -418,17 +430,18 @@ public interface GamificationTriviaApi {
 
   /**
    * Update a question template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the template (required)
-   * @param questionTemplateResource The question template resource object (optional)
+   * @param templatePatchResource The patch resource object (optional)
+   * @param testValidation If true, this will test validation but not submit the patch request (optional)
    * @return Call&lt;QuestionTemplateResource&gt;
    */
   @Headers({
     "Content-Type:application/json"
   })
-  @PUT("trivia/questions/templates/{id}")
+  @PATCH("trivia/questions/templates/{id}")
   Call<QuestionTemplateResource> updateQuestionTemplate(
-    @retrofit2.http.Path("id") String id, @retrofit2.http.Body QuestionTemplateResource questionTemplateResource
+    @retrofit2.http.Path("id") String id, @retrofit2.http.Body PatchResource templatePatchResource, @retrofit2.http.Query("test_validation") Boolean testValidation
   );
 
   /**

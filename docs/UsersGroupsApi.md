@@ -1,16 +1,16 @@
 # UsersGroupsApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addMemberToGroup**](UsersGroupsApi.md#addMemberToGroup) | **POST** users/groups/{unique_name}/members | Adds a new member to the group
 [**addMembersToGroup**](UsersGroupsApi.md#addMembersToGroup) | **POST** users/groups/{unique_name}/members/batch-add | Adds multiple members to the group
 [**createGroup**](UsersGroupsApi.md#createGroup) | **POST** users/groups | Create a group
-[**createGroupMemberTemplate**](UsersGroupsApi.md#createGroupMemberTemplate) | **POST** users/groups/members/templates | Create an group member template
+[**createGroupMemberTemplate**](UsersGroupsApi.md#createGroupMemberTemplate) | **POST** users/groups/members/templates | Create a group member template
 [**createGroupTemplate**](UsersGroupsApi.md#createGroupTemplate) | **POST** users/groups/templates | Create a group template
 [**deleteGroup**](UsersGroupsApi.md#deleteGroup) | **DELETE** users/groups/{unique_name} | Removes a group from the system
-[**deleteGroupMemberTemplate**](UsersGroupsApi.md#deleteGroupMemberTemplate) | **DELETE** users/groups/members/templates/{id} | Delete an group member template
+[**deleteGroupMemberTemplate**](UsersGroupsApi.md#deleteGroupMemberTemplate) | **DELETE** users/groups/members/templates/{id} | Delete a group member template
 [**deleteGroupTemplate**](UsersGroupsApi.md#deleteGroupTemplate) | **DELETE** users/groups/templates/{id} | Delete a group template
 [**disableGroupNotification**](UsersGroupsApi.md#disableGroupNotification) | **PUT** users/groups/{unique_name}/members/{user_id}/messages/disabled | Enable or disable notification of group messages
 [**getGroup**](UsersGroupsApi.md#getGroup) | **GET** users/groups/{unique_name} | Loads a specific group&#39;s details
@@ -27,11 +27,11 @@ Method | HTTP request | Description
 [**postGroupMessage**](UsersGroupsApi.md#postGroupMessage) | **POST** users/groups/{unique_name}/messages | Send a group message
 [**removeGroupMember**](UsersGroupsApi.md#removeGroupMember) | **DELETE** users/groups/{unique_name}/members/{user_id} | Removes a user from a group
 [**updateGroup**](UsersGroupsApi.md#updateGroup) | **PUT** users/groups/{unique_name} | Update a group
-[**updateGroupMemberProperties**](UsersGroupsApi.md#updateGroupMemberProperties) | **PUT** users/groups/{unique_name}/members/{user_id}/order | Change a user&#39;s order
-[**updateGroupMemberProperties1**](UsersGroupsApi.md#updateGroupMemberProperties1) | **PUT** users/groups/{unique_name}/members/{user_id}/properties | Change a user&#39;s membership properties
+[**updateGroupMemberOrder**](UsersGroupsApi.md#updateGroupMemberOrder) | **PUT** users/groups/{unique_name}/members/{user_id}/order | Change a user&#39;s order
+[**updateGroupMemberProperties**](UsersGroupsApi.md#updateGroupMemberProperties) | **PUT** users/groups/{unique_name}/members/{user_id}/properties | Change a user&#39;s membership properties
 [**updateGroupMemberStatus**](UsersGroupsApi.md#updateGroupMemberStatus) | **PUT** users/groups/{unique_name}/members/{user_id}/status | Change a user&#39;s status
-[**updateGroupMemberTemplate**](UsersGroupsApi.md#updateGroupMemberTemplate) | **PUT** users/groups/members/templates/{id} | Update an group member template
-[**updateGroupTemplate**](UsersGroupsApi.md#updateGroupTemplate) | **PUT** users/groups/templates/{id} | Update a group template
+[**updateGroupMemberTemplate**](UsersGroupsApi.md#updateGroupMemberTemplate) | **PATCH** users/groups/members/templates/{id} | Update a group member template
+[**updateGroupTemplate**](UsersGroupsApi.md#updateGroupTemplate) | **PATCH** users/groups/templates/{id} | Update a group template
 
 
 <a name="addMemberToGroup"></a>
@@ -40,7 +40,7 @@ Method | HTTP request | Description
 
 Adds a new member to the group
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; POST or JOIN if self
+&lt;b&gt;Permissions Needed:&lt;/b&gt; POST or JOIN if self&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
 
 ### Example
 ```java
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 Adds multiple members to the group
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
+&lt;b&gt;Permissions Needed:&lt;/b&gt; POST&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
 
 ### Example
 ```java
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 Create a group
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
+&lt;b&gt;Permissions Needed:&lt;/b&gt; POST&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
 
 ### Example
 ```java
@@ -213,9 +213,9 @@ Name | Type | Description  | Notes
 # **createGroupMemberTemplate**
 > TemplateResource createGroupMemberTemplate(groupMemberTemplateResource)
 
-Create an group member template
+Create a group member template
 
-GroupMember Templates define a type of group member and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+GroupMember Templates define a type of group member and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
 
 ### Example
 ```java
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 
 Create a group template
 
-Group Templates define a type of group and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+Group Templates define a type of group and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
 
 ### Example
 ```java
@@ -329,7 +329,7 @@ Name | Type | Description  | Notes
 
 Removes a group from the system
 
-All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group&#39;s parent if they were not added to it directly as well. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
+All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group&#39;s parent if they were not added to it directly as well. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
 
 ### Example
 ```java
@@ -384,9 +384,9 @@ Name | Type | Description  | Notes
 # **deleteGroupMemberTemplate**
 > Void deleteGroupMemberTemplate(id, cascade)
 
-Delete an group member template
+Delete a group member template
 
-If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
 
 ### Example
 ```java
@@ -445,7 +445,7 @@ Name | Type | Description  | Notes
 
 Delete a group template
 
-If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
 
 ### Example
 ```java
@@ -565,7 +565,7 @@ Name | Type | Description  | Notes
 
 Loads a specific group&#39;s details
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
+&lt;b&gt;Permissions Needed:&lt;/b&gt; GET&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
 
 ### Example
 ```java
@@ -618,11 +618,11 @@ Name | Type | Description  | Notes
 
 <a name="getGroupAncestors"></a>
 # **getGroupAncestors**
-> List&lt;GroupResource&gt; getGroupAncestors(uniqueName)
+> PageResourceGroupResource getGroupAncestors(uniqueName, size, page)
 
 Get group ancestors
 
-Returns a list of ancestor groups in reverse order (parent, then grandparent, etc). &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+Returns a list of ancestor groups in reverse order (parent, then grandparent, etc). &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -645,8 +645,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 UsersGroupsApi apiInstance = new UsersGroupsApi();
 String uniqueName = "uniqueName_example"; // String | The group unique name
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<GroupResource> result = apiInstance.getGroupAncestors(uniqueName);
+    PageResourceGroupResource result = apiInstance.getGroupAncestors(uniqueName, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersGroupsApi#getGroupAncestors");
@@ -659,10 +661,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uniqueName** | **String**| The group unique name |
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-[**List&lt;GroupResource&gt;**](GroupResource.md)
+[**PageResourceGroupResource**](PageResourceGroupResource.md)
 
 ### Authorization
 
@@ -679,7 +683,7 @@ Name | Type | Description  | Notes
 
 Get a user from a group
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
+&lt;b&gt;Permissions Needed:&lt;/b&gt; GET&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
 
 ### Example
 ```java
@@ -738,7 +742,7 @@ Name | Type | Description  | Notes
 
 Get a single group member template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or GROUP_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
 
 ### Example
 ```java
@@ -795,7 +799,7 @@ Name | Type | Description  | Notes
 
 List and search group member templates
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or GROUP_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -856,7 +860,7 @@ Name | Type | Description  | Notes
 
 Lists members of the group
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
+&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -915,7 +919,7 @@ Name | Type | Description  | Notes
 
 <a name="getGroupMessages"></a>
 # **getGroupMessages**
-> PageResourceChatMessageResource getGroupMessages(uniqueName, size, page)
+> PageResourceChatMessageResource getGroupMessages(uniqueName, size, page, order)
 
 Get a list of group messages
 
@@ -944,8 +948,9 @@ UsersGroupsApi apiInstance = new UsersGroupsApi();
 String uniqueName = "uniqueName_example"; // String | The group unique name
 Integer size = 25; // Integer | The number of objects returned per page
 Integer page = 1; // Integer | The number of the page returned, starting with 1
+String order = "order_example"; // String | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
 try {
-    PageResourceChatMessageResource result = apiInstance.getGroupMessages(uniqueName, size, page);
+    PageResourceChatMessageResource result = apiInstance.getGroupMessages(uniqueName, size, page, order);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersGroupsApi#getGroupMessages");
@@ -960,6 +965,7 @@ Name | Type | Description  | Notes
  **uniqueName** | **String**| The group unique name |
  **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
  **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **order** | **String**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional]
 
 ### Return type
 
@@ -980,7 +986,7 @@ Name | Type | Description  | Notes
 
 Get a single group template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or GROUP_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
 
 ### Example
 ```java
@@ -1037,7 +1043,7 @@ Name | Type | Description  | Notes
 
 List and search group templates
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or GROUP_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -1094,11 +1100,11 @@ Name | Type | Description  | Notes
 
 <a name="getGroupsForUser"></a>
 # **getGroupsForUser**
-> List&lt;String&gt; getGroupsForUser(userId, filterChildren)
+> PageResourcestring getGroupsForUser(userId, size, page, filterChildren)
 
 List groups a user is in
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST_GROUPS
+&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST_GROUPS&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST_GROUPS
 
 ### Example
 ```java
@@ -1121,9 +1127,11 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 UsersGroupsApi apiInstance = new UsersGroupsApi();
 Integer userId = 56; // Integer | The id of the user
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 Boolean filterChildren = true; // Boolean | Whether to limit group list to children of groups only. If true, shows only groups with parents. If false, shows only groups with no parent.
 try {
-    List<String> result = apiInstance.getGroupsForUser(userId, filterChildren);
+    PageResourcestring result = apiInstance.getGroupsForUser(userId, size, page, filterChildren);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersGroupsApi#getGroupsForUser");
@@ -1136,11 +1144,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The id of the user |
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
  **filterChildren** | **Boolean**| Whether to limit group list to children of groups only. If true, shows only groups with parents. If false, shows only groups with no parent. | [optional]
 
 ### Return type
 
-**List&lt;String&gt;**
+[**PageResourcestring**](PageResourcestring.md)
 
 ### Authorization
 
@@ -1157,7 +1167,7 @@ Name | Type | Description  | Notes
 
 List and search groups
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
+&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -1233,9 +1243,21 @@ Send a group message
 ### Example
 ```java
 // Import classes:
+//import com.knetikcloud.client.ApiClient;
 //import com.knetikcloud.client.ApiException;
+//import com.knetikcloud.client.Configuration;
+//import com.knetikcloud.client.auth.*;
 //import com.knetikcloud.api.UsersGroupsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+OAuth oauth2_client_credentials_grant = (OAuth) defaultClient.getAuthentication("oauth2_client_credentials_grant");
+oauth2_client_credentials_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure OAuth2 access token for authorization: oauth2_password_grant
+OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_password_grant");
+oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 UsersGroupsApi apiInstance = new UsersGroupsApi();
 String uniqueName = "uniqueName_example"; // String | The group unique name
@@ -1262,7 +1284,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -1275,7 +1297,7 @@ No authorization required
 
 Removes a user from a group
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
+&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
 
 ### Example
 ```java
@@ -1334,7 +1356,7 @@ Name | Type | Description  | Notes
 
 Update a group
 
-If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
+If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -1387,13 +1409,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="updateGroupMemberProperties"></a>
-# **updateGroupMemberProperties**
-> Void updateGroupMemberProperties(uniqueName, userId, order)
+<a name="updateGroupMemberOrder"></a>
+# **updateGroupMemberOrder**
+> Void updateGroupMemberOrder(uniqueName, userId, order)
 
 Change a user&#39;s order
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
+&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -1419,10 +1441,10 @@ String uniqueName = "uniqueName_example"; // String | The group unique name
 Integer userId = 56; // Integer | The user id of the member to modify
 StringWrapper order = new StringWrapper(); // StringWrapper | The new order for the membership
 try {
-    Void result = apiInstance.updateGroupMemberProperties(uniqueName, userId, order);
+    Void result = apiInstance.updateGroupMemberOrder(uniqueName, userId, order);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling UsersGroupsApi#updateGroupMemberProperties");
+    System.err.println("Exception when calling UsersGroupsApi#updateGroupMemberOrder");
     e.printStackTrace();
 }
 ```
@@ -1448,13 +1470,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="updateGroupMemberProperties1"></a>
-# **updateGroupMemberProperties1**
-> Void updateGroupMemberProperties1(uniqueName, userId, properties)
+<a name="updateGroupMemberProperties"></a>
+# **updateGroupMemberProperties**
+> Void updateGroupMemberProperties(uniqueName, userId, properties)
 
 Change a user&#39;s membership properties
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
+&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -1480,10 +1502,10 @@ String uniqueName = "uniqueName_example"; // String | The group unique name
 Integer userId = 56; // Integer | The user id of the member to modify
 Object properties = null; // Object | The new properties for the membership
 try {
-    Void result = apiInstance.updateGroupMemberProperties1(uniqueName, userId, properties);
+    Void result = apiInstance.updateGroupMemberProperties(uniqueName, userId, properties);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling UsersGroupsApi#updateGroupMemberProperties1");
+    System.err.println("Exception when calling UsersGroupsApi#updateGroupMemberProperties");
     e.printStackTrace();
 }
 ```
@@ -1515,7 +1537,7 @@ Name | Type | Description  | Notes
 
 Change a user&#39;s status
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
+&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -1572,11 +1594,11 @@ Name | Type | Description  | Notes
 
 <a name="updateGroupMemberTemplate"></a>
 # **updateGroupMemberTemplate**
-> TemplateResource updateGroupMemberTemplate(id, groupMemberTemplateResource)
+> TemplateResource updateGroupMemberTemplate(id, templatePatchResource, testValidation)
 
-Update an group member template
+Update a group member template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -1599,9 +1621,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 UsersGroupsApi apiInstance = new UsersGroupsApi();
 String id = "id_example"; // String | The id of the template
-TemplateResource groupMemberTemplateResource = new TemplateResource(); // TemplateResource | The group member template resource object
+PatchResource templatePatchResource = new PatchResource(); // PatchResource | The patch resource object
+Boolean testValidation = true; // Boolean | If true, this will test validation but not submit the patch request
 try {
-    TemplateResource result = apiInstance.updateGroupMemberTemplate(id, groupMemberTemplateResource);
+    TemplateResource result = apiInstance.updateGroupMemberTemplate(id, templatePatchResource, testValidation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersGroupsApi#updateGroupMemberTemplate");
@@ -1614,7 +1637,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the template |
- **groupMemberTemplateResource** | [**TemplateResource**](TemplateResource.md)| The group member template resource object | [optional]
+ **templatePatchResource** | [**PatchResource**](PatchResource.md)| The patch resource object | [optional]
+ **testValidation** | **Boolean**| If true, this will test validation but not submit the patch request | [optional]
 
 ### Return type
 
@@ -1631,11 +1655,11 @@ Name | Type | Description  | Notes
 
 <a name="updateGroupTemplate"></a>
 # **updateGroupTemplate**
-> TemplateResource updateGroupTemplate(id, groupTemplateResource)
+> TemplateResource updateGroupTemplate(id, templatePatchResource, testValidation)
 
 Update a group template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -1658,9 +1682,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 UsersGroupsApi apiInstance = new UsersGroupsApi();
 String id = "id_example"; // String | The id of the template
-TemplateResource groupTemplateResource = new TemplateResource(); // TemplateResource | The group template resource object
+PatchResource templatePatchResource = new PatchResource(); // PatchResource | The patch resource object
+Boolean testValidation = true; // Boolean | If true, this will test validation but not submit the patch request
 try {
-    TemplateResource result = apiInstance.updateGroupTemplate(id, groupTemplateResource);
+    TemplateResource result = apiInstance.updateGroupTemplate(id, templatePatchResource, testValidation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersGroupsApi#updateGroupTemplate");
@@ -1673,7 +1698,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the template |
- **groupTemplateResource** | [**TemplateResource**](TemplateResource.md)| The group template resource object | [optional]
+ **templatePatchResource** | [**PatchResource**](PatchResource.md)| The patch resource object | [optional]
+ **testValidation** | **Boolean**| If true, this will test validation but not submit the patch request | [optional]
 
 ### Return type
 

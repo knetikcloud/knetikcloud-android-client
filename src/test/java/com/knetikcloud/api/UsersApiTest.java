@@ -7,7 +7,9 @@ import com.knetikcloud.model.NewPasswordRequest;
 import com.knetikcloud.model.PageResourceChatMessageResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
 import com.knetikcloud.model.PageResourceUserBaseResource;
+import com.knetikcloud.model.PageResourcestring;
 import com.knetikcloud.model.PasswordResetRequest;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StringWrapper;
 import com.knetikcloud.model.TemplateResource;
@@ -35,7 +37,7 @@ public class UsersApiTest {
     /**
      * Add a tag to a user
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TAGS
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN
      */
     @Test
     public void addUserTagTest() {
@@ -48,7 +50,7 @@ public class UsersApiTest {
     /**
      * Create a user template
      *
-     * User Templates define a type of user and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * User Templates define a type of user and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      */
     @Test
     public void createUserTemplateTest() {
@@ -60,7 +62,7 @@ public class UsersApiTest {
     /**
      * Delete a user template
      *
-     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      */
     @Test
     public void deleteUserTemplateTest() {
@@ -87,7 +89,7 @@ public class UsersApiTest {
     /**
      * Get a single user
      *
-     * Additional private info is included if access controls allow GET. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * Additional private info is included if access controls allow GET.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      */
     @Test
     public void getUserTest() {
@@ -104,14 +106,16 @@ public class UsersApiTest {
     @Test
     public void getUserTagsTest() {
         Integer userId = null;
-        // List<String> response = api.getUserTags(userId);
+        Integer size = null;
+        Integer page = null;
+        // PageResourcestring response = api.getUserTags(userId, size, page);
 
         // TODO: test validations
     }
     /**
      * Get a single user template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or USERS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or USERS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      */
     @Test
     public void getUserTemplateTest() {
@@ -123,7 +127,7 @@ public class UsersApiTest {
     /**
      * List and search user templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or USERS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or USERS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      */
     @Test
     public void getUserTemplatesTest() {
@@ -137,7 +141,7 @@ public class UsersApiTest {
     /**
      * List and search users
      *
-     * Additional private info is included with LIST_PRIVATE. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
+     * Additional private info is included with LIST_PRIVATE. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      */
     @Test
     public void getUsersTest() {
@@ -163,7 +167,7 @@ public class UsersApiTest {
     /**
      * Choose a new password after a reset
      *
-     * Finish resetting a user&#39;s password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * Finish resetting a user&#39;s password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
      */
     @Test
     public void passwordResetTest() {
@@ -189,7 +193,7 @@ public class UsersApiTest {
     /**
      * Register a new user
      *
-     * Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
+     * Password should be in plain text and will be encrypted on receipt. Use SSL for security.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      */
     @Test
     public void registerUserTest() {
@@ -201,7 +205,7 @@ public class UsersApiTest {
     /**
      * Remove a tag from a user
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TAGS
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN
      */
     @Test
     public void removeUserTagTest() {
@@ -214,7 +218,7 @@ public class UsersApiTest {
     /**
      * Set a user&#39;s password
      *
-     * Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
+     * Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void setPasswordTest() {
@@ -227,7 +231,7 @@ public class UsersApiTest {
     /**
      * Reset a user&#39;s password
      *
-     * A reset code will be generated and a &#39;forgot_password&#39; BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * A reset code will be generated and a &#39;forgot_password&#39; BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
      */
     @Test
     public void startPasswordResetTest() {
@@ -239,7 +243,7 @@ public class UsersApiTest {
     /**
      * Reset a user&#39;s password without user id
      *
-     * A reset code will be generated and a &#39;forgot_password&#39; BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * A reset code will be generated and a &#39;forgot_password&#39; BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
      */
     @Test
     public void submitPasswordResetTest() {
@@ -251,7 +255,7 @@ public class UsersApiTest {
     /**
      * Update a user
      *
-     * Password will not be edited on this endpoint, use password specific endpoints. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
+     * Password will not be edited on this endpoint, use password specific endpoints. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateUserTest() {
@@ -264,13 +268,14 @@ public class UsersApiTest {
     /**
      * Update a user template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateUserTemplateTest() {
         String id = null;
-        TemplateResource userTemplateResource = null;
-        // TemplateResource response = api.updateUserTemplate(id, userTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        // TemplateResource response = api.updateUserTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

@@ -1,6 +1,6 @@
 # PaymentsAppleApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="verifyAppleReceipt"></a>
 # **verifyAppleReceipt**
-> String verifyAppleReceipt(request)
+> StringWrapper verifyAppleReceipt(request)
 
 Pay invoice with Apple receipt
 
@@ -37,7 +37,7 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 PaymentsAppleApi apiInstance = new PaymentsAppleApi();
 ApplyPaymentRequest request = new ApplyPaymentRequest(); // ApplyPaymentRequest | The request for paying an invoice through an Apple receipt
 try {
-    String result = apiInstance.verifyAppleReceipt(request);
+    StringWrapper result = apiInstance.verifyAppleReceipt(request);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PaymentsAppleApi#verifyAppleReceipt");
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
+[**StringWrapper**](StringWrapper.md)
 
 ### Authorization
 

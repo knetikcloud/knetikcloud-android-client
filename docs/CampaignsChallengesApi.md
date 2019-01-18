@@ -1,6 +1,6 @@
 # CampaignsChallengesApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,8 +25,8 @@ Method | HTTP request | Description
 [**getChallenges**](CampaignsChallengesApi.md#getChallenges) | **GET** challenges | Retrieve a list of challenges
 [**updateChallenge**](CampaignsChallengesApi.md#updateChallenge) | **PUT** challenges/{id} | Update a challenge
 [**updateChallengeActivity**](CampaignsChallengesApi.md#updateChallengeActivity) | **PUT** challenges/{challenge_id}/activities/{id} | Update a challenge activity
-[**updateChallengeActivityTemplate**](CampaignsChallengesApi.md#updateChallengeActivityTemplate) | **PUT** challenge-activities/templates/{id} | Update an challenge activity template
-[**updateChallengeTemplate**](CampaignsChallengesApi.md#updateChallengeTemplate) | **PUT** challenges/templates/{id} | Update a challenge template
+[**updateChallengeActivityTemplate**](CampaignsChallengesApi.md#updateChallengeActivityTemplate) | **PATCH** challenge-activities/templates/{id} | Update an challenge activity template
+[**updateChallengeTemplate**](CampaignsChallengesApi.md#updateChallengeTemplate) | **PATCH** challenges/templates/{id} | Update a challenge template
 
 
 <a name="createChallenge"></a>
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 Create a challenge activity template
 
-Challenge Activity Templates define a type of challenge activity and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+Challenge Activity Templates define a type of challenge activity and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
 
 ### Example
 ```java
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 Create a challenge template
 
-Challenge Templates define a type of challenge and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+Challenge Templates define a type of challenge and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
 
 ### Example
 ```java
@@ -383,7 +383,7 @@ Name | Type | Description  | Notes
 
 Delete a challenge activity template
 
-If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
 
 ### Example
 ```java
@@ -499,7 +499,7 @@ Name | Type | Description  | Notes
 
 Delete a challenge template
 
-If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
 
 ### Example
 ```java
@@ -737,7 +737,7 @@ Name | Type | Description  | Notes
 
 Get a single challenge activity template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CHALLENGES_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
 
 ### Example
 ```java
@@ -794,7 +794,7 @@ Name | Type | Description  | Notes
 
 List and search challenge activity templates
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CHALLENGES_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -981,7 +981,7 @@ Name | Type | Description  | Notes
 
 Get a single challenge template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CHALLENGES_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
 
 ### Example
 ```java
@@ -1038,7 +1038,7 @@ Name | Type | Description  | Notes
 
 List and search challenge templates
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CHALLENGES_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -1284,11 +1284,11 @@ Name | Type | Description  | Notes
 
 <a name="updateChallengeActivityTemplate"></a>
 # **updateChallengeActivityTemplate**
-> TemplateResource updateChallengeActivityTemplate(id, challengeActivityTemplateResource)
+> TemplateResource updateChallengeActivityTemplate(id, templatePatchResource, testValidation)
 
 Update an challenge activity template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -1311,9 +1311,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 CampaignsChallengesApi apiInstance = new CampaignsChallengesApi();
 String id = "id_example"; // String | The id of the template
-TemplateResource challengeActivityTemplateResource = new TemplateResource(); // TemplateResource | The challengeActivity template resource object
+PatchResource templatePatchResource = new PatchResource(); // PatchResource | The patch resource object
+Boolean testValidation = true; // Boolean | If true, this will test validation but not submit the patch request
 try {
-    TemplateResource result = apiInstance.updateChallengeActivityTemplate(id, challengeActivityTemplateResource);
+    TemplateResource result = apiInstance.updateChallengeActivityTemplate(id, templatePatchResource, testValidation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CampaignsChallengesApi#updateChallengeActivityTemplate");
@@ -1326,7 +1327,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the template |
- **challengeActivityTemplateResource** | [**TemplateResource**](TemplateResource.md)| The challengeActivity template resource object | [optional]
+ **templatePatchResource** | [**PatchResource**](PatchResource.md)| The patch resource object | [optional]
+ **testValidation** | **Boolean**| If true, this will test validation but not submit the patch request | [optional]
 
 ### Return type
 
@@ -1343,11 +1345,11 @@ Name | Type | Description  | Notes
 
 <a name="updateChallengeTemplate"></a>
 # **updateChallengeTemplate**
-> TemplateResource updateChallengeTemplate(id, challengeTemplateResource)
+> TemplateResource updateChallengeTemplate(id, templatePatchResource, testValidation)
 
 Update a challenge template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -1370,9 +1372,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 CampaignsChallengesApi apiInstance = new CampaignsChallengesApi();
 String id = "id_example"; // String | The id of the template
-TemplateResource challengeTemplateResource = new TemplateResource(); // TemplateResource | The challenge template resource object
+PatchResource templatePatchResource = new PatchResource(); // PatchResource | The patch resource object
+Boolean testValidation = true; // Boolean | If true, this will test validation but not submit the patch request
 try {
-    TemplateResource result = apiInstance.updateChallengeTemplate(id, challengeTemplateResource);
+    TemplateResource result = apiInstance.updateChallengeTemplate(id, templatePatchResource, testValidation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CampaignsChallengesApi#updateChallengeTemplate");
@@ -1385,7 +1388,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the template |
- **challengeTemplateResource** | [**TemplateResource**](TemplateResource.md)| The challenge template resource object | [optional]
+ **templatePatchResource** | [**PatchResource**](PatchResource.md)| The patch resource object | [optional]
+ **testValidation** | **Boolean**| If true, this will test validation but not submit the patch request | [optional]
 
 ### Return type
 

@@ -13,7 +13,9 @@ import com.knetikcloud.model.NewPasswordRequest;
 import com.knetikcloud.model.PageResourceChatMessageResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
 import com.knetikcloud.model.PageResourceUserBaseResource;
+import com.knetikcloud.model.PageResourcestring;
 import com.knetikcloud.model.PasswordResetRequest;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StringWrapper;
 import com.knetikcloud.model.TemplateResource;
@@ -28,7 +30,7 @@ import java.util.Map;
 public interface UsersApi {
   /**
    * Add a tag to a user
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TAGS
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN
    * @param userId The id of the user (required)
    * @param tag tag (required)
    * @return Call&lt;Void&gt;
@@ -43,7 +45,7 @@ public interface UsersApi {
 
   /**
    * Create a user template
-   * User Templates define a type of user and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * User Templates define a type of user and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param userTemplateResource The user template resource object (optional)
    * @return Call&lt;TemplateResource&gt;
    */
@@ -57,7 +59,7 @@ public interface UsersApi {
 
   /**
    * Delete a user template
-   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param id The id of the template (required)
    * @param cascade The value needed to delete used templates (optional)
    * @return Call&lt;Void&gt;
@@ -82,7 +84,7 @@ public interface UsersApi {
 
   /**
    * Get a single user
-   * Additional private info is included if access controls allow GET. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * Additional private info is included if access controls allow GET.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param id The id of the user or &#39;me&#39; (required)
    * @return Call&lt;UserResource&gt;
    */
@@ -95,16 +97,18 @@ public interface UsersApi {
    * List tags for a user
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param userId The id of the user (required)
-   * @return Call&lt;List&lt;String&gt;&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return Call&lt;PageResourcestring&gt;
    */
   @GET("users/{user_id}/tags")
-  Call<List<String>> getUserTags(
-    @retrofit2.http.Path("user_id") Integer userId
+  Call<PageResourcestring> getUserTags(
+    @retrofit2.http.Path("user_id") Integer userId, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
   );
 
   /**
    * Get a single user template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or USERS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or USERS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param id The id of the template (required)
    * @return Call&lt;TemplateResource&gt;
    */
@@ -115,7 +119,7 @@ public interface UsersApi {
 
   /**
    * List and search user templates
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or USERS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or USERS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
@@ -128,7 +132,7 @@ public interface UsersApi {
 
   /**
    * List and search users
-   * Additional private info is included with LIST_PRIVATE. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
+   * Additional private info is included with LIST_PRIVATE. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param filterDisplayname Filter for users whose display name starts with provided string. (optional)
    * @param filterEmail Filter for users whose email starts with provided string. Requires USERS_ADMIN permission (optional)
    * @param filterFirstname Filter for users whose first name starts with provided string. Requires USERS_ADMIN permission (optional)
@@ -153,7 +157,7 @@ public interface UsersApi {
 
   /**
    * Choose a new password after a reset
-   * Finish resetting a user&#39;s password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * Finish resetting a user&#39;s password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param id The id of the user (required)
    * @param newPasswordRequest The new password request object (optional)
    * @return Call&lt;Void&gt;
@@ -183,7 +187,7 @@ public interface UsersApi {
 
   /**
    * Register a new user
-   * Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
+   * Password should be in plain text and will be encrypted on receipt. Use SSL for security.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param userResource The user resource object (optional)
    * @return Call&lt;UserResource&gt;
    */
@@ -197,7 +201,7 @@ public interface UsersApi {
 
   /**
    * Remove a tag from a user
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TAGS
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN
    * @param userId The id of the user (required)
    * @param tag The tag to remove (required)
    * @return Call&lt;Void&gt;
@@ -209,7 +213,7 @@ public interface UsersApi {
 
   /**
    * Set a user&#39;s password
-   * Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
+   * Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the user (required)
    * @param password The new plain text password (optional)
    * @return Call&lt;Void&gt;
@@ -224,7 +228,7 @@ public interface UsersApi {
 
   /**
    * Reset a user&#39;s password
-   * A reset code will be generated and a &#39;forgot_password&#39; BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * A reset code will be generated and a &#39;forgot_password&#39; BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param id The id of the user (required)
    * @return Call&lt;Void&gt;
    */
@@ -238,7 +242,7 @@ public interface UsersApi {
 
   /**
    * Reset a user&#39;s password without user id
-   * A reset code will be generated and a &#39;forgot_password&#39; BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * A reset code will be generated and a &#39;forgot_password&#39; BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param passwordReset An object containing one of three methods to look up a user (optional)
    * @return Call&lt;Void&gt;
    */
@@ -252,7 +256,7 @@ public interface UsersApi {
 
   /**
    * Update a user
-   * Password will not be edited on this endpoint, use password specific endpoints. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
+   * Password will not be edited on this endpoint, use password specific endpoints. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the user or &#39;me&#39; (required)
    * @param userResource The user resource object (optional)
    * @return Call&lt;Void&gt;
@@ -267,17 +271,18 @@ public interface UsersApi {
 
   /**
    * Update a user template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the template (required)
-   * @param userTemplateResource The user template resource object (optional)
+   * @param templatePatchResource The patch resource object (optional)
+   * @param testValidation If true, this will test validation but not submit the patch request (optional)
    * @return Call&lt;TemplateResource&gt;
    */
   @Headers({
     "Content-Type:application/json"
   })
-  @PUT("users/templates/{id}")
+  @PATCH("users/templates/{id}")
   Call<TemplateResource> updateUserTemplate(
-    @retrofit2.http.Path("id") String id, @retrofit2.http.Body TemplateResource userTemplateResource
+    @retrofit2.http.Path("id") String id, @retrofit2.http.Body PatchResource templatePatchResource, @retrofit2.http.Query("test_validation") Boolean testValidation
   );
 
 }

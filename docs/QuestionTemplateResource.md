@@ -4,7 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**allowAdditional** | **Boolean** | Whether to allow additional properties beyond those specified or not |  [optional]
 **answerProperty** | [**PropertyDefinitionResource**](PropertyDefinitionResource.md) | A property definition for all answers. If included each answer must match this definition&#39;s type and be valid |  [optional]
 **createdDate** | **Long** | The date/time this resource was created in seconds since unix epoch |  [optional]
 **id** | **String** | The id of the template |  [optional]

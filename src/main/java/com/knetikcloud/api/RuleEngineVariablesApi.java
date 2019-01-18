@@ -8,8 +8,8 @@ import retrofit2.http.*;
 import okhttp3.RequestBody;
 
 import com.knetikcloud.model.PageResourceSimpleReferenceResourceobject;
+import com.knetikcloud.model.PageResourceVariableTypeResource;
 import com.knetikcloud.model.Result;
-import com.knetikcloud.model.VariableTypeResource;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,11 +21,14 @@ public interface RuleEngineVariablesApi {
   /**
    * Get a list of variable types available
    * Types include integer, string, user and invoice. These are used to qualify trigger parameters and action variables with strong typing. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_VARIABLES_USER
-   * @return Call&lt;List&lt;VariableTypeResource&gt;&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return Call&lt;PageResourceVariableTypeResource&gt;
    */
   @GET("bre/variable-types")
-  Call<List<VariableTypeResource>> getBREVariableTypes();
-    
+  Call<PageResourceVariableTypeResource> getBREVariableTypes(
+    @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
+  );
 
   /**
    * List valid values for a type

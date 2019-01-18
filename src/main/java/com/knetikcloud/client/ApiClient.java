@@ -33,7 +33,7 @@ public class ApiClient {
   private Retrofit.Builder adapterBuilder;
   private JSON json;
   
-  public static String baseUrl = "https://jsapi-integration.us-east-1.elasticbeanstalk.com";
+  public static String baseUrl = "https://devsandbox.knetikcloud.com";
 
   public ApiClient() {
     apiAuthorizations = new LinkedHashMap<String, Interceptor>();
@@ -46,6 +46,8 @@ public class ApiClient {
       Interceptor auth;
       if ("oauth2_client_credentials_grant".equals(authName)) {
         auth = new OAuth(OAuthFlow.application, baseUrl + "", baseUrl + "oauth/token", "read write");
+      } else if ("oauth2_implicit_grant".equals(authName)) {
+        auth = new OAuth(OAuthFlow.implicit, baseUrl + "/oauth/authorize", baseUrl + "", "read write");
       } else if ("oauth2_password_grant".equals(authName)) {
         auth = new OAuth(OAuthFlow.password, baseUrl + "", baseUrl + "/oauth/token", "read write");
       } else {

@@ -10,6 +10,7 @@ import okhttp3.RequestBody;
 import com.knetikcloud.model.ItemTemplateResource;
 import com.knetikcloud.model.PageResourceItemTemplateResource;
 import com.knetikcloud.model.PageResourceVendorResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.VendorResource;
 
@@ -36,7 +37,7 @@ public interface StoreVendorsApi {
 
   /**
    * Create a vendor template
-   * Vendor Templates define a type of vendor and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * Vendor Templates define a type of vendor and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param vendorTemplateResource The new vendor template (optional)
    * @return Call&lt;ItemTemplateResource&gt;
    */
@@ -61,7 +62,7 @@ public interface StoreVendorsApi {
 
   /**
    * Delete a vendor template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param id The id of the template (required)
    * @param cascade force deleting the template if it&#39;s attached to other objects, cascade &#x3D; detach (optional)
    * @return Call&lt;Void&gt;
@@ -84,7 +85,7 @@ public interface StoreVendorsApi {
 
   /**
    * Get a single vendor template
-   * Vendor Templates define a type of vendor and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * Vendor Templates define a type of vendor and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param id The id of the template (required)
    * @return Call&lt;ItemTemplateResource&gt;
    */
@@ -95,7 +96,7 @@ public interface StoreVendorsApi {
 
   /**
    * List and search vendor templates
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
@@ -137,17 +138,18 @@ public interface StoreVendorsApi {
 
   /**
    * Update a vendor template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the template (required)
-   * @param vendorTemplateResource The vendor template resource object (optional)
+   * @param templatePatchResource The patch resource object (optional)
+   * @param testValidation If true, this will test validation but not submit the patch request (optional)
    * @return Call&lt;ItemTemplateResource&gt;
    */
   @Headers({
     "Content-Type:application/json"
   })
-  @PUT("vendors/templates/{id}")
+  @PATCH("vendors/templates/{id}")
   Call<ItemTemplateResource> updateVendorTemplate(
-    @retrofit2.http.Path("id") String id, @retrofit2.http.Body ItemTemplateResource vendorTemplateResource
+    @retrofit2.http.Path("id") String id, @retrofit2.http.Body PatchResource templatePatchResource, @retrofit2.http.Query("test_validation") Boolean testValidation
   );
 
 }

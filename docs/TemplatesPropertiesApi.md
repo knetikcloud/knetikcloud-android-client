@@ -1,6 +1,6 @@
 # TemplatesPropertiesApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,11 +10,11 @@ Method | HTTP request | Description
 
 <a name="getTemplatePropertyType"></a>
 # **getTemplatePropertyType**
-> PropertyFieldListResource getTemplatePropertyType(type)
+> PropertyFieldListResource getTemplatePropertyType(type, size, page)
 
 Get details for a template property type
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
 
 ### Example
 ```java
@@ -37,8 +37,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 TemplatesPropertiesApi apiInstance = new TemplatesPropertiesApi();
 String type = "type_example"; // String | type
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    PropertyFieldListResource result = apiInstance.getTemplatePropertyType(type);
+    PropertyFieldListResource result = apiInstance.getTemplatePropertyType(type, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TemplatesPropertiesApi#getTemplatePropertyType");
@@ -51,6 +53,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **type** | **String**| type |
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
@@ -67,11 +71,11 @@ Name | Type | Description  | Notes
 
 <a name="getTemplatePropertyTypes"></a>
 # **getTemplatePropertyTypes**
-> List&lt;PropertyFieldListResource&gt; getTemplatePropertyTypes()
+> PageResourcePropertyFieldListResource getTemplatePropertyTypes()
 
 List template property types
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
 
 ### Example
 ```java
@@ -94,7 +98,7 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 TemplatesPropertiesApi apiInstance = new TemplatesPropertiesApi();
 try {
-    List<PropertyFieldListResource> result = apiInstance.getTemplatePropertyTypes();
+    PageResourcePropertyFieldListResource result = apiInstance.getTemplatePropertyTypes();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TemplatesPropertiesApi#getTemplatePropertyTypes");
@@ -107,7 +111,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;PropertyFieldListResource&gt;**](PropertyFieldListResource.md)
+[**PageResourcePropertyFieldListResource**](PageResourcePropertyFieldListResource.md)
 
 ### Authorization
 

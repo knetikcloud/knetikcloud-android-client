@@ -26,13 +26,10 @@ import java.io.IOException;
 /**
  * DocumentRemoveRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:44.564-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:20.820-05:00")
 public class DocumentRemoveRequest {
   @SerializedName("id")
   private String id = null;
-
-  @SerializedName("template")
-  private String template = null;
 
   @SerializedName("type")
   private String type = null;
@@ -46,31 +43,13 @@ public class DocumentRemoveRequest {
    * The id of the document
    * @return id
   **/
-  @ApiModelProperty(value = "The id of the document")
+  @ApiModelProperty(required = true, value = "The id of the document")
   public String getId() {
     return id;
   }
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  public DocumentRemoveRequest template(String template) {
-    this.template = template;
-    return this;
-  }
-
-   /**
-   * The id of the template if this document is based on a templated resource
-   * @return template
-  **/
-  @ApiModelProperty(value = "The id of the template if this document is based on a templated resource")
-  public String getTemplate() {
-    return template;
-  }
-
-  public void setTemplate(String template) {
-    this.template = template;
   }
 
   public DocumentRemoveRequest type(String type) {
@@ -82,7 +61,7 @@ public class DocumentRemoveRequest {
    * The type of document
    * @return type
   **/
-  @ApiModelProperty(value = "The type of document")
+  @ApiModelProperty(required = true, value = "The type of document")
   public String getType() {
     return type;
   }
@@ -102,13 +81,12 @@ public class DocumentRemoveRequest {
     }
     DocumentRemoveRequest documentRemoveRequest = (DocumentRemoveRequest) o;
     return Objects.equals(this.id, documentRemoveRequest.id) &&
-        Objects.equals(this.template, documentRemoveRequest.template) &&
         Objects.equals(this.type, documentRemoveRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, template, type);
+    return Objects.hash(id, type);
   }
 
 
@@ -118,7 +96,6 @@ public class DocumentRemoveRequest {
     sb.append("class DocumentRemoveRequest {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

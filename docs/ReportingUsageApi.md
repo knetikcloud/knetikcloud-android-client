@@ -1,6 +1,6 @@
 # ReportingUsageApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -359,7 +359,7 @@ Name | Type | Description  | Notes
 
 <a name="getUsageEndpoints"></a>
 # **getUsageEndpoints**
-> List&lt;String&gt; getUsageEndpoints(startDate, endDate)
+> PageResourcestring getUsageEndpoints(startDate, endDate)
 
 Returns list of endpoints called (method and url)
 
@@ -388,7 +388,7 @@ ReportingUsageApi apiInstance = new ReportingUsageApi();
 Long startDate = 789L; // Long | The beginning of the range being requested, unix timestamp in seconds
 Long endDate = 789L; // Long | The ending of the range being requested, unix timestamp in seconds
 try {
-    List<String> result = apiInstance.getUsageEndpoints(startDate, endDate);
+    PageResourcestring result = apiInstance.getUsageEndpoints(startDate, endDate);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReportingUsageApi#getUsageEndpoints");
@@ -405,7 +405,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**List&lt;String&gt;**
+[**PageResourcestring**](PageResourcestring.md)
 
 ### Authorization
 

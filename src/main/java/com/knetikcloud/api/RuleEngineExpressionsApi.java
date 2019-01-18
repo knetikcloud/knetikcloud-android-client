@@ -8,6 +8,7 @@ import retrofit2.http.*;
 import okhttp3.RequestBody;
 
 import com.knetikcloud.model.ExpressionResource;
+import com.knetikcloud.model.PageResourceExpressionResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StringWrapper;
 
@@ -33,11 +34,13 @@ public interface RuleEngineExpressionsApi {
    * Get a list of supported expressions to use in conditions or actions.
    * Each resource contains a type and a definition that are read-only, all the other fields must be provided when using the expression in a rule. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EXPRESSIONS_USER
    * @param filterTypeGroup Filter for expressions by type group (optional)
-   * @return Call&lt;List&lt;ExpressionResource&gt;&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return Call&lt;PageResourceExpressionResource&gt;
    */
   @GET("bre/expressions")
-  Call<List<ExpressionResource>> getBREExpressions(
-    @retrofit2.http.Query("filter_type_group") String filterTypeGroup
+  Call<PageResourceExpressionResource> getBREExpressions(
+    @retrofit2.http.Query("filter_type_group") String filterTypeGroup, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
   );
 
   /**

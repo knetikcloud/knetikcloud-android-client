@@ -9,6 +9,8 @@ import com.knetikcloud.model.PageResourceChatMessageResource;
 import com.knetikcloud.model.PageResourceGroupMemberResource;
 import com.knetikcloud.model.PageResourceGroupResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
+import com.knetikcloud.model.PageResourcestring;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StringWrapper;
 import com.knetikcloud.model.TemplateResource;
@@ -36,7 +38,7 @@ public class UsersGroupsApiTest {
     /**
      * Adds a new member to the group
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST or JOIN if self
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST or JOIN if self&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
      */
     @Test
     public void addMemberToGroupTest() {
@@ -49,7 +51,7 @@ public class UsersGroupsApiTest {
     /**
      * Adds multiple members to the group
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      */
     @Test
     public void addMembersToGroupTest() {
@@ -62,7 +64,7 @@ public class UsersGroupsApiTest {
     /**
      * Create a group
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      */
     @Test
     public void createGroupTest() {
@@ -72,9 +74,9 @@ public class UsersGroupsApiTest {
         // TODO: test validations
     }
     /**
-     * Create an group member template
+     * Create a group member template
      *
-     * GroupMember Templates define a type of group member and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * GroupMember Templates define a type of group member and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      */
     @Test
     public void createGroupMemberTemplateTest() {
@@ -86,7 +88,7 @@ public class UsersGroupsApiTest {
     /**
      * Create a group template
      *
-     * Group Templates define a type of group and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Group Templates define a type of group and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      */
     @Test
     public void createGroupTemplateTest() {
@@ -98,7 +100,7 @@ public class UsersGroupsApiTest {
     /**
      * Removes a group from the system
      *
-     * All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group&#39;s parent if they were not added to it directly as well. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
+     * All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group&#39;s parent if they were not added to it directly as well. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      */
     @Test
     public void deleteGroupTest() {
@@ -108,9 +110,9 @@ public class UsersGroupsApiTest {
         // TODO: test validations
     }
     /**
-     * Delete an group member template
+     * Delete a group member template
      *
-     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      */
     @Test
     public void deleteGroupMemberTemplateTest() {
@@ -123,7 +125,7 @@ public class UsersGroupsApiTest {
     /**
      * Delete a group template
      *
-     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      */
     @Test
     public void deleteGroupTemplateTest() {
@@ -150,7 +152,7 @@ public class UsersGroupsApiTest {
     /**
      * Loads a specific group&#39;s details
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      */
     @Test
     public void getGroupTest() {
@@ -162,19 +164,21 @@ public class UsersGroupsApiTest {
     /**
      * Get group ancestors
      *
-     * Returns a list of ancestor groups in reverse order (parent, then grandparent, etc). &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * Returns a list of ancestor groups in reverse order (parent, then grandparent, etc). &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      */
     @Test
     public void getGroupAncestorsTest() {
         String uniqueName = null;
-        // List<GroupResource> response = api.getGroupAncestors(uniqueName);
+        Integer size = null;
+        Integer page = null;
+        // PageResourceGroupResource response = api.getGroupAncestors(uniqueName, size, page);
 
         // TODO: test validations
     }
     /**
      * Get a user from a group
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      */
     @Test
     public void getGroupMemberTest() {
@@ -187,7 +191,7 @@ public class UsersGroupsApiTest {
     /**
      * Get a single group member template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or GROUP_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      */
     @Test
     public void getGroupMemberTemplateTest() {
@@ -199,7 +203,7 @@ public class UsersGroupsApiTest {
     /**
      * List and search group member templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or GROUP_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      */
     @Test
     public void getGroupMemberTemplatesTest() {
@@ -213,7 +217,7 @@ public class UsersGroupsApiTest {
     /**
      * Lists members of the group
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      */
     @Test
     public void getGroupMembersTest() {
@@ -235,14 +239,15 @@ public class UsersGroupsApiTest {
         String uniqueName = null;
         Integer size = null;
         Integer page = null;
-        // PageResourceChatMessageResource response = api.getGroupMessages(uniqueName, size, page);
+        String order = null;
+        // PageResourceChatMessageResource response = api.getGroupMessages(uniqueName, size, page, order);
 
         // TODO: test validations
     }
     /**
      * Get a single group template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or GROUP_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      */
     @Test
     public void getGroupTemplateTest() {
@@ -254,7 +259,7 @@ public class UsersGroupsApiTest {
     /**
      * List and search group templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or GROUP_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      */
     @Test
     public void getGroupTemplatesTest() {
@@ -268,20 +273,22 @@ public class UsersGroupsApiTest {
     /**
      * List groups a user is in
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST_GROUPS
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST_GROUPS&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST_GROUPS
      */
     @Test
     public void getGroupsForUserTest() {
         Integer userId = null;
+        Integer size = null;
+        Integer page = null;
         Boolean filterChildren = null;
-        // List<String> response = api.getGroupsForUser(userId, filterChildren);
+        // PageResourcestring response = api.getGroupsForUser(userId, size, page, filterChildren);
 
         // TODO: test validations
     }
     /**
      * List and search groups
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      */
     @Test
     public void listGroupsTest() {
@@ -314,7 +321,7 @@ public class UsersGroupsApiTest {
     /**
      * Removes a user from a group
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      */
     @Test
     public void removeGroupMemberTest() {
@@ -327,7 +334,7 @@ public class UsersGroupsApiTest {
     /**
      * Update a group
      *
-     * If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
+     * If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateGroupTest() {
@@ -340,35 +347,35 @@ public class UsersGroupsApiTest {
     /**
      * Change a user&#39;s order
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
-    public void updateGroupMemberPropertiesTest() {
+    public void updateGroupMemberOrderTest() {
         String uniqueName = null;
         Integer userId = null;
         StringWrapper order = null;
-        // Void response = api.updateGroupMemberProperties(uniqueName, userId, order);
+        // Void response = api.updateGroupMemberOrder(uniqueName, userId, order);
 
         // TODO: test validations
     }
     /**
      * Change a user&#39;s membership properties
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
-    public void updateGroupMemberProperties1Test() {
+    public void updateGroupMemberPropertiesTest() {
         String uniqueName = null;
         Integer userId = null;
         Object properties = null;
-        // Void response = api.updateGroupMemberProperties1(uniqueName, userId, properties);
+        // Void response = api.updateGroupMemberProperties(uniqueName, userId, properties);
 
         // TODO: test validations
     }
     /**
      * Change a user&#39;s status
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateGroupMemberStatusTest() {
@@ -380,28 +387,30 @@ public class UsersGroupsApiTest {
         // TODO: test validations
     }
     /**
-     * Update an group member template
+     * Update a group member template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateGroupMemberTemplateTest() {
         String id = null;
-        TemplateResource groupMemberTemplateResource = null;
-        // TemplateResource response = api.updateGroupMemberTemplate(id, groupMemberTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        // TemplateResource response = api.updateGroupMemberTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }
     /**
      * Update a group template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateGroupTemplateTest() {
         String id = null;
-        TemplateResource groupTemplateResource = null;
-        // TemplateResource response = api.updateGroupTemplate(id, groupTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        // TemplateResource response = api.updateGroupTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

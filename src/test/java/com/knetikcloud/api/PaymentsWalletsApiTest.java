@@ -69,7 +69,9 @@ public class PaymentsWalletsApiTest {
     @Test
     public void getUserWalletsTest() {
         Integer userId = null;
-        // List<SimpleWallet> response = api.getUserWallets(userId);
+        Integer size = null;
+        Integer page = null;
+        // PageResourceSimpleWallet response = api.getUserWallets(userId, size, page);
 
         // TODO: test validations
     }

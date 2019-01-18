@@ -11,6 +11,7 @@ import com.knetikcloud.model.PageResourceDispositionResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
 import com.knetikcloud.model.PageResourceVideoRelationshipResource;
 import com.knetikcloud.model.PageResourceVideoResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StringWrapper;
 import com.knetikcloud.model.TemplateResource;
@@ -129,7 +130,7 @@ public class MediaVideosApiTest {
     /**
      * Create a video template
      *
-     * Video Templates define a type of video and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Video Templates define a type of video and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      */
     @Test
     public void createVideoTemplateTest() {
@@ -204,7 +205,7 @@ public class MediaVideosApiTest {
     /**
      * Delete a video template
      *
-     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      */
     @Test
     public void deleteVideoTemplateTest() {
@@ -287,7 +288,7 @@ public class MediaVideosApiTest {
     /**
      * Get a single video template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or VIDEOS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      */
     @Test
     public void getVideoTemplateTest() {
@@ -299,7 +300,7 @@ public class MediaVideosApiTest {
     /**
      * List and search video templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or VIDEOS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      */
     @Test
     public void getVideoTemplatesTest() {
@@ -406,13 +407,14 @@ public class MediaVideosApiTest {
     /**
      * Update a video template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateVideoTemplateTest() {
         String id = null;
-        TemplateResource videoTemplateResource = null;
-        // TemplateResource response = api.updateVideoTemplate(id, videoTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        // TemplateResource response = api.updateVideoTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

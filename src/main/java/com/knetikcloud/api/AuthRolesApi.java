@@ -50,11 +50,13 @@ public interface AuthRolesApi {
    * Get roles for a client
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
    * @param clientKey The client key (required)
-   * @return Call&lt;List&lt;RoleResource&gt;&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return Call&lt;PageResourceRoleResource&gt;
    */
   @GET("auth/clients/{client_key}/roles")
-  Call<List<RoleResource>> getClientRoles(
-    @retrofit2.http.Path("client_key") String clientKey
+  Call<PageResourceRoleResource> getClientRoles(
+    @retrofit2.http.Path("client_key") String clientKey, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
   );
 
   /**
@@ -87,11 +89,13 @@ public interface AuthRolesApi {
    * Get roles for a user
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
    * @param userId The user&#39;s id (required)
-   * @return Call&lt;List&lt;RoleResource&gt;&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return Call&lt;PageResourceRoleResource&gt;
    */
   @GET("auth/users/{user_id}/roles")
-  Call<List<RoleResource>> getUserRoles(
-    @retrofit2.http.Path("user_id") Integer userId
+  Call<PageResourceRoleResource> getUserRoles(
+    @retrofit2.http.Path("user_id") Integer userId, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
   );
 
   /**

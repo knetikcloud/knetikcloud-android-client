@@ -1,6 +1,6 @@
 # RuleEngineVariablesApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getBREVariableTypes"></a>
 # **getBREVariableTypes**
-> List&lt;VariableTypeResource&gt; getBREVariableTypes()
+> PageResourceVariableTypeResource getBREVariableTypes(size, page)
 
 Get a list of variable types available
 
@@ -36,8 +36,10 @@ OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_pa
 oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 RuleEngineVariablesApi apiInstance = new RuleEngineVariablesApi();
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<VariableTypeResource> result = apiInstance.getBREVariableTypes();
+    PageResourceVariableTypeResource result = apiInstance.getBREVariableTypes(size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RuleEngineVariablesApi#getBREVariableTypes");
@@ -46,11 +48,15 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-[**List&lt;VariableTypeResource&gt;**](VariableTypeResource.md)
+[**PageResourceVariableTypeResource**](PageResourceVariableTypeResource.md)
 
 ### Authorization
 

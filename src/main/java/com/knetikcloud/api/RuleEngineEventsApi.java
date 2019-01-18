@@ -9,6 +9,7 @@ import okhttp3.RequestBody;
 
 import com.knetikcloud.model.BreEvent;
 import com.knetikcloud.model.Result;
+import com.knetikcloud.model.StringWrapper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,13 +22,13 @@ public interface RuleEngineEventsApi {
    * Fire a new event, based on an existing trigger
    * Parameters within the event must match names and types from the trigger. Actual rule execution is asynchornous.  Returns request id, which will be used as the event id. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_USER
    * @param breEvent The BRE event object (optional)
-   * @return Call&lt;String&gt;
+   * @return Call&lt;StringWrapper&gt;
    */
   @Headers({
     "Content-Type:application/json"
   })
   @POST("bre/events")
-  Call<String> sendBREEvent(
+  Call<StringWrapper> sendBREEvent(
     @retrofit2.http.Body BreEvent breEvent
   );
 

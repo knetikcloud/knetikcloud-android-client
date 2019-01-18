@@ -4,6 +4,7 @@ import com.knetikcloud.client.ApiClient;
 import com.knetikcloud.model.IntWrapper;
 import com.knetikcloud.model.InventorySubscriptionResource;
 import com.knetikcloud.model.InvoiceResource;
+import com.knetikcloud.model.PageResourceInventorySubscriptionResource;
 import com.knetikcloud.model.ReactivateSubscriptionRequest;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StringWrapper;
@@ -50,7 +51,9 @@ public class UsersSubscriptionsApiTest {
     @Test
     public void getUsersSubscriptionDetailsTest() {
         Integer userId = null;
-        // List<InventorySubscriptionResource> response = api.getUsersSubscriptionDetails(userId);
+        Integer size = null;
+        Integer page = null;
+        // PageResourceInventorySubscriptionResource response = api.getUsersSubscriptionDetails(userId, size, page);
 
         // TODO: test validations
     }

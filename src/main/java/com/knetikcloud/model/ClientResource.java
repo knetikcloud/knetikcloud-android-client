@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.knetikcloud.model.ClientCustomizationResource;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -28,10 +29,13 @@ import java.util.List;
 /**
  * ClientResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:44.564-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:20.820-05:00")
 public class ClientResource {
   @SerializedName("access_token_validity_seconds")
   private Integer accessTokenValiditySeconds = null;
+
+  @SerializedName("client_customization")
+  private ClientCustomizationResource clientCustomization = null;
 
   @SerializedName("client_key")
   private String clientKey = null;
@@ -76,6 +80,24 @@ public class ClientResource {
 
   public void setAccessTokenValiditySeconds(Integer accessTokenValiditySeconds) {
     this.accessTokenValiditySeconds = accessTokenValiditySeconds;
+  }
+
+  public ClientResource clientCustomization(ClientCustomizationResource clientCustomization) {
+    this.clientCustomization = clientCustomization;
+    return this;
+  }
+
+   /**
+   * The customizable fields for the login page
+   * @return clientCustomization
+  **/
+  @ApiModelProperty(value = "The customizable fields for the login page")
+  public ClientCustomizationResource getClientCustomization() {
+    return clientCustomization;
+  }
+
+  public void setClientCustomization(ClientCustomizationResource clientCustomization) {
+    this.clientCustomization = clientCustomization;
   }
 
   public ClientResource clientKey(String clientKey) {
@@ -258,6 +280,7 @@ public class ClientResource {
     }
     ClientResource clientResource = (ClientResource) o;
     return Objects.equals(this.accessTokenValiditySeconds, clientResource.accessTokenValiditySeconds) &&
+        Objects.equals(this.clientCustomization, clientResource.clientCustomization) &&
         Objects.equals(this.clientKey, clientResource.clientKey) &&
         Objects.equals(this.grantTypes, clientResource.grantTypes) &&
         Objects.equals(this.id, clientResource.id) &&
@@ -271,7 +294,7 @@ public class ClientResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessTokenValiditySeconds, clientKey, grantTypes, id, isPublic, locked, name, redirectUris, refreshTokenValiditySeconds, secret);
+    return Objects.hash(accessTokenValiditySeconds, clientCustomization, clientKey, grantTypes, id, isPublic, locked, name, redirectUris, refreshTokenValiditySeconds, secret);
   }
 
 
@@ -281,6 +304,7 @@ public class ClientResource {
     sb.append("class ClientResource {\n");
     
     sb.append("    accessTokenValiditySeconds: ").append(toIndentedString(accessTokenValiditySeconds)).append("\n");
+    sb.append("    clientCustomization: ").append(toIndentedString(clientCustomization)).append("\n");
     sb.append("    clientKey: ").append(toIndentedString(clientKey)).append("\n");
     sb.append("    grantTypes: ").append(toIndentedString(grantTypes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

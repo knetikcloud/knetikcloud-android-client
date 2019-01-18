@@ -9,6 +9,7 @@ import okhttp3.RequestBody;
 
 import com.knetikcloud.model.AmazonS3Activity;
 import com.knetikcloud.model.Result;
+import com.knetikcloud.model.StringWrapper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,12 +22,12 @@ public interface AmazonWebServicesS3Api {
    * Get a temporary signed S3 URL for download
    * To give access to files in your own S3 account, you will need to grant KnetikcCloud access to the file by adjusting your bucket policy accordingly. See S3 documentation for details. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; S3_ADMIN
    * @param bucket S3 bucket name (optional)
-   * @param path The path to the file relative to the bucket (the s3 object key) (optional)
+   * @param path The path to the file relative the bucket (the s3 object key) (optional)
    * @param expiration The number of seconds this URL will be valid. Default to 60 (optional, default to 60)
-   * @return Call&lt;String&gt;
+   * @return Call&lt;StringWrapper&gt;
    */
-  @GET("amazon/s3/downloadurl")
-  Call<String> getDownloadURL(
+  @GET("amazon/s3/download-url")
+  Call<StringWrapper> getDownloadURL(
     @retrofit2.http.Query("bucket") String bucket, @retrofit2.http.Query("path") String path, @retrofit2.http.Query("expiration") Integer expiration
   );
 
@@ -37,7 +38,7 @@ public interface AmazonWebServicesS3Api {
    * @param contentType The content type (optional)
    * @return Call&lt;AmazonS3Activity&gt;
    */
-  @GET("amazon/s3/signedposturl")
+  @GET("amazon/s3/signed-post-url")
   Call<AmazonS3Activity> getSignedS3URL(
     @retrofit2.http.Query("filename") String filename, @retrofit2.http.Query("content_type") String contentType
   );

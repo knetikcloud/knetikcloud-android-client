@@ -1,6 +1,6 @@
 # MediaPollsApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**getPollTemplates**](MediaPollsApi.md#getPollTemplates) | **GET** media/polls/templates | List and search poll templates
 [**getPolls**](MediaPollsApi.md#getPolls) | **GET** media/polls | List and search polls
 [**updatePoll**](MediaPollsApi.md#updatePoll) | **PUT** media/polls/{id} | Update an existing poll
-[**updatePollTemplate**](MediaPollsApi.md#updatePollTemplate) | **PUT** media/polls/templates/{id} | Update a poll template
+[**updatePollTemplate**](MediaPollsApi.md#updatePollTemplate) | **PATCH** media/polls/templates/{id} | Update a poll template
 
 
 <a name="answerPoll"></a>
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 Create a poll template
 
-Poll templates define a type of poll and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+Poll templates define a type of poll and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
 
 ### Example
 ```java
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 Delete a poll template
 
-If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
 
 ### Example
 ```java
@@ -427,7 +427,7 @@ Name | Type | Description  | Notes
 
 Get a single poll template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or POLLS_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
 
 ### Example
 ```java
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 
 List and search poll templates
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or POLLS_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -667,11 +667,11 @@ Name | Type | Description  | Notes
 
 <a name="updatePollTemplate"></a>
 # **updatePollTemplate**
-> TemplateResource updatePollTemplate(id, pollTemplateResource)
+> TemplateResource updatePollTemplate(id, templatePatchResource, testValidation)
 
 Update a poll template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -694,9 +694,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 MediaPollsApi apiInstance = new MediaPollsApi();
 String id = "id_example"; // String | The id of the template
-TemplateResource pollTemplateResource = new TemplateResource(); // TemplateResource | The poll template resource object
+PatchResource templatePatchResource = new PatchResource(); // PatchResource | The patch resource object
+Boolean testValidation = true; // Boolean | If true, this will test validation but not submit the patch request
 try {
-    TemplateResource result = apiInstance.updatePollTemplate(id, pollTemplateResource);
+    TemplateResource result = apiInstance.updatePollTemplate(id, templatePatchResource, testValidation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MediaPollsApi#updatePollTemplate");
@@ -709,7 +710,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the template |
- **pollTemplateResource** | [**TemplateResource**](TemplateResource.md)| The poll template resource object | [optional]
+ **templatePatchResource** | [**PatchResource**](PatchResource.md)| The patch resource object | [optional]
+ **testValidation** | **Boolean**| If true, this will test validation but not submit the patch request | [optional]
 
 ### Return type
 

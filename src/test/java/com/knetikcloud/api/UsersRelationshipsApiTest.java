@@ -27,7 +27,7 @@ public class UsersRelationshipsApiTest {
     /**
      * Create a user relationship
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
      */
     @Test
     public void createUserRelationshipTest() {
@@ -39,7 +39,7 @@ public class UsersRelationshipsApiTest {
     /**
      * Delete a user relationship
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
      */
     @Test
     public void deleteUserRelationshipTest() {
@@ -51,19 +51,19 @@ public class UsersRelationshipsApiTest {
     /**
      * Get a user relationship
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
      */
     @Test
-    public void getUserRelationshipTest() {
+    public void getRelationshipTest() {
         Long id = null;
-        // UserRelationshipResource response = api.getUserRelationship(id);
+        // UserRelationshipResource response = api.getRelationship(id);
 
         // TODO: test validations
     }
     /**
      * Get a list of user relationships
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
      */
     @Test
     public void getUserRelationshipsTest() {
@@ -77,7 +77,7 @@ public class UsersRelationshipsApiTest {
     /**
      * Update a user relationship
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
      */
     @Test
     public void updateUserRelationshipTest() {

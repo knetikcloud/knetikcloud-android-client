@@ -49,18 +49,4 @@ public interface UtilMaintenanceApi {
     @retrofit2.http.Body Maintenance maintenance
   );
 
-  /**
-   * Update current maintenance info
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; MAINTENANCE_ADMIN
-   * @param maintenance The maintenance object (optional)
-   * @return Call&lt;Void&gt;
-   */
-  @Headers({
-    "Content-Type:application/json"
-  })
-  @PUT("maintenance")
-  Call<Void> updateMaintenance(
-    @retrofit2.http.Body Maintenance maintenance
-  );
-
 }

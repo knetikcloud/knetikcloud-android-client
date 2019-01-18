@@ -7,10 +7,11 @@ import retrofit2.http.*;
 
 import okhttp3.RequestBody;
 
-import com.knetikcloud.model.BehaviorDefinitionResource;
 import com.knetikcloud.model.InvoiceResource;
+import com.knetikcloud.model.PageResourceBehaviorDefinitionResource;
 import com.knetikcloud.model.PageResourceStoreItem;
 import com.knetikcloud.model.PageResourceStoreItemTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.QuickBuyRequest;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StoreItem;
@@ -25,7 +26,7 @@ import java.util.Map;
 public interface StoreApi {
   /**
    * Create an item template
-   * Item Templates define a type of item and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * Item Templates define a type of item and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param itemTemplateResource The new item template (optional)
    * @return Call&lt;StoreItemTemplateResource&gt;
    */
@@ -54,7 +55,7 @@ public interface StoreApi {
 
   /**
    * Delete an item template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param id The id of the template (required)
    * @param cascade force deleting the template if it&#39;s attached to other objects, cascade &#x3D; detach (optional)
    * @return Call&lt;Void&gt;
@@ -78,15 +79,18 @@ public interface StoreApi {
   /**
    * List available item behaviors
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
-   * @return Call&lt;List&lt;BehaviorDefinitionResource&gt;&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return Call&lt;PageResourceBehaviorDefinitionResource&gt;
    */
   @GET("store/items/behaviors")
-  Call<List<BehaviorDefinitionResource>> getBehaviors();
-    
+  Call<PageResourceBehaviorDefinitionResource> getBehaviors(
+    @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
+  );
 
   /**
    * Get a single item template
-   * Item Templates define a type of item and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * Item Templates define a type of item and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param id The id of the template (required)
    * @return Call&lt;StoreItemTemplateResource&gt;
    */
@@ -97,7 +101,7 @@ public interface StoreApi {
 
   /**
    * List and search item templates
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
@@ -162,17 +166,18 @@ public interface StoreApi {
 
   /**
    * Update an item template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the template (required)
-   * @param itemTemplateResource The item template resource object (optional)
+   * @param templatePatchResource The patch resource object (optional)
+   * @param testValidation If true, this will test validation but not submit the patch request (optional)
    * @return Call&lt;StoreItemTemplateResource&gt;
    */
   @Headers({
     "Content-Type:application/json"
   })
-  @PUT("store/items/templates/{id}")
+  @PATCH("store/items/templates/{id}")
   Call<StoreItemTemplateResource> updateItemTemplate(
-    @retrofit2.http.Path("id") String id, @retrofit2.http.Body StoreItemTemplateResource itemTemplateResource
+    @retrofit2.http.Path("id") String id, @retrofit2.http.Body PatchResource templatePatchResource, @retrofit2.http.Query("test_validation") Boolean testValidation
   );
 
   /**

@@ -7,6 +7,7 @@ import com.knetikcloud.model.InvoicePaymentStatusRequest;
 import com.knetikcloud.model.InvoiceResource;
 import com.knetikcloud.model.PageResourceInvoiceLogEntry;
 import com.knetikcloud.model.PageResourceInvoiceResource;
+import com.knetikcloud.model.PageResourcestring;
 import com.knetikcloud.model.PayBySavedMethodRequest;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StringWrapper;
@@ -49,7 +50,9 @@ public class InvoicesApiTest {
      */
     @Test
     public void getFulFillmentStatusesTest() {
-        // List<String> response = api.getFulFillmentStatuses();
+        Integer size = null;
+        Integer page = null;
+        // PageResourcestring response = api.getFulFillmentStatuses(size, page);
 
         // TODO: test validations
     }
@@ -114,7 +117,9 @@ public class InvoicesApiTest {
      */
     @Test
     public void getPaymentStatusesTest() {
-        // List<String> response = api.getPaymentStatuses();
+        Integer size = null;
+        Integer page = null;
+        // PageResourcestring response = api.getPaymentStatuses(size, page);
 
         // TODO: test validations
     }

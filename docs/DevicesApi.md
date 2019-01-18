@@ -1,10 +1,10 @@
 # DevicesApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addDeviceUsers**](DevicesApi.md#addDeviceUsers) | **POST** devices/{id}/users | Add device users
+[**addDeviceUser**](DevicesApi.md#addDeviceUser) | **POST** devices/{id}/users | Add device users
 [**createDevice**](DevicesApi.md#createDevice) | **POST** devices | Create a device
 [**createDeviceTemplate**](DevicesApi.md#createDeviceTemplate) | **POST** devices/templates | Create a device template
 [**deleteDevice**](DevicesApi.md#deleteDevice) | **DELETE** devices/{id} | Delete a device
@@ -16,12 +16,12 @@ Method | HTTP request | Description
 [**getDeviceTemplates**](DevicesApi.md#getDeviceTemplates) | **GET** devices/templates | List and search device templates
 [**getDevices**](DevicesApi.md#getDevices) | **GET** devices | List and search devices
 [**updateDevice**](DevicesApi.md#updateDevice) | **PUT** devices/{id} | Update a device
-[**updateDeviceTemplate**](DevicesApi.md#updateDeviceTemplate) | **PUT** devices/templates/{id} | Update an device template
+[**updateDeviceTemplate**](DevicesApi.md#updateDeviceTemplate) | **PATCH** devices/templates/{id} | Update an device template
 
 
-<a name="addDeviceUsers"></a>
-# **addDeviceUsers**
-> DeviceResource addDeviceUsers(userResources, id)
+<a name="addDeviceUser"></a>
+# **addDeviceUser**
+> DeviceResource addDeviceUser(userResources, id)
 
 Add device users
 
@@ -50,10 +50,10 @@ DevicesApi apiInstance = new DevicesApi();
 List<SimpleUserResource> userResources = Arrays.asList(new SimpleUserResource()); // List<SimpleUserResource> | userResources
 String id = "id_example"; // String | id
 try {
-    DeviceResource result = apiInstance.addDeviceUsers(userResources, id);
+    DeviceResource result = apiInstance.addDeviceUser(userResources, id);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DevicesApi#addDeviceUsers");
+    System.err.println("Exception when calling DevicesApi#addDeviceUser");
     e.printStackTrace();
 }
 ```
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 Create a device template
 
-Device Templates define a type of device and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+Device Templates define a type of device and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
 
 ### Example
 ```java
@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 
 Delete an device template
 
-If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
 
 ### Example
 ```java
@@ -489,7 +489,7 @@ Name | Type | Description  | Notes
 
 Get a single device template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; description
+&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
 
 ### Example
 ```java
@@ -546,7 +546,7 @@ Name | Type | Description  | Notes
 
 List and search device templates
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or DEVICES_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -735,11 +735,11 @@ Name | Type | Description  | Notes
 
 <a name="updateDeviceTemplate"></a>
 # **updateDeviceTemplate**
-> TemplateResource updateDeviceTemplate(id, deviceTemplateResource)
+> TemplateResource updateDeviceTemplate(id, templatePatchResource, testValidation)
 
 Update an device template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -762,9 +762,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 DevicesApi apiInstance = new DevicesApi();
 String id = "id_example"; // String | The id of the template
-TemplateResource deviceTemplateResource = new TemplateResource(); // TemplateResource | The device template resource object
+PatchResource templatePatchResource = new PatchResource(); // PatchResource | The patch resource object
+Boolean testValidation = true; // Boolean | If true, this will test validation but not submit the patch request
 try {
-    TemplateResource result = apiInstance.updateDeviceTemplate(id, deviceTemplateResource);
+    TemplateResource result = apiInstance.updateDeviceTemplate(id, templatePatchResource, testValidation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DevicesApi#updateDeviceTemplate");
@@ -777,7 +778,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the template |
- **deviceTemplateResource** | [**TemplateResource**](TemplateResource.md)| The device template resource object | [optional]
+ **templatePatchResource** | [**PatchResource**](PatchResource.md)| The patch resource object | [optional]
+ **testValidation** | **Boolean**| If true, this will test validation but not submit the patch request | [optional]
 
 ### Return type
 

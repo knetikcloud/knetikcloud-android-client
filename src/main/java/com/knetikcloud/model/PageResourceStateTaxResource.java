@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.knetikcloud.model.Order;
 import com.knetikcloud.model.StateTaxResource;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -30,7 +29,7 @@ import java.util.List;
 /**
  * PageResourceStateTaxResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:44.564-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:20.820-05:00")
 public class PageResourceStateTaxResource {
   @SerializedName("content")
   private List<StateTaxResource> content = null;
@@ -49,9 +48,6 @@ public class PageResourceStateTaxResource {
 
   @SerializedName("size")
   private Integer size = null;
-
-  @SerializedName("sort")
-  private List<Order> sort = null;
 
   @SerializedName("total_elements")
   private Long totalElements = null;
@@ -175,32 +171,6 @@ public class PageResourceStateTaxResource {
     this.size = size;
   }
 
-  public PageResourceStateTaxResource sort(List<Order> sort) {
-    this.sort = sort;
-    return this;
-  }
-
-  public PageResourceStateTaxResource addSortItem(Order sortItem) {
-    if (this.sort == null) {
-      this.sort = new ArrayList<Order>();
-    }
-    this.sort.add(sortItem);
-    return this;
-  }
-
-   /**
-   * Get sort
-   * @return sort
-  **/
-  @ApiModelProperty(value = "")
-  public List<Order> getSort() {
-    return sort;
-  }
-
-  public void setSort(List<Order> sort) {
-    this.sort = sort;
-  }
-
   public PageResourceStateTaxResource totalElements(Long totalElements) {
     this.totalElements = totalElements;
     return this;
@@ -253,14 +223,13 @@ public class PageResourceStateTaxResource {
         Objects.equals(this.number, pageResourceStateTaxResource.number) &&
         Objects.equals(this.numberOfElements, pageResourceStateTaxResource.numberOfElements) &&
         Objects.equals(this.size, pageResourceStateTaxResource.size) &&
-        Objects.equals(this.sort, pageResourceStateTaxResource.sort) &&
         Objects.equals(this.totalElements, pageResourceStateTaxResource.totalElements) &&
         Objects.equals(this.totalPages, pageResourceStateTaxResource.totalPages);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, first, last, number, numberOfElements, size, sort, totalElements, totalPages);
+    return Objects.hash(content, first, last, number, numberOfElements, size, totalElements, totalPages);
   }
 
 
@@ -275,7 +244,6 @@ public class PageResourceStateTaxResource {
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    numberOfElements: ").append(toIndentedString(numberOfElements)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
-    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    totalElements: ").append(toIndentedString(totalElements)).append("\n");
     sb.append("    totalPages: ").append(toIndentedString(totalPages)).append("\n");
     sb.append("}");

@@ -1,6 +1,6 @@
 # RuleEngineRulesApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 <a name="getBREExpressionAsString"></a>
 # **getBREExpressionAsString**
-> String getBREExpressionAsString(expression)
+> StringWrapper getBREExpressionAsString(expression)
 
 Returns a string representation of the provided expression
 
@@ -157,7 +157,7 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 RuleEngineRulesApi apiInstance = new RuleEngineRulesApi();
 Expressionobject expression = new Expressionobject(); // Expressionobject | The expression
 try {
-    String result = apiInstance.getBREExpressionAsString(expression);
+    StringWrapper result = apiInstance.getBREExpressionAsString(expression);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RuleEngineRulesApi#getBREExpressionAsString");
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
+[**StringWrapper**](StringWrapper.md)
 
 ### Authorization
 

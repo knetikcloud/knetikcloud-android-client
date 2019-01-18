@@ -3,6 +3,7 @@ package com.knetikcloud.api;
 import com.knetikcloud.client.ApiClient;
 import com.knetikcloud.model.LeaderboardEntryResource;
 import com.knetikcloud.model.LeaderboardResource;
+import com.knetikcloud.model.PageResourcestring;
 import com.knetikcloud.model.Result;
 import org.junit.Before;
 import org.junit.Test;
@@ -61,7 +62,9 @@ public class GamificationLeaderboardsApiTest {
      */
     @Test
     public void getLeaderboardStrategiesTest() {
-        // List<String> response = api.getLeaderboardStrategies();
+        Integer size = null;
+        Integer page = null;
+        // PageResourcestring response = api.getLeaderboardStrategies(size, page);
 
         // TODO: test validations
     }

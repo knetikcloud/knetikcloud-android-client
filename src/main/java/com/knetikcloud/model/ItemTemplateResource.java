@@ -30,11 +30,8 @@ import java.util.List;
 /**
  * ItemTemplateResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:44.564-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:20.820-05:00")
 public class ItemTemplateResource {
-  @SerializedName("allow_additional")
-  private Boolean allowAdditional = null;
-
   @SerializedName("behaviors")
   private List<ItemBehaviorDefinitionResource> behaviors = null;
 
@@ -52,24 +49,6 @@ public class ItemTemplateResource {
 
   @SerializedName("updated_date")
   private Long updatedDate = null;
-
-  public ItemTemplateResource allowAdditional(Boolean allowAdditional) {
-    this.allowAdditional = allowAdditional;
-    return this;
-  }
-
-   /**
-   * Whether to allow additional properties beyond those specified or not
-   * @return allowAdditional
-  **/
-  @ApiModelProperty(example = "false", value = "Whether to allow additional properties beyond those specified or not")
-  public Boolean isAllowAdditional() {
-    return allowAdditional;
-  }
-
-  public void setAllowAdditional(Boolean allowAdditional) {
-    this.allowAdditional = allowAdditional;
-  }
 
   public ItemTemplateResource behaviors(List<ItemBehaviorDefinitionResource> behaviors) {
     this.behaviors = behaviors;
@@ -178,8 +157,7 @@ public class ItemTemplateResource {
       return false;
     }
     ItemTemplateResource itemTemplateResource = (ItemTemplateResource) o;
-    return Objects.equals(this.allowAdditional, itemTemplateResource.allowAdditional) &&
-        Objects.equals(this.behaviors, itemTemplateResource.behaviors) &&
+    return Objects.equals(this.behaviors, itemTemplateResource.behaviors) &&
         Objects.equals(this.createdDate, itemTemplateResource.createdDate) &&
         Objects.equals(this.id, itemTemplateResource.id) &&
         Objects.equals(this.name, itemTemplateResource.name) &&
@@ -189,7 +167,7 @@ public class ItemTemplateResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAdditional, behaviors, createdDate, id, name, properties, updatedDate);
+    return Objects.hash(behaviors, createdDate, id, name, properties, updatedDate);
   }
 
 
@@ -198,7 +176,6 @@ public class ItemTemplateResource {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemTemplateResource {\n");
     
-    sb.append("    allowAdditional: ").append(toIndentedString(allowAdditional)).append("\n");
     sb.append("    behaviors: ").append(toIndentedString(behaviors)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

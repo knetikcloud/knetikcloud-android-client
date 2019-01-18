@@ -1,9 +1,9 @@
 package com.knetikcloud.api;
 
 import com.knetikcloud.client.ApiClient;
-import com.knetikcloud.model.ChatBlacklistResource;
 import com.knetikcloud.model.ChatMessageResource;
 import com.knetikcloud.model.IntWrapper;
+import com.knetikcloud.model.PageResourceChatBlacklistResource;
 import com.knetikcloud.model.PageResourceChatMessageResource;
 import com.knetikcloud.model.PageResourceChatUserThreadResource;
 import com.knetikcloud.model.Result;
@@ -98,7 +98,9 @@ public class ChatApiTest {
     @Test
     public void getChatMessageBlacklistTest() {
         String id = null;
-        // List<ChatBlacklistResource> response = api.getChatMessageBlacklist(id);
+        Integer size = null;
+        Integer page = null;
+        // PageResourceChatBlacklistResource response = api.getChatMessageBlacklist(id, size, page);
 
         // TODO: test validations
     }

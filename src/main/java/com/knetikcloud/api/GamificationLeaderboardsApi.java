@@ -9,6 +9,7 @@ import okhttp3.RequestBody;
 
 import com.knetikcloud.model.LeaderboardEntryResource;
 import com.knetikcloud.model.LeaderboardResource;
+import com.knetikcloud.model.PageResourcestring;
 import com.knetikcloud.model.Result;
 
 import java.util.ArrayList;
@@ -49,10 +50,13 @@ public interface GamificationLeaderboardsApi {
   /**
    * Get a list of available leaderboard strategy names
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
-   * @return Call&lt;List&lt;String&gt;&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return Call&lt;PageResourcestring&gt;
    */
   @GET("leaderboards/strategies")
-  Call<List<String>> getLeaderboardStrategies();
-    
+  Call<PageResourcestring> getLeaderboardStrategies(
+    @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
+  );
 
 }

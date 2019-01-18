@@ -39,9 +39,9 @@ public class MessagingApiTest {
      * Processes a set of input data against the template and returnes the compiled result. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; MESSAGING_ADMIN
      */
     @Test
-    public void compileMessageTemplateTest() {
+    public void compileMessageTemplatesTest() {
         MessageTemplateBulkRequest request = null;
-        // Map<String, String> response = api.compileMessageTemplate(request);
+        // Map<String, String> response = api.compileMessageTemplates(request);
 
         // TODO: test validations
     }

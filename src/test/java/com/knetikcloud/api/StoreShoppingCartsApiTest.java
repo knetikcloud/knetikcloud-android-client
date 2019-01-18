@@ -80,7 +80,7 @@ public class StoreShoppingCartsApiTest {
     public void createCartTest() {
         Integer owner = null;
         String currencyCode = null;
-        // String response = api.createCart(owner, currencyCode);
+        // StringWrapper response = api.createCart(owner, currencyCode);
 
         // TODO: test validations
     }

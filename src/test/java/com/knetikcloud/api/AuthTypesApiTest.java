@@ -3,6 +3,7 @@ package com.knetikcloud.api;
 import com.knetikcloud.client.ApiClient;
 import com.knetikcloud.model.AccessResourceCreateRequest;
 import com.knetikcloud.model.AccessTypeResource;
+import com.knetikcloud.model.PageResourceAccessResultsResource;
 import com.knetikcloud.model.PageResourceAccessTypeResource;
 import com.knetikcloud.model.Result;
 import org.junit.Before;
@@ -34,7 +35,9 @@ public class AuthTypesApiTest {
     public void allowedResourceActionsTest() {
         String type = null;
         String id = null;
-        // List<String> response = api.allowedResourceActions(type, id);
+        Integer size = null;
+        Integer page = null;
+        // PageResourceAccessResultsResource response = api.allowedResourceActions(type, id, size, page);
 
         // TODO: test validations
     }
@@ -46,7 +49,9 @@ public class AuthTypesApiTest {
     @Test
     public void allowedTypeActionsTest() {
         String type = null;
-        // List<String> response = api.allowedTypeActions(type);
+        Integer size = null;
+        Integer page = null;
+        // PageResourceAccessResultsResource response = api.allowedTypeActions(type, size, page);
 
         // TODO: test validations
     }
@@ -76,6 +81,18 @@ public class AuthTypesApiTest {
         // TODO: test validations
     }
     /**
+     * Delete all resources of a type
+     *
+     * &lt;b&gt;Types Needed:&lt;/b&gt; ROLE_SUPER_ADMIN
+     */
+    @Test
+    public void deleteAllOfTypeTest() {
+        String type = null;
+        // Void response = api.deleteAllOfType(type);
+
+        // TODO: test validations
+    }
+    /**
      * Delete a resource
      *
      * Deletes a non-root level type&lt;br /&gt;&lt;b&gt;Types Needed:&lt;/b&gt; ROLE_SUPER_ADMIN
@@ -85,18 +102,6 @@ public class AuthTypesApiTest {
         String type = null;
         String id = null;
         // Void response = api.deleteResource(type, id);
-
-        // TODO: test validations
-    }
-    /**
-     * Delete all resources of a type
-     *
-     * &lt;b&gt;Types Needed:&lt;/b&gt; ROLE_SUPER_ADMIN
-     */
-    @Test
-    public void deleteResourcesTest() {
-        String type = null;
-        // Void response = api.deleteResources(type);
 
         // TODO: test validations
     }

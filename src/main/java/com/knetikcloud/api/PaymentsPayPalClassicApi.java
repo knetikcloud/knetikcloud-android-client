@@ -11,7 +11,9 @@ import com.knetikcloud.model.CreateBillingAgreementRequest;
 import com.knetikcloud.model.CreatePayPalPaymentRequest;
 import com.knetikcloud.model.FinalizeBillingAgreementRequest;
 import com.knetikcloud.model.FinalizePayPalPaymentRequest;
+import com.knetikcloud.model.IntWrapper;
 import com.knetikcloud.model.Result;
+import com.knetikcloud.model.StringWrapper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,13 +26,13 @@ public interface PaymentsPayPalClassicApi {
    * Create a PayPal Classic billing agreement for the user
    * Returns the token that should be used to forward the user to PayPal so they can accept the agreement. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PAYPAL_CLASSIC_ADMIN or owner
    * @param request The request to create a PayPal billing agreement (optional)
-   * @return Call&lt;String&gt;
+   * @return Call&lt;StringWrapper&gt;
    */
   @Headers({
     "Content-Type:application/json"
   })
   @POST("payment/provider/paypal/classic/agreements/start")
-  Call<String> createPayPalBillingAgreementUrl(
+  Call<StringWrapper> createPayPalBillingAgreementUrl(
     @retrofit2.http.Body CreateBillingAgreementRequest request
   );
 
@@ -38,13 +40,13 @@ public interface PaymentsPayPalClassicApi {
    * Create a payment token for PayPal express checkout
    * Returns the token that should be used to forward the user to PayPal so they can complete the checkout. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PAYPAL_CLASSIC_ADMIN or owner
    * @param request The request to create a PayPal payment token (optional)
-   * @return Call&lt;String&gt;
+   * @return Call&lt;StringWrapper&gt;
    */
   @Headers({
     "Content-Type:application/json"
   })
   @POST("payment/provider/paypal/classic/checkout/start")
-  Call<String> createPayPalExpressCheckout(
+  Call<StringWrapper> createPayPalExpressCheckout(
     @retrofit2.http.Body CreatePayPalPaymentRequest request
   );
 
@@ -52,13 +54,13 @@ public interface PaymentsPayPalClassicApi {
    * Finalizes a billing agreement after the user has accepted through PayPal
    * Returns the ID of the new payment method created for the user for the billing agreement. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PAYPAL_CLASSIC_ADMIN or owner
    * @param request The request to finalize a PayPal billing agreement (optional)
-   * @return Call&lt;Integer&gt;
+   * @return Call&lt;IntWrapper&gt;
    */
   @Headers({
     "Content-Type:application/json"
   })
   @POST("payment/provider/paypal/classic/agreements/finish")
-  Call<Integer> finalizePayPalBillingAgreement(
+  Call<IntWrapper> finalizePayPalBillingAgreement(
     @retrofit2.http.Body FinalizeBillingAgreementRequest request
   );
 

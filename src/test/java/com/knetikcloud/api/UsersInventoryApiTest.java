@@ -10,6 +10,7 @@ import com.knetikcloud.model.PageResourceEntitlementItem;
 import com.knetikcloud.model.PageResourceItemTemplateResource;
 import com.knetikcloud.model.PageResourceUserInventoryResource;
 import com.knetikcloud.model.PageResourceUserItemLogResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.UserInventoryAddRequest;
 import com.knetikcloud.model.UserInventoryResource;
@@ -76,7 +77,7 @@ public class UsersInventoryApiTest {
     /**
      * Create an entitlement template
      *
-     * Entitlement templates define a type of entitlement and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Entitlement templates define a type of entitlement and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      */
     @Test
     public void createEntitlementTemplateTest() {
@@ -100,7 +101,7 @@ public class UsersInventoryApiTest {
     /**
      * Delete an entitlement template
      *
-     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      */
     @Test
     public void deleteEntitlementTemplateTest() {
@@ -140,7 +141,7 @@ public class UsersInventoryApiTest {
     /**
      * Get a single entitlement template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      */
     @Test
     public void getEntitlementTemplateTest() {
@@ -152,7 +153,7 @@ public class UsersInventoryApiTest {
     /**
      * List and search entitlement templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      */
     @Test
     public void getEntitlementTemplatesTest() {
@@ -160,6 +161,25 @@ public class UsersInventoryApiTest {
         Integer page = null;
         String order = null;
         // PageResourceItemTemplateResource response = api.getEntitlementTemplates(size, page, order);
+
+        // TODO: test validations
+    }
+    /**
+     * List the user inventory entries for all users
+     *
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
+     */
+    @Test
+    public void getInventoryListTest() {
+        Boolean inactive = null;
+        Integer size = null;
+        Integer page = null;
+        String filterItemName = null;
+        Integer filterItemId = null;
+        String filterUsername = null;
+        String filterGroup = null;
+        String filterDate = null;
+        // PageResourceUserInventoryResource response = api.getInventoryList(inactive, size, page, filterItemName, filterItemId, filterUsername, filterGroup, filterDate);
 
         // TODO: test validations
     }
@@ -212,25 +232,6 @@ public class UsersInventoryApiTest {
         // TODO: test validations
     }
     /**
-     * List the user inventory entries for all users
-     *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
-     */
-    @Test
-    public void getUsersInventoryTest() {
-        Boolean inactive = null;
-        Integer size = null;
-        Integer page = null;
-        String filterItemName = null;
-        Integer filterItemId = null;
-        String filterUsername = null;
-        String filterGroup = null;
-        String filterDate = null;
-        // PageResourceUserInventoryResource response = api.getUsersInventory(inactive, size, page, filterItemName, filterItemId, filterUsername, filterGroup, filterDate);
-
-        // TODO: test validations
-    }
-    /**
      * Grant an entitlement
      *
      * &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
@@ -260,13 +261,14 @@ public class UsersInventoryApiTest {
     /**
      * Update an entitlement template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateEntitlementTemplateTest() {
         String id = null;
-        ItemTemplateResource template = null;
-        // ItemTemplateResource response = api.updateEntitlementTemplate(id, template);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        // ItemTemplateResource response = api.updateEntitlementTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

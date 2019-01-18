@@ -26,19 +26,13 @@ import java.io.IOException;
 /**
  * SearchDocument
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:44.564-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:20.820-05:00")
 public class SearchDocument {
   @SerializedName("data")
   private Object data = null;
 
   @SerializedName("id")
   private String id = null;
-
-  @SerializedName("template")
-  private String template = null;
-
-  @SerializedName("template_version_data")
-  private Object templateVersionData = null;
 
   @SerializedName("type")
   private String type = null;
@@ -79,42 +73,6 @@ public class SearchDocument {
     this.id = id;
   }
 
-  public SearchDocument template(String template) {
-    this.template = template;
-    return this;
-  }
-
-   /**
-   * Get template
-   * @return template
-  **/
-  @ApiModelProperty(value = "")
-  public String getTemplate() {
-    return template;
-  }
-
-  public void setTemplate(String template) {
-    this.template = template;
-  }
-
-  public SearchDocument templateVersionData(Object templateVersionData) {
-    this.templateVersionData = templateVersionData;
-    return this;
-  }
-
-   /**
-   * Get templateVersionData
-   * @return templateVersionData
-  **/
-  @ApiModelProperty(value = "")
-  public Object getTemplateVersionData() {
-    return templateVersionData;
-  }
-
-  public void setTemplateVersionData(Object templateVersionData) {
-    this.templateVersionData = templateVersionData;
-  }
-
   public SearchDocument type(String type) {
     this.type = type;
     return this;
@@ -145,14 +103,12 @@ public class SearchDocument {
     SearchDocument searchDocument = (SearchDocument) o;
     return Objects.equals(this.data, searchDocument.data) &&
         Objects.equals(this.id, searchDocument.id) &&
-        Objects.equals(this.template, searchDocument.template) &&
-        Objects.equals(this.templateVersionData, searchDocument.templateVersionData) &&
         Objects.equals(this.type, searchDocument.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, id, template, templateVersionData, type);
+    return Objects.hash(data, id, type);
   }
 
 
@@ -163,8 +119,6 @@ public class SearchDocument {
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    template: ").append(toIndentedString(template)).append("\n");
-    sb.append("    templateVersionData: ").append(toIndentedString(templateVersionData)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

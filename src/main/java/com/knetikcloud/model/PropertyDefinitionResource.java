@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.knetikcloud.model.PropertyFieldListResource;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -27,14 +26,11 @@ import java.io.IOException;
 /**
  * PropertyDefinitionResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:44.564-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:20.820-05:00")
 
 public class PropertyDefinitionResource {
   @SerializedName("description")
   private String description = null;
-
-  @SerializedName("field_list")
-  private PropertyFieldListResource fieldList = null;
 
   @SerializedName("friendly_name")
   private String friendlyName = null;
@@ -75,24 +71,6 @@ public class PropertyDefinitionResource {
     this.description = description;
   }
 
-  public PropertyDefinitionResource fieldList(PropertyFieldListResource fieldList) {
-    this.fieldList = fieldList;
-    return this;
-  }
-
-   /**
-   * A list of the fields on both the property definition and property of this type
-   * @return fieldList
-  **/
-  @ApiModelProperty(value = "A list of the fields on both the property definition and property of this type")
-  public PropertyFieldListResource getFieldList() {
-    return fieldList;
-  }
-
-  public void setFieldList(PropertyFieldListResource fieldList) {
-    this.fieldList = fieldList;
-  }
-
   public PropertyDefinitionResource friendlyName(String friendlyName) {
     this.friendlyName = friendlyName;
     return this;
@@ -117,10 +95,10 @@ public class PropertyDefinitionResource {
   }
 
    /**
-   * The name of the property
+   * The name of the property. Must start with a letter
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "The name of the property")
+  @ApiModelProperty(required = true, value = "The name of the property. Must start with a letter")
   public String getName() {
     return name;
   }
@@ -230,7 +208,6 @@ public class PropertyDefinitionResource {
     }
     PropertyDefinitionResource propertyDefinitionResource = (PropertyDefinitionResource) o;
     return Objects.equals(this.description, propertyDefinitionResource.description) &&
-        Objects.equals(this.fieldList, propertyDefinitionResource.fieldList) &&
         Objects.equals(this.friendlyName, propertyDefinitionResource.friendlyName) &&
         Objects.equals(this.name, propertyDefinitionResource.name) &&
         Objects.equals(this.optionLabelPath, propertyDefinitionResource.optionLabelPath) &&
@@ -242,7 +219,7 @@ public class PropertyDefinitionResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, fieldList, friendlyName, name, optionLabelPath, optionValuePath, optionsUrl, required, type);
+    return Objects.hash(description, friendlyName, name, optionLabelPath, optionValuePath, optionsUrl, required, type);
   }
 
 
@@ -252,7 +229,6 @@ public class PropertyDefinitionResource {
     sb.append("class PropertyDefinitionResource {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    fieldList: ").append(toIndentedString(fieldList)).append("\n");
     sb.append("    friendlyName: ").append(toIndentedString(friendlyName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    optionLabelPath: ").append(toIndentedString(optionLabelPath)).append("\n");

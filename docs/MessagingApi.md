@@ -1,10 +1,10 @@
 # MessagingApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**compileMessageTemplate**](MessagingApi.md#compileMessageTemplate) | **POST** messaging/templates/compilations | Compile a message template
+[**compileMessageTemplates**](MessagingApi.md#compileMessageTemplates) | **POST** messaging/templates/compilations | Compile a message template
 [**createMessageTemplate**](MessagingApi.md#createMessageTemplate) | **POST** messaging/templates | Create a message template
 [**deleteMessageTemplate**](MessagingApi.md#deleteMessageTemplate) | **DELETE** messaging/templates/{id} | Delete an existing message template
 [**getMessageTemplate**](MessagingApi.md#getMessageTemplate) | **GET** messaging/templates/{id} | Get a single message template
@@ -20,9 +20,9 @@ Method | HTTP request | Description
 [**updateMessageTemplate**](MessagingApi.md#updateMessageTemplate) | **PUT** messaging/templates/{id} | Update an existing message template
 
 
-<a name="compileMessageTemplate"></a>
-# **compileMessageTemplate**
-> Map&lt;String, String&gt; compileMessageTemplate(request)
+<a name="compileMessageTemplates"></a>
+# **compileMessageTemplates**
+> Map&lt;String, String&gt; compileMessageTemplates(request)
 
 Compile a message template
 
@@ -50,10 +50,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 MessagingApi apiInstance = new MessagingApi();
 MessageTemplateBulkRequest request = new MessageTemplateBulkRequest(); // MessageTemplateBulkRequest | request
 try {
-    Map<String, String> result = apiInstance.compileMessageTemplate(request);
+    Map<String, String> result = apiInstance.compileMessageTemplates(request);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling MessagingApi#compileMessageTemplate");
+    System.err.println("Exception when calling MessagingApi#compileMessageTemplates");
     e.printStackTrace();
 }
 ```

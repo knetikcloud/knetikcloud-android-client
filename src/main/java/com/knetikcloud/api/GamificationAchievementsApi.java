@@ -8,11 +8,12 @@ import retrofit2.http.*;
 import okhttp3.RequestBody;
 
 import com.knetikcloud.model.AchievementDefinitionResource;
-import com.knetikcloud.model.BreTriggerResource;
 import com.knetikcloud.model.IntWrapper;
 import com.knetikcloud.model.PageResourceAchievementDefinitionResource;
+import com.knetikcloud.model.PageResourceBreTriggerResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
 import com.knetikcloud.model.PageResourceUserAchievementGroupResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.TemplateResource;
 import com.knetikcloud.model.UserAchievementGroupResource;
@@ -40,7 +41,7 @@ public interface GamificationAchievementsApi {
 
   /**
    * Create an achievement template
-   * Achievement templates define a type of achievement and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * Achievement templates define a type of achievement and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param template The achievement template to be created (optional)
    * @return Call&lt;TemplateResource&gt;
    */
@@ -65,7 +66,7 @@ public interface GamificationAchievementsApi {
 
   /**
    * Delete an achievement template
-   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param id The id of the template (required)
    * @param cascade The value needed to delete used templates (optional)
    * @return Call&lt;Void&gt;
@@ -88,7 +89,7 @@ public interface GamificationAchievementsApi {
 
   /**
    * Get a single achievement template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param id The id of the template (required)
    * @return Call&lt;TemplateResource&gt;
    */
@@ -99,7 +100,7 @@ public interface GamificationAchievementsApi {
 
   /**
    * List and search achievement templates
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
@@ -113,11 +114,14 @@ public interface GamificationAchievementsApi {
   /**
    * Get the list of triggers that can be used to trigger an achievement progress update
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
-   * @return Call&lt;List&lt;BreTriggerResource&gt;&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return Call&lt;PageResourceBreTriggerResource&gt;
    */
   @GET("achievements/triggers")
-  Call<List<BreTriggerResource>> getAchievementTriggers();
-    
+  Call<PageResourceBreTriggerResource> getAchievementTriggers(
+    @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
+  );
 
   /**
    * Get all achievement definitions in the system
@@ -140,11 +144,13 @@ public interface GamificationAchievementsApi {
    * Get a list of derived achievements
    * Used by other services that depend on achievements.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
    * @param name The name of the derived achievement (required)
-   * @return Call&lt;List&lt;AchievementDefinitionResource&gt;&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return Call&lt;PageResourceAchievementDefinitionResource&gt;
    */
   @GET("achievements/derived/{name}")
-  Call<List<AchievementDefinitionResource>> getDerivedAchievements(
-    @retrofit2.http.Path("name") String name
+  Call<PageResourceAchievementDefinitionResource> getDerivedAchievements(
+    @retrofit2.http.Path("name") String name, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
   );
 
   /**
@@ -165,45 +171,45 @@ public interface GamificationAchievementsApi {
    * @param userId The user&#39;s id (required)
    * @param filterAchievementDerived Filter for achievements that are derived from other services (optional)
    * @param filterAchievementTagset Filter for achievements with specified tags (separated by comma) (optional)
-   * @param filterAchievementName Filter for achievements whose name contains a string (optional)
+   * @param filterGroupName Filter for achievements whose group/level name contains a string (optional)
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @return Call&lt;PageResourceUserAchievementGroupResource&gt;
    */
   @GET("users/{user_id}/achievements")
   Call<PageResourceUserAchievementGroupResource> getUserAchievementsProgress(
-    @retrofit2.http.Path("user_id") Integer userId, @retrofit2.http.Query("filter_achievement_derived") Boolean filterAchievementDerived, @retrofit2.http.Query("filter_achievement_tagset") String filterAchievementTagset, @retrofit2.http.Query("filter_achievement_name") String filterAchievementName, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
+    @retrofit2.http.Path("user_id") Integer userId, @retrofit2.http.Query("filter_achievement_derived") Boolean filterAchievementDerived, @retrofit2.http.Query("filter_achievement_tagset") String filterAchievementTagset, @retrofit2.http.Query("filter_group_name") String filterGroupName, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
   );
 
   /**
    * Retrieve progress on a given achievement for all users
-   * Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
+   * Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param achievementName The achievement&#39;s name (required)
    * @param filterAchievementDerived Filter for achievements that are derived from other services (optional)
    * @param filterAchievementTagset Filter for achievements with specified tags (separated by comma) (optional)
-   * @param filterAchievementName Filter for achievements whose name contains a string (optional)
+   * @param filterGroupName Filter for achievements whose group/level name contains a string (optional)
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @return Call&lt;PageResourceUserAchievementGroupResource&gt;
    */
   @GET("users/achievements/{achievement_name}")
   Call<PageResourceUserAchievementGroupResource> getUsersAchievementProgress(
-    @retrofit2.http.Path("achievement_name") String achievementName, @retrofit2.http.Query("filter_achievement_derived") Boolean filterAchievementDerived, @retrofit2.http.Query("filter_achievement_tagset") String filterAchievementTagset, @retrofit2.http.Query("filter_achievement_name") String filterAchievementName, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
+    @retrofit2.http.Path("achievement_name") String achievementName, @retrofit2.http.Query("filter_achievement_derived") Boolean filterAchievementDerived, @retrofit2.http.Query("filter_achievement_tagset") String filterAchievementTagset, @retrofit2.http.Query("filter_group_name") String filterGroupName, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
   );
 
   /**
    * Retrieve progress on achievements for all users
-   * Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
+   * Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param filterAchievementDerived Filter for achievements that are derived from other services (optional)
    * @param filterAchievementTagset Filter for achievements with specified tags (separated by comma) (optional)
-   * @param filterAchievementName Filter for achievements whose name contains a string (optional)
+   * @param filterGroupName Filter for achievements whose group/level name contains a string (optional)
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @return Call&lt;PageResourceUserAchievementGroupResource&gt;
    */
   @GET("users/achievements")
   Call<PageResourceUserAchievementGroupResource> getUsersAchievementsProgress(
-    @retrofit2.http.Query("filter_achievement_derived") Boolean filterAchievementDerived, @retrofit2.http.Query("filter_achievement_tagset") String filterAchievementTagset, @retrofit2.http.Query("filter_achievement_name") String filterAchievementName, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
+    @retrofit2.http.Query("filter_achievement_derived") Boolean filterAchievementDerived, @retrofit2.http.Query("filter_achievement_tagset") String filterAchievementTagset, @retrofit2.http.Query("filter_group_name") String filterGroupName, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
   );
 
   /**
@@ -255,17 +261,18 @@ public interface GamificationAchievementsApi {
 
   /**
    * Update an achievement template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the template (required)
-   * @param template The updated template (optional)
+   * @param templatePatchResource The patch resource object (optional)
+   * @param testValidation If true, this will test validation but not submit the patch request (optional)
    * @return Call&lt;TemplateResource&gt;
    */
   @Headers({
     "Content-Type:application/json"
   })
-  @PUT("achievements/templates/{id}")
+  @PATCH("achievements/templates/{id}")
   Call<TemplateResource> updateAchievementTemplate(
-    @retrofit2.http.Path("id") String id, @retrofit2.http.Body TemplateResource template
+    @retrofit2.http.Path("id") String id, @retrofit2.http.Body PatchResource templatePatchResource, @retrofit2.http.Query("test_validation") Boolean testValidation
   );
 
 }

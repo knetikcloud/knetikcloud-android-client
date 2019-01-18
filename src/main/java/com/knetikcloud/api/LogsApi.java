@@ -35,7 +35,7 @@ public interface LogsApi {
 
   /**
    * Returns a list of BRE event log entries
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
+   * Logs are kept for 24 hours. &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
    * @param filterStartDate A comma separated string without spaces.  First value is the operator to search on, second value is the event log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
    * @param filterEventName Filter event logs by event name (optional)
    * @param filterEventId Filter event logs by request id (optional)
@@ -63,7 +63,7 @@ public interface LogsApi {
 
   /**
    * Returns a list of forward log entries
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
+   * Logs are kept for 24 hours. &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
    * @param filterStartDate A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
    * @param filterEndDate A comma separated string without spaces.  First value is the operator to search on, second value is the log end date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
    * @param filterStatusCode Filter forward logs by http status code (optional)
@@ -85,7 +85,7 @@ public interface LogsApi {
    * @return Call&lt;UserActionLog&gt;
    */
   @GET("audit/logs/{id}")
-  Call<UserActionLog> getUserLog(
+  Call<UserActionLog> getUserLogs(
     @retrofit2.http.Path("id") String id
   );
 
@@ -100,7 +100,7 @@ public interface LogsApi {
    * @return Call&lt;PageResourceUserActionLog&gt;
    */
   @GET("audit/logs")
-  Call<PageResourceUserActionLog> getUserLogs(
+  Call<PageResourceUserActionLog> getUserLogs1(
     @retrofit2.http.Query("filter_user") Integer filterUser, @retrofit2.http.Query("filter_action_name") String filterActionName, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page, @retrofit2.http.Query("order") String order
   );
 

@@ -9,6 +9,7 @@ import okhttp3.RequestBody;
 
 import com.knetikcloud.model.ItemTemplateResource;
 import com.knetikcloud.model.PageResourceItemTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.ShippingItem;
 
@@ -36,7 +37,7 @@ public interface StoreShippingApi {
 
   /**
    * Create a shipping template
-   * Shipping Templates define a type of shipping and the properties they have.
+   * Shipping Templates define a type of shipping and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param shippingTemplateResource The new shipping template (optional)
    * @return Call&lt;ItemTemplateResource&gt;
    */
@@ -61,7 +62,7 @@ public interface StoreShippingApi {
 
   /**
    * Delete a shipping template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param id The id of the template (required)
    * @param cascade force deleting the template if it&#39;s attached to other objects, cascade &#x3D; detach (optional)
    * @return Call&lt;Void&gt;
@@ -84,7 +85,7 @@ public interface StoreShippingApi {
 
   /**
    * Get a single shipping template
-   * Shipping Templates define a type of shipping and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or SHIPPING_ADMIN
+   * Shipping Templates define a type of shipping and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param id The id of the template (required)
    * @return Call&lt;ItemTemplateResource&gt;
    */
@@ -95,7 +96,7 @@ public interface StoreShippingApi {
 
   /**
    * List and search shipping templates
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or SHIPPING_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
@@ -124,17 +125,18 @@ public interface StoreShippingApi {
 
   /**
    * Update a shipping template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the template (required)
-   * @param shippingTemplateResource The shipping template resource object (optional)
+   * @param templatePatchResource The patch resource object (optional)
+   * @param testValidation If true, this will test validation but not submit the patch request (optional)
    * @return Call&lt;ItemTemplateResource&gt;
    */
   @Headers({
     "Content-Type:application/json"
   })
-  @PUT("store/shipping/templates/{id}")
+  @PATCH("store/shipping/templates/{id}")
   Call<ItemTemplateResource> updateShippingTemplate(
-    @retrofit2.http.Path("id") String id, @retrofit2.http.Body ItemTemplateResource shippingTemplateResource
+    @retrofit2.http.Path("id") String id, @retrofit2.http.Body PatchResource templatePatchResource, @retrofit2.http.Query("test_validation") Boolean testValidation
   );
 
 }

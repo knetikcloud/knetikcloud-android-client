@@ -57,16 +57,4 @@ public class UtilMaintenanceApiTest {
 
         // TODO: test validations
     }
-    /**
-     * Update current maintenance info
-     *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; MAINTENANCE_ADMIN
-     */
-    @Test
-    public void updateMaintenanceTest() {
-        Maintenance maintenance = null;
-        // Void response = api.updateMaintenance(maintenance);
-
-        // TODO: test validations
-    }
 }

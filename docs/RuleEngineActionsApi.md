@@ -1,6 +1,6 @@
 # RuleEngineActionsApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getBREActions"></a>
 # **getBREActions**
-> List&lt;ActionResource&gt; getBREActions(filterCategory, filterName, filterTags, filterSearch)
+> PageResourceActionResource getBREActions(filterCategory, filterName, filterTags, filterSearch, size, page)
 
 Get a list of available actions
 
@@ -39,8 +39,10 @@ String filterCategory = "filterCategory_example"; // String | Filter for actions
 String filterName = "filterName_example"; // String | Filter for actions that have names containing the given string
 String filterTags = "filterTags_example"; // String | Filter for actions that have all of the given tags (comma separated list)
 String filterSearch = "filterSearch_example"; // String | Filter for actions containing the given words somewhere within name, description and tags
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<ActionResource> result = apiInstance.getBREActions(filterCategory, filterName, filterTags, filterSearch);
+    PageResourceActionResource result = apiInstance.getBREActions(filterCategory, filterName, filterTags, filterSearch, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RuleEngineActionsApi#getBREActions");
@@ -52,14 +54,16 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterCategory** | **String**| Filter for actions that are within a specific category | [optional] [enum: achievement, behavior, comment, disposition, device, entitlement, friends, fulfillment, gamification, inventory, invoice, media, scheduler, store, subscription, user, wallet, custom, challenge, activity, campaign, event]
+ **filterCategory** | **String**| Filter for actions that are within a specific category | [optional] [enum: achievement, behavior, comment, disposition, device, entitlement, friends, fulfillment, gamification, inventory, invoice, media, scheduler, store, subscription, user, wallet, custom, challenge, activity, campaign, event, monitoring, verification]
  **filterName** | **String**| Filter for actions that have names containing the given string | [optional]
  **filterTags** | **String**| Filter for actions that have all of the given tags (comma separated list) | [optional]
  **filterSearch** | **String**| Filter for actions containing the given words somewhere within name, description and tags | [optional]
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-[**List&lt;ActionResource&gt;**](ActionResource.md)
+[**PageResourceActionResource**](PageResourceActionResource.md)
 
 ### Authorization
 

@@ -1,6 +1,6 @@
 # CampaignsApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**getCampaigns**](CampaignsApi.md#getCampaigns) | **GET** campaigns | List and search campaigns
 [**removeChallengeFromCampaign**](CampaignsApi.md#removeChallengeFromCampaign) | **DELETE** campaigns/{campaign_id}/challenges/{id} | Remove a challenge from a campaign
 [**updateCampaign**](CampaignsApi.md#updateCampaign) | **PUT** campaigns/{id} | Update a campaign
-[**updateCampaignTemplate**](CampaignsApi.md#updateCampaignTemplate) | **PUT** campaigns/templates/{id} | Update an campaign template
+[**updateCampaignTemplate**](CampaignsApi.md#updateCampaignTemplate) | **PATCH** campaigns/templates/{id} | Update an campaign template
 
 
 <a name="addChallengeToCampaign"></a>
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 Create a campaign template
 
-Campaign Templates define a type of campaign and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+Campaign Templates define a type of campaign and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
 
 ### Example
 ```java
@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 
 Delete a campaign template
 
-If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
 
 ### Example
 ```java
@@ -438,7 +438,7 @@ Name | Type | Description  | Notes
 
 Get a single campaign template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CAMPAIGNS_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
 
 ### Example
 ```java
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 
 List and search campaign templates
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CAMPAIGNS_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -733,11 +733,11 @@ Name | Type | Description  | Notes
 
 <a name="updateCampaignTemplate"></a>
 # **updateCampaignTemplate**
-> TemplateResource updateCampaignTemplate(id, campaignTemplateResource)
+> TemplateResource updateCampaignTemplate(id, templatePatchResource, testValidation)
 
 Update an campaign template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -760,9 +760,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 CampaignsApi apiInstance = new CampaignsApi();
 String id = "id_example"; // String | The id of the template
-TemplateResource campaignTemplateResource = new TemplateResource(); // TemplateResource | The campaign template resource object
+PatchResource templatePatchResource = new PatchResource(); // PatchResource | The patch resource object
+Boolean testValidation = true; // Boolean | If true, this will test validation but not submit the patch request
 try {
-    TemplateResource result = apiInstance.updateCampaignTemplate(id, campaignTemplateResource);
+    TemplateResource result = apiInstance.updateCampaignTemplate(id, templatePatchResource, testValidation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CampaignsApi#updateCampaignTemplate");
@@ -775,7 +776,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the template |
- **campaignTemplateResource** | [**TemplateResource**](TemplateResource.md)| The campaign template resource object | [optional]
+ **templatePatchResource** | [**PatchResource**](PatchResource.md)| The patch resource object | [optional]
+ **testValidation** | **Boolean**| If true, this will test validation but not submit the patch request | [optional]
 
 ### Return type
 

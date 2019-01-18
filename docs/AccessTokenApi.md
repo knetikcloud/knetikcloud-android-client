@@ -1,6 +1,6 @@
 # AccessTokenApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -41,7 +41,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantType** | **String**| Grant type | [default to client_credentials] [enum: client_credentials, password, facebook, google, refresh_token]
+ **grantType** | **String**| Grant type | [default to client_credentials] [enum: client_credentials, password, facebook, google, refresh_token, implicit]
  **clientId** | **String**| The id of the client | [default to knetik]
  **clientSecret** | **String**| The secret key of the client.  Used only with a grant_type of client_credentials | [optional]
  **username** | **String**| The username of the client. Used only with a grant_type of password | [optional]

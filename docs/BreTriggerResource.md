@@ -39,6 +39,8 @@ CHALLENGE | &quot;challenge&quot;
 ACTIVITY | &quot;activity&quot;
 CAMPAIGN | &quot;campaign&quot;
 EVENT | &quot;event&quot;
+MONITORING | &quot;monitoring&quot;
+VERIFICATION | &quot;verification&quot;
 
 
 

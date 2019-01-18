@@ -29,11 +29,8 @@ import java.util.List;
 /**
  * TemplateResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:44.564-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:20.820-05:00")
 public class TemplateResource {
-  @SerializedName("allow_additional")
-  private Boolean allowAdditional = null;
-
   @SerializedName("created_date")
   private Long createdDate = null;
 
@@ -48,24 +45,6 @@ public class TemplateResource {
 
   @SerializedName("updated_date")
   private Long updatedDate = null;
-
-  public TemplateResource allowAdditional(Boolean allowAdditional) {
-    this.allowAdditional = allowAdditional;
-    return this;
-  }
-
-   /**
-   * Whether to allow additional properties beyond those specified or not
-   * @return allowAdditional
-  **/
-  @ApiModelProperty(example = "false", value = "Whether to allow additional properties beyond those specified or not")
-  public Boolean isAllowAdditional() {
-    return allowAdditional;
-  }
-
-  public void setAllowAdditional(Boolean allowAdditional) {
-    this.allowAdditional = allowAdditional;
-  }
 
    /**
    * The date/time this resource was created in seconds since unix epoch
@@ -148,8 +127,7 @@ public class TemplateResource {
       return false;
     }
     TemplateResource templateResource = (TemplateResource) o;
-    return Objects.equals(this.allowAdditional, templateResource.allowAdditional) &&
-        Objects.equals(this.createdDate, templateResource.createdDate) &&
+    return Objects.equals(this.createdDate, templateResource.createdDate) &&
         Objects.equals(this.id, templateResource.id) &&
         Objects.equals(this.name, templateResource.name) &&
         Objects.equals(this.properties, templateResource.properties) &&
@@ -158,7 +136,7 @@ public class TemplateResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAdditional, createdDate, id, name, properties, updatedDate);
+    return Objects.hash(createdDate, id, name, properties, updatedDate);
   }
 
 
@@ -167,7 +145,6 @@ public class TemplateResource {
     StringBuilder sb = new StringBuilder();
     sb.append("class TemplateResource {\n");
     
-    sb.append("    allowAdditional: ").append(toIndentedString(allowAdditional)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

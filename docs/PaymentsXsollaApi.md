@@ -1,6 +1,6 @@
 # PaymentsXsollaApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="createXsollaTokenUrl"></a>
 # **createXsollaTokenUrl**
-> String createXsollaTokenUrl(request)
+> StringWrapper createXsollaTokenUrl(request)
 
 Create a payment token that should be used to forward the user to Xsolla so they can complete payment
 
@@ -37,7 +37,7 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 PaymentsXsollaApi apiInstance = new PaymentsXsollaApi();
 XsollaPaymentRequest request = new XsollaPaymentRequest(); // XsollaPaymentRequest | The payment request to be sent to XSolla
 try {
-    String result = apiInstance.createXsollaTokenUrl(request);
+    StringWrapper result = apiInstance.createXsollaTokenUrl(request);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PaymentsXsollaApi#createXsollaTokenUrl");
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
+[**StringWrapper**](StringWrapper.md)
 
 ### Authorization
 

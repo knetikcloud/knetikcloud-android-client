@@ -5,6 +5,7 @@ import com.knetikcloud.model.CampaignResource;
 import com.knetikcloud.model.PageResourceCampaignResource;
 import com.knetikcloud.model.PageResourceChallengeResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.TemplateResource;
 import org.junit.Before;
@@ -55,7 +56,7 @@ public class CampaignsApiTest {
     /**
      * Create a campaign template
      *
-     * Campaign Templates define a type of campaign and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Campaign Templates define a type of campaign and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      */
     @Test
     public void createCampaignTemplateTest() {
@@ -79,7 +80,7 @@ public class CampaignsApiTest {
     /**
      * Delete a campaign template
      *
-     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      */
     @Test
     public void deleteCampaignTemplateTest() {
@@ -121,7 +122,7 @@ public class CampaignsApiTest {
     /**
      * Get a single campaign template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CAMPAIGNS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      */
     @Test
     public void getCampaignTemplateTest() {
@@ -133,7 +134,7 @@ public class CampaignsApiTest {
     /**
      * List and search campaign templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CAMPAIGNS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      */
     @Test
     public void getCampaignTemplatesTest() {
@@ -188,13 +189,14 @@ public class CampaignsApiTest {
     /**
      * Update an campaign template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateCampaignTemplateTest() {
         String id = null;
-        TemplateResource campaignTemplateResource = null;
-        // TemplateResource response = api.updateCampaignTemplate(id, campaignTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        // TemplateResource response = api.updateCampaignTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

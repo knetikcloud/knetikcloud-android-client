@@ -1,6 +1,6 @@
 # StoreBundlesApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**getBundleTemplate**](StoreBundlesApi.md#getBundleTemplate) | **GET** store/bundles/templates/{id} | Get a single bundle template
 [**getBundleTemplates**](StoreBundlesApi.md#getBundleTemplates) | **GET** store/bundles/templates | List and search bundle templates
 [**updateBundleItem**](StoreBundlesApi.md#updateBundleItem) | **PUT** store/bundles/{id} | Update a bundle item
-[**updateBundleTemplate**](StoreBundlesApi.md#updateBundleTemplate) | **PUT** store/bundles/templates/{id} | Update a bundle template
+[**updateBundleTemplate**](StoreBundlesApi.md#updateBundleTemplate) | **PATCH** store/bundles/templates/{id} | Update a bundle template
 
 
 <a name="createBundleItem"></a>
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 Create a bundle template
 
-Bundle Templates define a type of bundle and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
+Bundle Templates define a type of bundle and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
 
 ### Example
 ```java
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 Delete a bundle template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
 
 ### Example
 ```java
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 Get a single bundle template
 
-Bundle Templates define a type of bundle and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+Bundle Templates define a type of bundle and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
 
 ### Example
 ```java
@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 
 List and search bundle templates
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -485,11 +485,11 @@ Name | Type | Description  | Notes
 
 <a name="updateBundleTemplate"></a>
 # **updateBundleTemplate**
-> ItemTemplateResource updateBundleTemplate(id, bundleTemplateResource)
+> ItemTemplateResource updateBundleTemplate(id, templatePatchResource, testValidation)
 
 Update a bundle template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -512,9 +512,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 StoreBundlesApi apiInstance = new StoreBundlesApi();
 String id = "id_example"; // String | The id of the template
-ItemTemplateResource bundleTemplateResource = new ItemTemplateResource(); // ItemTemplateResource | The bundle template resource object
+PatchResource templatePatchResource = new PatchResource(); // PatchResource | The patch resource object
+Boolean testValidation = true; // Boolean | If true, this will test validation but not submit the patch request
 try {
-    ItemTemplateResource result = apiInstance.updateBundleTemplate(id, bundleTemplateResource);
+    ItemTemplateResource result = apiInstance.updateBundleTemplate(id, templatePatchResource, testValidation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StoreBundlesApi#updateBundleTemplate");
@@ -527,7 +528,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the template |
- **bundleTemplateResource** | [**ItemTemplateResource**](ItemTemplateResource.md)| The bundle template resource object | [optional]
+ **templatePatchResource** | [**PatchResource**](PatchResource.md)| The patch resource object | [optional]
+ **testValidation** | **Boolean**| If true, this will test validation but not submit the patch request | [optional]
 
 ### Return type
 

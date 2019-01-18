@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * RevenueCountryReportResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:44.564-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:20.820-05:00")
 public class RevenueCountryReportResource {
   @SerializedName("country")
   private String country = null;

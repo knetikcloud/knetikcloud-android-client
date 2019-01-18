@@ -1,6 +1,6 @@
 # AuthTypesApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,8 +8,8 @@ Method | HTTP request | Description
 [**allowedTypeActions**](AuthTypesApi.md#allowedTypeActions) | **GET** access/types/{type}/actions | Get allowed actions on a type
 [**createResource**](AuthTypesApi.md#createResource) | **POST** access/resources/{type} | Create or update resource
 [**createType**](AuthTypesApi.md#createType) | **POST** access/types | Create a new type
+[**deleteAllOfType**](AuthTypesApi.md#deleteAllOfType) | **DELETE** access/resources/{type} | Delete all resources of a type
 [**deleteResource**](AuthTypesApi.md#deleteResource) | **DELETE** access/resources/{type}/{id} | Delete a resource
-[**deleteResources**](AuthTypesApi.md#deleteResources) | **DELETE** access/resources/{type} | Delete all resources of a type
 [**deleteType**](AuthTypesApi.md#deleteType) | **DELETE** access/types/{type} | Delete a root type
 [**getResource**](AuthTypesApi.md#getResource) | **GET** access/resources/{type}/{id} | Get a single resource
 [**getResources**](AuthTypesApi.md#getResources) | **GET** access/resources/{type} | List and search resources
@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 <a name="allowedResourceActions"></a>
 # **allowedResourceActions**
-> List&lt;String&gt; allowedResourceActions(type, id)
+> PageResourceAccessResultsResource allowedResourceActions(type, id, size, page)
 
 Get allowed action
 
@@ -49,8 +49,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 AuthTypesApi apiInstance = new AuthTypesApi();
 String type = "type_example"; // String | The type value
 String id = "id_example"; // String | The resource id
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<String> result = apiInstance.allowedResourceActions(type, id);
+    PageResourceAccessResultsResource result = apiInstance.allowedResourceActions(type, id, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AuthTypesApi#allowedResourceActions");
@@ -64,10 +66,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **type** | **String**| The type value |
  **id** | **String**| The resource id |
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-**List&lt;String&gt;**
+[**PageResourceAccessResultsResource**](PageResourceAccessResultsResource.md)
 
 ### Authorization
 
@@ -80,7 +84,7 @@ Name | Type | Description  | Notes
 
 <a name="allowedTypeActions"></a>
 # **allowedTypeActions**
-> List&lt;String&gt; allowedTypeActions(type)
+> PageResourceAccessResultsResource allowedTypeActions(type, size, page)
 
 Get allowed actions on a type
 
@@ -107,8 +111,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 AuthTypesApi apiInstance = new AuthTypesApi();
 String type = "type_example"; // String | The type value
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<String> result = apiInstance.allowedTypeActions(type);
+    PageResourceAccessResultsResource result = apiInstance.allowedTypeActions(type, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AuthTypesApi#allowedTypeActions");
@@ -121,10 +127,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **type** | **String**| The type value |
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-**List&lt;String&gt;**
+[**PageResourceAccessResultsResource**](PageResourceAccessResultsResource.md)
 
 ### Authorization
 
@@ -251,6 +259,63 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="deleteAllOfType"></a>
+# **deleteAllOfType**
+> Void deleteAllOfType(type)
+
+Delete all resources of a type
+
+&lt;b&gt;Types Needed:&lt;/b&gt; ROLE_SUPER_ADMIN
+
+### Example
+```java
+// Import classes:
+//import com.knetikcloud.client.ApiClient;
+//import com.knetikcloud.client.ApiException;
+//import com.knetikcloud.client.Configuration;
+//import com.knetikcloud.client.auth.*;
+//import com.knetikcloud.api.AuthTypesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+OAuth oauth2_client_credentials_grant = (OAuth) defaultClient.getAuthentication("oauth2_client_credentials_grant");
+oauth2_client_credentials_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure OAuth2 access token for authorization: oauth2_password_grant
+OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_password_grant");
+oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+AuthTypesApi apiInstance = new AuthTypesApi();
+String type = "type_example"; // String | The type value
+try {
+    Void result = apiInstance.deleteAllOfType(type);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AuthTypesApi#deleteAllOfType");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type** | **String**| The type value |
+
+### Return type
+
+[**Void**](.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="deleteResource"></a>
 # **deleteResource**
 > Void deleteResource(type, id)
@@ -296,63 +361,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **type** | **String**| The type value |
  **id** | **String**| The resource id |
-
-### Return type
-
-[**Void**](.md)
-
-### Authorization
-
-[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="deleteResources"></a>
-# **deleteResources**
-> Void deleteResources(type)
-
-Delete all resources of a type
-
-&lt;b&gt;Types Needed:&lt;/b&gt; ROLE_SUPER_ADMIN
-
-### Example
-```java
-// Import classes:
-//import com.knetikcloud.client.ApiClient;
-//import com.knetikcloud.client.ApiException;
-//import com.knetikcloud.client.Configuration;
-//import com.knetikcloud.client.auth.*;
-//import com.knetikcloud.api.AuthTypesApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
-OAuth oauth2_client_credentials_grant = (OAuth) defaultClient.getAuthentication("oauth2_client_credentials_grant");
-oauth2_client_credentials_grant.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure OAuth2 access token for authorization: oauth2_password_grant
-OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_password_grant");
-oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
-
-AuthTypesApi apiInstance = new AuthTypesApi();
-String type = "type_example"; // String | The type value
-try {
-    Void result = apiInstance.deleteResources(type);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AuthTypesApi#deleteResources");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **type** | **String**| The type value |
 
 ### Return type
 

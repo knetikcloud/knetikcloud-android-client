@@ -1,10 +1,11 @@
 package com.knetikcloud.api;
 
 import com.knetikcloud.client.ApiClient;
-import com.knetikcloud.model.CountryResource;
 import com.knetikcloud.model.CurrencyResource;
+import com.knetikcloud.model.PageResourceCountryResource;
+import com.knetikcloud.model.PageResourceStateResource;
 import com.knetikcloud.model.Result;
-import com.knetikcloud.model.StateResource;
+import com.knetikcloud.model.StringWrapper;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -32,7 +33,9 @@ public class LocationsApiTest {
      */
     @Test
     public void getCountriesTest() {
-        // List<CountryResource> response = api.getCountries();
+        Integer size = null;
+        Integer page = null;
+        // PageResourceCountryResource response = api.getCountries(size, page);
 
         // TODO: test validations
     }
@@ -43,7 +46,7 @@ public class LocationsApiTest {
      */
     @Test
     public void getCountryByGeoLocationTest() {
-        // String response = api.getCountryByGeoLocation();
+        // StringWrapper response = api.getCountryByGeoLocation();
 
         // TODO: test validations
     }
@@ -55,7 +58,9 @@ public class LocationsApiTest {
     @Test
     public void getCountryStatesTest() {
         String countryCodeIso3 = null;
-        // List<StateResource> response = api.getCountryStates(countryCodeIso3);
+        Integer size = null;
+        Integer page = null;
+        // PageResourceStateResource response = api.getCountryStates(countryCodeIso3, size, page);
 
         // TODO: test validations
     }

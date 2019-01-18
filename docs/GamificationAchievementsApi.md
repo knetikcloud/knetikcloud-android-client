@@ -1,6 +1,6 @@
 # GamificationAchievementsApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -21,7 +21,7 @@ Method | HTTP request | Description
 [**incrementAchievementProgress**](GamificationAchievementsApi.md#incrementAchievementProgress) | **POST** users/{user_id}/achievements/{achievement_name}/progress | Increment an achievement progress record for a user
 [**setAchievementProgress**](GamificationAchievementsApi.md#setAchievementProgress) | **PUT** users/{user_id}/achievements/{achievement_name}/progress | Set an achievement progress record for a user
 [**updateAchievement**](GamificationAchievementsApi.md#updateAchievement) | **PUT** achievements/{name} | Update an achievement definition
-[**updateAchievementTemplate**](GamificationAchievementsApi.md#updateAchievementTemplate) | **PUT** achievements/templates/{id} | Update an achievement template
+[**updateAchievementTemplate**](GamificationAchievementsApi.md#updateAchievementTemplate) | **PATCH** achievements/templates/{id} | Update an achievement template
 
 
 <a name="createAchievement"></a>
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 Create an achievement template
 
-Achievement templates define a type of achievement and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+Achievement templates define a type of achievement and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
 
 ### Example
 ```java
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 Delete an achievement template
 
-If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
 
 ### Example
 ```java
@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
 
 Get a single achievement template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
 
 ### Example
 ```java
@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
 
 List and search achievement templates
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -431,7 +431,7 @@ Name | Type | Description  | Notes
 
 <a name="getAchievementTriggers"></a>
 # **getAchievementTriggers**
-> List&lt;BreTriggerResource&gt; getAchievementTriggers()
+> PageResourceBreTriggerResource getAchievementTriggers(size, page)
 
 Get the list of triggers that can be used to trigger an achievement progress update
 
@@ -457,8 +457,10 @@ OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_pa
 oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 GamificationAchievementsApi apiInstance = new GamificationAchievementsApi();
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<BreTriggerResource> result = apiInstance.getAchievementTriggers();
+    PageResourceBreTriggerResource result = apiInstance.getAchievementTriggers(size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GamificationAchievementsApi#getAchievementTriggers");
@@ -467,11 +469,15 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-[**List&lt;BreTriggerResource&gt;**](BreTriggerResource.md)
+[**PageResourceBreTriggerResource**](PageResourceBreTriggerResource.md)
 
 ### Authorization
 
@@ -553,7 +559,7 @@ Name | Type | Description  | Notes
 
 <a name="getDerivedAchievements"></a>
 # **getDerivedAchievements**
-> List&lt;AchievementDefinitionResource&gt; getDerivedAchievements(name)
+> PageResourceAchievementDefinitionResource getDerivedAchievements(name, size, page)
 
 Get a list of derived achievements
 
@@ -580,8 +586,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 GamificationAchievementsApi apiInstance = new GamificationAchievementsApi();
 String name = "name_example"; // String | The name of the derived achievement
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<AchievementDefinitionResource> result = apiInstance.getDerivedAchievements(name);
+    PageResourceAchievementDefinitionResource result = apiInstance.getDerivedAchievements(name, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GamificationAchievementsApi#getDerivedAchievements");
@@ -594,10 +602,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| The name of the derived achievement |
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-[**List&lt;AchievementDefinitionResource&gt;**](AchievementDefinitionResource.md)
+[**PageResourceAchievementDefinitionResource**](PageResourceAchievementDefinitionResource.md)
 
 ### Authorization
 
@@ -669,7 +679,7 @@ Name | Type | Description  | Notes
 
 <a name="getUserAchievementsProgress"></a>
 # **getUserAchievementsProgress**
-> PageResourceUserAchievementGroupResource getUserAchievementsProgress(userId, filterAchievementDerived, filterAchievementTagset, filterAchievementName, size, page)
+> PageResourceUserAchievementGroupResource getUserAchievementsProgress(userId, filterAchievementDerived, filterAchievementTagset, filterGroupName, size, page)
 
 Retrieve progress on achievements for a given user
 
@@ -698,11 +708,11 @@ GamificationAchievementsApi apiInstance = new GamificationAchievementsApi();
 Integer userId = 56; // Integer | The user's id
 Boolean filterAchievementDerived = true; // Boolean | Filter for achievements that are derived from other services
 String filterAchievementTagset = "filterAchievementTagset_example"; // String | Filter for achievements with specified tags (separated by comma)
-String filterAchievementName = "filterAchievementName_example"; // String | Filter for achievements whose name contains a string
+String filterGroupName = "filterGroupName_example"; // String | Filter for achievements whose group/level name contains a string
 Integer size = 25; // Integer | The number of objects returned per page
 Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    PageResourceUserAchievementGroupResource result = apiInstance.getUserAchievementsProgress(userId, filterAchievementDerived, filterAchievementTagset, filterAchievementName, size, page);
+    PageResourceUserAchievementGroupResource result = apiInstance.getUserAchievementsProgress(userId, filterAchievementDerived, filterAchievementTagset, filterGroupName, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GamificationAchievementsApi#getUserAchievementsProgress");
@@ -717,7 +727,7 @@ Name | Type | Description  | Notes
  **userId** | **Integer**| The user&#39;s id |
  **filterAchievementDerived** | **Boolean**| Filter for achievements that are derived from other services | [optional]
  **filterAchievementTagset** | **String**| Filter for achievements with specified tags (separated by comma) | [optional]
- **filterAchievementName** | **String**| Filter for achievements whose name contains a string | [optional]
+ **filterGroupName** | **String**| Filter for achievements whose group/level name contains a string | [optional]
  **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
  **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
@@ -736,11 +746,11 @@ Name | Type | Description  | Notes
 
 <a name="getUsersAchievementProgress"></a>
 # **getUsersAchievementProgress**
-> PageResourceUserAchievementGroupResource getUsersAchievementProgress(achievementName, filterAchievementDerived, filterAchievementTagset, filterAchievementName, size, page)
+> PageResourceUserAchievementGroupResource getUsersAchievementProgress(achievementName, filterAchievementDerived, filterAchievementTagset, filterGroupName, size, page)
 
 Retrieve progress on a given achievement for all users
 
-Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
+Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
 
 ### Example
 ```java
@@ -765,11 +775,11 @@ GamificationAchievementsApi apiInstance = new GamificationAchievementsApi();
 String achievementName = "achievementName_example"; // String | The achievement's name
 Boolean filterAchievementDerived = true; // Boolean | Filter for achievements that are derived from other services
 String filterAchievementTagset = "filterAchievementTagset_example"; // String | Filter for achievements with specified tags (separated by comma)
-String filterAchievementName = "filterAchievementName_example"; // String | Filter for achievements whose name contains a string
+String filterGroupName = "filterGroupName_example"; // String | Filter for achievements whose group/level name contains a string
 Integer size = 25; // Integer | The number of objects returned per page
 Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    PageResourceUserAchievementGroupResource result = apiInstance.getUsersAchievementProgress(achievementName, filterAchievementDerived, filterAchievementTagset, filterAchievementName, size, page);
+    PageResourceUserAchievementGroupResource result = apiInstance.getUsersAchievementProgress(achievementName, filterAchievementDerived, filterAchievementTagset, filterGroupName, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GamificationAchievementsApi#getUsersAchievementProgress");
@@ -784,7 +794,7 @@ Name | Type | Description  | Notes
  **achievementName** | **String**| The achievement&#39;s name |
  **filterAchievementDerived** | **Boolean**| Filter for achievements that are derived from other services | [optional]
  **filterAchievementTagset** | **String**| Filter for achievements with specified tags (separated by comma) | [optional]
- **filterAchievementName** | **String**| Filter for achievements whose name contains a string | [optional]
+ **filterGroupName** | **String**| Filter for achievements whose group/level name contains a string | [optional]
  **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
  **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
@@ -803,11 +813,11 @@ Name | Type | Description  | Notes
 
 <a name="getUsersAchievementsProgress"></a>
 # **getUsersAchievementsProgress**
-> PageResourceUserAchievementGroupResource getUsersAchievementsProgress(filterAchievementDerived, filterAchievementTagset, filterAchievementName, size, page)
+> PageResourceUserAchievementGroupResource getUsersAchievementsProgress(filterAchievementDerived, filterAchievementTagset, filterGroupName, size, page)
 
 Retrieve progress on achievements for all users
 
-Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
+Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -831,11 +841,11 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 GamificationAchievementsApi apiInstance = new GamificationAchievementsApi();
 Boolean filterAchievementDerived = true; // Boolean | Filter for achievements that are derived from other services
 String filterAchievementTagset = "filterAchievementTagset_example"; // String | Filter for achievements with specified tags (separated by comma)
-String filterAchievementName = "filterAchievementName_example"; // String | Filter for achievements whose name contains a string
+String filterGroupName = "filterGroupName_example"; // String | Filter for achievements whose group/level name contains a string
 Integer size = 25; // Integer | The number of objects returned per page
 Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    PageResourceUserAchievementGroupResource result = apiInstance.getUsersAchievementsProgress(filterAchievementDerived, filterAchievementTagset, filterAchievementName, size, page);
+    PageResourceUserAchievementGroupResource result = apiInstance.getUsersAchievementsProgress(filterAchievementDerived, filterAchievementTagset, filterGroupName, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GamificationAchievementsApi#getUsersAchievementsProgress");
@@ -849,7 +859,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filterAchievementDerived** | **Boolean**| Filter for achievements that are derived from other services | [optional]
  **filterAchievementTagset** | **String**| Filter for achievements with specified tags (separated by comma) | [optional]
- **filterAchievementName** | **String**| Filter for achievements whose name contains a string | [optional]
+ **filterGroupName** | **String**| Filter for achievements whose group/level name contains a string | [optional]
  **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
  **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
@@ -1049,11 +1059,11 @@ Name | Type | Description  | Notes
 
 <a name="updateAchievementTemplate"></a>
 # **updateAchievementTemplate**
-> TemplateResource updateAchievementTemplate(id, template)
+> TemplateResource updateAchievementTemplate(id, templatePatchResource, testValidation)
 
 Update an achievement template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -1076,9 +1086,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 GamificationAchievementsApi apiInstance = new GamificationAchievementsApi();
 String id = "id_example"; // String | The id of the template
-TemplateResource template = new TemplateResource(); // TemplateResource | The updated template
+PatchResource templatePatchResource = new PatchResource(); // PatchResource | The patch resource object
+Boolean testValidation = true; // Boolean | If true, this will test validation but not submit the patch request
 try {
-    TemplateResource result = apiInstance.updateAchievementTemplate(id, template);
+    TemplateResource result = apiInstance.updateAchievementTemplate(id, templatePatchResource, testValidation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GamificationAchievementsApi#updateAchievementTemplate");
@@ -1091,7 +1102,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the template |
- **template** | [**TemplateResource**](TemplateResource.md)| The updated template | [optional]
+ **templatePatchResource** | [**PatchResource**](PatchResource.md)| The patch resource object | [optional]
+ **testValidation** | **Boolean**| If true, this will test validation but not submit the patch request | [optional]
 
 ### Return type
 

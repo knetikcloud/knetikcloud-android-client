@@ -73,7 +73,6 @@ public class JSON {
 						.registerSubtype(NewCustomerEvent.class, "new_customer")
 						.registerSubtype(WebsocketSendTopicMessageEvent.class, "websocket_topic_message")
 						.registerSubtype(RemoveCustomerEvent.class, "remove_customer")
-						.registerSubtype(SearchDefinitionCreated.class, "search_definition_created")
 						.registerSubtype(WebsocketUnsubscribeEvent.class, "websocket_unsubscribe")
 						.registerSubtype(WebsocketSendMessageEvent.class, "websocket_message")
 						.registerSubtype(WebsocketSubscribeEvent.class, "websocket_subscribe")

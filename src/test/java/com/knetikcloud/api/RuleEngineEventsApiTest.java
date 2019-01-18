@@ -3,6 +3,7 @@ package com.knetikcloud.api;
 import com.knetikcloud.client.ApiClient;
 import com.knetikcloud.model.BreEvent;
 import com.knetikcloud.model.Result;
+import com.knetikcloud.model.StringWrapper;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -31,7 +32,7 @@ public class RuleEngineEventsApiTest {
     @Test
     public void sendBREEventTest() {
         BreEvent breEvent = null;
-        // String response = api.sendBREEvent(breEvent);
+        // StringWrapper response = api.sendBREEvent(breEvent);
 
         // TODO: test validations
     }

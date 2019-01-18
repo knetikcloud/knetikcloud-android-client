@@ -1,6 +1,6 @@
 # InvoicesApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 <a name="getFulFillmentStatuses"></a>
 # **getFulFillmentStatuses**
-> List&lt;String&gt; getFulFillmentStatuses()
+> PageResourcestring getFulFillmentStatuses(size, page)
 
 Lists available fulfillment statuses
 
@@ -104,8 +104,10 @@ OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_pa
 oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 InvoicesApi apiInstance = new InvoicesApi();
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<String> result = apiInstance.getFulFillmentStatuses();
+    PageResourcestring result = apiInstance.getFulFillmentStatuses(size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling InvoicesApi#getFulFillmentStatuses");
@@ -114,11 +116,15 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-**List&lt;String&gt;**
+[**PageResourcestring**](PageResourcestring.md)
 
 ### Authorization
 
@@ -338,7 +344,7 @@ Name | Type | Description  | Notes
 
 <a name="getPaymentStatuses"></a>
 # **getPaymentStatuses**
-> List&lt;String&gt; getPaymentStatuses()
+> PageResourcestring getPaymentStatuses(size, page)
 
 Lists available payment statuses
 
@@ -364,8 +370,10 @@ OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_pa
 oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 InvoicesApi apiInstance = new InvoicesApi();
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<String> result = apiInstance.getPaymentStatuses();
+    PageResourcestring result = apiInstance.getPaymentStatuses(size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling InvoicesApi#getPaymentStatuses");
@@ -374,11 +382,15 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-**List&lt;String&gt;**
+[**PageResourcestring**](PageResourcestring.md)
 
 ### Authorization
 

@@ -29,11 +29,8 @@ import java.util.List;
 /**
  * QuestionTemplateResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:44.564-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:20.820-05:00")
 public class QuestionTemplateResource {
-  @SerializedName("allow_additional")
-  private Boolean allowAdditional = null;
-
   @SerializedName("answer_property")
   private PropertyDefinitionResource answerProperty = null;
 
@@ -54,24 +51,6 @@ public class QuestionTemplateResource {
 
   @SerializedName("updated_date")
   private Long updatedDate = null;
-
-  public QuestionTemplateResource allowAdditional(Boolean allowAdditional) {
-    this.allowAdditional = allowAdditional;
-    return this;
-  }
-
-   /**
-   * Whether to allow additional properties beyond those specified or not
-   * @return allowAdditional
-  **/
-  @ApiModelProperty(example = "false", value = "Whether to allow additional properties beyond those specified or not")
-  public Boolean isAllowAdditional() {
-    return allowAdditional;
-  }
-
-  public void setAllowAdditional(Boolean allowAdditional) {
-    this.allowAdditional = allowAdditional;
-  }
 
   public QuestionTemplateResource answerProperty(PropertyDefinitionResource answerProperty) {
     this.answerProperty = answerProperty;
@@ -190,8 +169,7 @@ public class QuestionTemplateResource {
       return false;
     }
     QuestionTemplateResource questionTemplateResource = (QuestionTemplateResource) o;
-    return Objects.equals(this.allowAdditional, questionTemplateResource.allowAdditional) &&
-        Objects.equals(this.answerProperty, questionTemplateResource.answerProperty) &&
+    return Objects.equals(this.answerProperty, questionTemplateResource.answerProperty) &&
         Objects.equals(this.createdDate, questionTemplateResource.createdDate) &&
         Objects.equals(this.id, questionTemplateResource.id) &&
         Objects.equals(this.name, questionTemplateResource.name) &&
@@ -202,7 +180,7 @@ public class QuestionTemplateResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAdditional, answerProperty, createdDate, id, name, properties, questionProperty, updatedDate);
+    return Objects.hash(answerProperty, createdDate, id, name, properties, questionProperty, updatedDate);
   }
 
 
@@ -211,7 +189,6 @@ public class QuestionTemplateResource {
     StringBuilder sb = new StringBuilder();
     sb.append("class QuestionTemplateResource {\n");
     
-    sb.append("    allowAdditional: ").append(toIndentedString(allowAdditional)).append("\n");
     sb.append("    answerProperty: ").append(toIndentedString(answerProperty)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

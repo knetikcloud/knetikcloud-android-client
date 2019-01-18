@@ -31,11 +31,8 @@ import java.util.List;
 /**
  * StoreItemTemplateResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:44.564-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:20.820-05:00")
 public class StoreItemTemplateResource {
-  @SerializedName("allow_additional")
-  private Boolean allowAdditional = null;
-
   @SerializedName("behaviors")
   private List<ItemBehaviorDefinitionResource> behaviors = null;
 
@@ -56,24 +53,6 @@ public class StoreItemTemplateResource {
 
   @SerializedName("updated_date")
   private Long updatedDate = null;
-
-  public StoreItemTemplateResource allowAdditional(Boolean allowAdditional) {
-    this.allowAdditional = allowAdditional;
-    return this;
-  }
-
-   /**
-   * Whether to allow additional properties beyond those specified or not
-   * @return allowAdditional
-  **/
-  @ApiModelProperty(example = "false", value = "Whether to allow additional properties beyond those specified or not")
-  public Boolean isAllowAdditional() {
-    return allowAdditional;
-  }
-
-  public void setAllowAdditional(Boolean allowAdditional) {
-    this.allowAdditional = allowAdditional;
-  }
 
   public StoreItemTemplateResource behaviors(List<ItemBehaviorDefinitionResource> behaviors) {
     this.behaviors = behaviors;
@@ -200,8 +179,7 @@ public class StoreItemTemplateResource {
       return false;
     }
     StoreItemTemplateResource storeItemTemplateResource = (StoreItemTemplateResource) o;
-    return Objects.equals(this.allowAdditional, storeItemTemplateResource.allowAdditional) &&
-        Objects.equals(this.behaviors, storeItemTemplateResource.behaviors) &&
+    return Objects.equals(this.behaviors, storeItemTemplateResource.behaviors) &&
         Objects.equals(this.createdDate, storeItemTemplateResource.createdDate) &&
         Objects.equals(this.id, storeItemTemplateResource.id) &&
         Objects.equals(this.name, storeItemTemplateResource.name) &&
@@ -212,7 +190,7 @@ public class StoreItemTemplateResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAdditional, behaviors, createdDate, id, name, properties, skuTemplate, updatedDate);
+    return Objects.hash(behaviors, createdDate, id, name, properties, skuTemplate, updatedDate);
   }
 
 
@@ -221,7 +199,6 @@ public class StoreItemTemplateResource {
     StringBuilder sb = new StringBuilder();
     sb.append("class StoreItemTemplateResource {\n");
     
-    sb.append("    allowAdditional: ").append(toIndentedString(allowAdditional)).append("\n");
     sb.append("    behaviors: ").append(toIndentedString(behaviors)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

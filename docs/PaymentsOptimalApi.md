@@ -1,6 +1,6 @@
 # PaymentsOptimalApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="silentPostOptimal"></a>
 # **silentPostOptimal**
-> String silentPostOptimal(request)
+> StringWrapper silentPostOptimal(request)
 
 Initiate silent post with Optimal
 
@@ -37,7 +37,7 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 PaymentsOptimalApi apiInstance = new PaymentsOptimalApi();
 OptimalPaymentRequest request = new OptimalPaymentRequest(); // OptimalPaymentRequest | The payment request to initiate
 try {
-    String result = apiInstance.silentPostOptimal(request);
+    StringWrapper result = apiInstance.silentPostOptimal(request);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PaymentsOptimalApi#silentPostOptimal");
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
+[**StringWrapper**](StringWrapper.md)
 
 ### Authorization
 

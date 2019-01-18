@@ -1,6 +1,6 @@
 # ChatApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 
 <a name="getChatMessageBlacklist"></a>
 # **getChatMessageBlacklist**
-> List&lt;ChatBlacklistResource&gt; getChatMessageBlacklist(id)
+> PageResourceChatBlacklistResource getChatMessageBlacklist(id, size, page)
 
 Get a list of blocked users for chat messaging
 
@@ -338,8 +338,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 ChatApi apiInstance = new ChatApi();
 String id = "id_example"; // String | The user id or 'me'
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<ChatBlacklistResource> result = apiInstance.getChatMessageBlacklist(id);
+    PageResourceChatBlacklistResource result = apiInstance.getChatMessageBlacklist(id, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ChatApi#getChatMessageBlacklist");
@@ -352,10 +354,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The user id or &#39;me&#39; |
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-[**List&lt;ChatBlacklistResource&gt;**](ChatBlacklistResource.md)
+[**PageResourceChatBlacklistResource**](PageResourceChatBlacklistResource.md)
 
 ### Authorization
 

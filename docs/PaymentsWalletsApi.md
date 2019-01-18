@@ -1,6 +1,6 @@
 # PaymentsWalletsApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 <a name="getUserWallets"></a>
 # **getUserWallets**
-> List&lt;SimpleWallet&gt; getUserWallets(userId)
+> PageResourceSimpleWallet getUserWallets(userId, size, page)
 
 List all of a user&#39;s wallets
 
@@ -174,8 +174,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 PaymentsWalletsApi apiInstance = new PaymentsWalletsApi();
 Integer userId = 56; // Integer | The ID of the user for whom wallets are being retrieved
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<SimpleWallet> result = apiInstance.getUserWallets(userId);
+    PageResourceSimpleWallet result = apiInstance.getUserWallets(userId, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PaymentsWalletsApi#getUserWallets");
@@ -188,10 +190,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The ID of the user for whom wallets are being retrieved |
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-[**List&lt;SimpleWallet&gt;**](SimpleWallet.md)
+[**PageResourceSimpleWallet**](PageResourceSimpleWallet.md)
 
 ### Authorization
 

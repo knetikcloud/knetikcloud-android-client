@@ -3,6 +3,7 @@ package com.knetikcloud.api;
 import com.knetikcloud.client.ApiClient;
 import com.knetikcloud.model.AmazonS3Activity;
 import com.knetikcloud.model.Result;
+import com.knetikcloud.model.StringWrapper;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -33,7 +34,7 @@ public class AmazonWebServicesS3ApiTest {
         String bucket = null;
         String path = null;
         Integer expiration = null;
-        // String response = api.getDownloadURL(bucket, path, expiration);
+        // StringWrapper response = api.getDownloadURL(bucket, path, expiration);
 
         // TODO: test validations
     }

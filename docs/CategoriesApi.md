@@ -1,6 +1,6 @@
 # CategoriesApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**getCategoryTemplates**](CategoriesApi.md#getCategoryTemplates) | **GET** categories/templates | List and search category templates
 [**getTags**](CategoriesApi.md#getTags) | **GET** tags | List all trivia tags in the system
 [**updateCategory**](CategoriesApi.md#updateCategory) | **PUT** categories/{id} | Update an existing category
-[**updateCategoryTemplate**](CategoriesApi.md#updateCategoryTemplate) | **PUT** categories/templates/{id} | Update a category template
+[**updateCategoryTemplate**](CategoriesApi.md#updateCategoryTemplate) | **PATCH** categories/templates/{id} | Update a category template
 
 
 <a name="createCategory"></a>
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 Create a category template
 
-Templates define a type of category and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+Templates define a type of category and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
 
 ### Example
 ```java
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 Delete a category template
 
-If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
 
 ### Example
 ```java
@@ -375,7 +375,7 @@ Name | Type | Description  | Notes
 
 Get a single category template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CATEGORIES_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
 
 ### Example
 ```java
@@ -432,7 +432,7 @@ Name | Type | Description  | Notes
 
 List and search category templates
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CATEGORIES_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -607,11 +607,11 @@ Name | Type | Description  | Notes
 
 <a name="updateCategoryTemplate"></a>
 # **updateCategoryTemplate**
-> TemplateResource updateCategoryTemplate(id, template)
+> TemplateResource updateCategoryTemplate(id, templatePatchResource, testValidation)
 
 Update a category template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -634,9 +634,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 CategoriesApi apiInstance = new CategoriesApi();
 String id = "id_example"; // String | The id of the template
-TemplateResource template = new TemplateResource(); // TemplateResource | The updated template information
+PatchResource templatePatchResource = new PatchResource(); // PatchResource | The patch resource object
+Boolean testValidation = true; // Boolean | If true, this will test validation but not submit the patch request
 try {
-    TemplateResource result = apiInstance.updateCategoryTemplate(id, template);
+    TemplateResource result = apiInstance.updateCategoryTemplate(id, templatePatchResource, testValidation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CategoriesApi#updateCategoryTemplate");
@@ -649,7 +650,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the template |
- **template** | [**TemplateResource**](TemplateResource.md)| The updated template information | [optional]
+ **templatePatchResource** | [**PatchResource**](PatchResource.md)| The patch resource object | [optional]
+ **testValidation** | **Boolean**| If true, this will test validation but not submit the patch request | [optional]
 
 ### Return type
 

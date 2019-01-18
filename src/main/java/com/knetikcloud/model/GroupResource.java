@@ -31,10 +31,13 @@ import java.util.Map;
 /**
  * GroupResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:44.564-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:20.820-05:00")
 public class GroupResource {
   @SerializedName("additional_properties")
   private Map<String, Property> additionalProperties = null;
+
+  @SerializedName("created_date")
+  private Long createdDate = null;
 
   @SerializedName("description")
   private String description = null;
@@ -66,6 +69,9 @@ public class GroupResource {
   @SerializedName("unique_name")
   private String uniqueName = null;
 
+  @SerializedName("updated_date")
+  private Long updatedDate = null;
+
   public GroupResource additionalProperties(Map<String, Property> additionalProperties) {
     this.additionalProperties = additionalProperties;
     return this;
@@ -90,6 +96,15 @@ public class GroupResource {
 
   public void setAdditionalProperties(Map<String, Property> additionalProperties) {
     this.additionalProperties = additionalProperties;
+  }
+
+   /**
+   * The date the group was created as a unix timestamp
+   * @return createdDate
+  **/
+  @ApiModelProperty(value = "The date the group was created as a unix timestamp")
+  public Long getCreatedDate() {
+    return createdDate;
   }
 
   public GroupResource description(String description) {
@@ -262,6 +277,15 @@ public class GroupResource {
     this.uniqueName = uniqueName;
   }
 
+   /**
+   * The date the group&#39;s info was last updated as a unix timestamp
+   * @return updatedDate
+  **/
+  @ApiModelProperty(value = "The date the group's info was last updated as a unix timestamp")
+  public Long getUpdatedDate() {
+    return updatedDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -273,6 +297,7 @@ public class GroupResource {
     }
     GroupResource groupResource = (GroupResource) o;
     return Objects.equals(this.additionalProperties, groupResource.additionalProperties) &&
+        Objects.equals(this.createdDate, groupResource.createdDate) &&
         Objects.equals(this.description, groupResource.description) &&
         Objects.equals(this.memberCount, groupResource.memberCount) &&
         Objects.equals(this.messageOfTheDay, groupResource.messageOfTheDay) &&
@@ -282,12 +307,13 @@ public class GroupResource {
         Objects.equals(this.subMemberCount, groupResource.subMemberCount) &&
         Objects.equals(this.tags, groupResource.tags) &&
         Objects.equals(this.template, groupResource.template) &&
-        Objects.equals(this.uniqueName, groupResource.uniqueName);
+        Objects.equals(this.uniqueName, groupResource.uniqueName) &&
+        Objects.equals(this.updatedDate, groupResource.updatedDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalProperties, description, memberCount, messageOfTheDay, name, parent, status, subMemberCount, tags, template, uniqueName);
+    return Objects.hash(additionalProperties, createdDate, description, memberCount, messageOfTheDay, name, parent, status, subMemberCount, tags, template, uniqueName, updatedDate);
   }
 
 
@@ -297,6 +323,7 @@ public class GroupResource {
     sb.append("class GroupResource {\n");
     
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
+    sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    memberCount: ").append(toIndentedString(memberCount)).append("\n");
     sb.append("    messageOfTheDay: ").append(toIndentedString(messageOfTheDay)).append("\n");
@@ -307,6 +334,7 @@ public class GroupResource {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    uniqueName: ").append(toIndentedString(uniqueName)).append("\n");
+    sb.append("    updatedDate: ").append(toIndentedString(updatedDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

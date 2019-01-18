@@ -1,6 +1,6 @@
 # UsersSubscriptionsApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 <a name="getUsersSubscriptionDetails"></a>
 # **getUsersSubscriptionDetails**
-> List&lt;InventorySubscriptionResource&gt; getUsersSubscriptionDetails(userId)
+> PageResourceInventorySubscriptionResource getUsersSubscriptionDetails(userId, size, page)
 
 Get details about a user&#39;s subscriptions
 
@@ -102,8 +102,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 UsersSubscriptionsApi apiInstance = new UsersSubscriptionsApi();
 Integer userId = 56; // Integer | The id of the user
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<InventorySubscriptionResource> result = apiInstance.getUsersSubscriptionDetails(userId);
+    PageResourceInventorySubscriptionResource result = apiInstance.getUsersSubscriptionDetails(userId, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersSubscriptionsApi#getUsersSubscriptionDetails");
@@ -116,10 +118,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The id of the user |
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-[**List&lt;InventorySubscriptionResource&gt;**](InventorySubscriptionResource.md)
+[**PageResourceInventorySubscriptionResource**](PageResourceInventorySubscriptionResource.md)
 
 ### Authorization
 

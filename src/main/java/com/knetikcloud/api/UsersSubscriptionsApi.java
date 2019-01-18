@@ -10,6 +10,7 @@ import okhttp3.RequestBody;
 import com.knetikcloud.model.IntWrapper;
 import com.knetikcloud.model.InventorySubscriptionResource;
 import com.knetikcloud.model.InvoiceResource;
+import com.knetikcloud.model.PageResourceInventorySubscriptionResource;
 import com.knetikcloud.model.ReactivateSubscriptionRequest;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StringWrapper;
@@ -39,11 +40,13 @@ public interface UsersSubscriptionsApi {
    * Get details about a user&#39;s subscriptions
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_SUBSCRIPTIONS_ADMIN or owner
    * @param userId The id of the user (required)
-   * @return Call&lt;List&lt;InventorySubscriptionResource&gt;&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return Call&lt;PageResourceInventorySubscriptionResource&gt;
    */
   @GET("users/{user_id}/subscriptions")
-  Call<List<InventorySubscriptionResource>> getUsersSubscriptionDetails(
-    @retrofit2.http.Path("user_id") Integer userId
+  Call<PageResourceInventorySubscriptionResource> getUsersSubscriptionDetails(
+    @retrofit2.http.Path("user_id") Integer userId, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
   );
 
   /**

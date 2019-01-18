@@ -1,10 +1,11 @@
 package com.knetikcloud.api;
 
 import com.knetikcloud.client.ApiClient;
-import com.knetikcloud.model.BehaviorDefinitionResource;
 import com.knetikcloud.model.InvoiceResource;
+import com.knetikcloud.model.PageResourceBehaviorDefinitionResource;
 import com.knetikcloud.model.PageResourceStoreItem;
 import com.knetikcloud.model.PageResourceStoreItemTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.QuickBuyRequest;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StoreItem;
@@ -32,7 +33,7 @@ public class StoreApiTest {
     /**
      * Create an item template
      *
-     * Item Templates define a type of item and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Item Templates define a type of item and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      */
     @Test
     public void createItemTemplateTest() {
@@ -57,7 +58,7 @@ public class StoreApiTest {
     /**
      * Delete an item template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      */
     @Test
     public void deleteItemTemplateTest() {
@@ -86,14 +87,16 @@ public class StoreApiTest {
      */
     @Test
     public void getBehaviorsTest() {
-        // List<BehaviorDefinitionResource> response = api.getBehaviors();
+        Integer size = null;
+        Integer page = null;
+        // PageResourceBehaviorDefinitionResource response = api.getBehaviors(size, page);
 
         // TODO: test validations
     }
     /**
      * Get a single item template
      *
-     * Item Templates define a type of item and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Item Templates define a type of item and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      */
     @Test
     public void getItemTemplateTest() {
@@ -105,7 +108,7 @@ public class StoreApiTest {
     /**
      * List and search item templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      */
     @Test
     public void getItemTemplatesTest() {
@@ -171,13 +174,14 @@ public class StoreApiTest {
     /**
      * Update an item template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateItemTemplateTest() {
         String id = null;
-        StoreItemTemplateResource itemTemplateResource = null;
-        // StoreItemTemplateResource response = api.updateItemTemplate(id, itemTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        // StoreItemTemplateResource response = api.updateItemTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

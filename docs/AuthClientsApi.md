@@ -1,6 +1,6 @@
 # AuthClientsApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 <a name="getClientGrantTypes"></a>
 # **getClientGrantTypes**
-> List&lt;GrantTypeResource&gt; getClientGrantTypes()
+> PageResourceGrantTypeResource getClientGrantTypes(size, page)
 
 List available client grant types
 
@@ -213,8 +213,10 @@ OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_pa
 oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 AuthClientsApi apiInstance = new AuthClientsApi();
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<GrantTypeResource> result = apiInstance.getClientGrantTypes();
+    PageResourceGrantTypeResource result = apiInstance.getClientGrantTypes(size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AuthClientsApi#getClientGrantTypes");
@@ -223,11 +225,15 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-[**List&lt;GrantTypeResource&gt;**](GrantTypeResource.md)
+[**PageResourceGrantTypeResource**](PageResourceGrantTypeResource.md)
 
 ### Authorization
 

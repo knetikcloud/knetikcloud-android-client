@@ -8,6 +8,7 @@ import com.knetikcloud.model.PageResourceBareChallengeActivityResource;
 import com.knetikcloud.model.PageResourceChallengeEventResource;
 import com.knetikcloud.model.PageResourceChallengeResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.TemplateResource;
 import org.junit.Before;
@@ -59,7 +60,7 @@ public class CampaignsChallengesApiTest {
     /**
      * Create a challenge activity template
      *
-     * Challenge Activity Templates define a type of challenge activity and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Challenge Activity Templates define a type of challenge activity and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      */
     @Test
     public void createChallengeActivityTemplateTest() {
@@ -71,7 +72,7 @@ public class CampaignsChallengesApiTest {
     /**
      * Create a challenge template
      *
-     * Challenge Templates define a type of challenge and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Challenge Templates define a type of challenge and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      */
     @Test
     public void createChallengeTemplateTest() {
@@ -108,7 +109,7 @@ public class CampaignsChallengesApiTest {
     /**
      * Delete a challenge activity template
      *
-     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      */
     @Test
     public void deleteChallengeActivityTemplateTest() {
@@ -133,7 +134,7 @@ public class CampaignsChallengesApiTest {
     /**
      * Delete a challenge template
      *
-     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      */
     @Test
     public void deleteChallengeTemplateTest() {
@@ -186,7 +187,7 @@ public class CampaignsChallengesApiTest {
     /**
      * Get a single challenge activity template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CHALLENGES_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      */
     @Test
     public void getChallengeActivityTemplateTest() {
@@ -198,7 +199,7 @@ public class CampaignsChallengesApiTest {
     /**
      * List and search challenge activity templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CHALLENGES_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      */
     @Test
     public void getChallengeActivityTemplatesTest() {
@@ -242,7 +243,7 @@ public class CampaignsChallengesApiTest {
     /**
      * Get a single challenge template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CHALLENGES_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      */
     @Test
     public void getChallengeTemplateTest() {
@@ -254,7 +255,7 @@ public class CampaignsChallengesApiTest {
     /**
      * List and search challenge templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CHALLENGES_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      */
     @Test
     public void getChallengeTemplatesTest() {
@@ -313,26 +314,28 @@ public class CampaignsChallengesApiTest {
     /**
      * Update an challenge activity template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateChallengeActivityTemplateTest() {
         String id = null;
-        TemplateResource challengeActivityTemplateResource = null;
-        // TemplateResource response = api.updateChallengeActivityTemplate(id, challengeActivityTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        // TemplateResource response = api.updateChallengeActivityTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }
     /**
      * Update a challenge template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateChallengeTemplateTest() {
         String id = null;
-        TemplateResource challengeTemplateResource = null;
-        // TemplateResource response = api.updateChallengeTemplate(id, challengeTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        // TemplateResource response = api.updateChallengeTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

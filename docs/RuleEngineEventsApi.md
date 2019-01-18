@@ -1,6 +1,6 @@
 # RuleEngineEventsApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="sendBREEvent"></a>
 # **sendBREEvent**
-> String sendBREEvent(breEvent)
+> StringWrapper sendBREEvent(breEvent)
 
 Fire a new event, based on an existing trigger
 
@@ -37,7 +37,7 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 RuleEngineEventsApi apiInstance = new RuleEngineEventsApi();
 BreEvent breEvent = new BreEvent(); // BreEvent | The BRE event object
 try {
-    String result = apiInstance.sendBREEvent(breEvent);
+    StringWrapper result = apiInstance.sendBREEvent(breEvent);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RuleEngineEventsApi#sendBREEvent");
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
+[**StringWrapper**](StringWrapper.md)
 
 ### Authorization
 

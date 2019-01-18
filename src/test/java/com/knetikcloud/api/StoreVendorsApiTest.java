@@ -4,6 +4,7 @@ import com.knetikcloud.client.ApiClient;
 import com.knetikcloud.model.ItemTemplateResource;
 import com.knetikcloud.model.PageResourceItemTemplateResource;
 import com.knetikcloud.model.PageResourceVendorResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.VendorResource;
 import org.junit.Before;
@@ -41,7 +42,7 @@ public class StoreVendorsApiTest {
     /**
      * Create a vendor template
      *
-     * Vendor Templates define a type of vendor and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Vendor Templates define a type of vendor and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      */
     @Test
     public void createVendorTemplateTest() {
@@ -65,7 +66,7 @@ public class StoreVendorsApiTest {
     /**
      * Delete a vendor template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      */
     @Test
     public void deleteVendorTemplateTest() {
@@ -90,7 +91,7 @@ public class StoreVendorsApiTest {
     /**
      * Get a single vendor template
      *
-     * Vendor Templates define a type of vendor and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Vendor Templates define a type of vendor and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      */
     @Test
     public void getVendorTemplateTest() {
@@ -102,7 +103,7 @@ public class StoreVendorsApiTest {
     /**
      * List and search vendor templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      */
     @Test
     public void getVendorTemplatesTest() {
@@ -144,13 +145,14 @@ public class StoreVendorsApiTest {
     /**
      * Update a vendor template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void updateVendorTemplateTest() {
         String id = null;
-        ItemTemplateResource vendorTemplateResource = null;
-        // ItemTemplateResource response = api.updateVendorTemplate(id, vendorTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        // ItemTemplateResource response = api.updateVendorTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

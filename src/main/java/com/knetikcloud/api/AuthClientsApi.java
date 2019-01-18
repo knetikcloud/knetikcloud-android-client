@@ -8,8 +8,8 @@ import retrofit2.http.*;
 import okhttp3.RequestBody;
 
 import com.knetikcloud.model.ClientResource;
-import com.knetikcloud.model.GrantTypeResource;
 import com.knetikcloud.model.PageResourceClientResource;
+import com.knetikcloud.model.PageResourceGrantTypeResource;
 import com.knetikcloud.model.Result;
 
 import java.util.ArrayList;
@@ -58,11 +58,14 @@ public interface AuthClientsApi {
   /**
    * List available client grant types
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; CLIENTS_ADMIN
-   * @return Call&lt;List&lt;GrantTypeResource&gt;&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return Call&lt;PageResourceGrantTypeResource&gt;
    */
   @GET("auth/clients/grant-types")
-  Call<List<GrantTypeResource>> getClientGrantTypes();
-    
+  Call<PageResourceGrantTypeResource> getClientGrantTypes(
+    @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
+  );
 
   /**
    * List and search clients

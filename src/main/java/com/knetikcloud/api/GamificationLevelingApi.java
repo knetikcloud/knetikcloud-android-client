@@ -7,9 +7,9 @@ import retrofit2.http.*;
 
 import okhttp3.RequestBody;
 
-import com.knetikcloud.model.BreTriggerResource;
 import com.knetikcloud.model.IntWrapper;
 import com.knetikcloud.model.LevelingResource;
+import com.knetikcloud.model.PageResourceBreTriggerResource;
 import com.knetikcloud.model.PageResourceLevelingResource;
 import com.knetikcloud.model.PageResourceUserLevelingResource;
 import com.knetikcloud.model.Result;
@@ -61,11 +61,14 @@ public interface GamificationLevelingApi {
   /**
    * Get the list of triggers that can be used to trigger a leveling progress update
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN
-   * @return Call&lt;List&lt;BreTriggerResource&gt;&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return Call&lt;PageResourceBreTriggerResource&gt;
    */
   @GET("leveling/triggers")
-  Call<List<BreTriggerResource>> getLevelTriggers();
-    
+  Call<PageResourceBreTriggerResource> getLevelTriggers(
+    @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
+  );
 
   /**
    * List and search levels
@@ -145,13 +148,13 @@ public interface GamificationLevelingApi {
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN
    * @param name The level schema name (required)
    * @param newLevel The level schema definition (optional)
-   * @return Call&lt;LevelingResource&gt;
+   * @return Call&lt;Void&gt;
    */
   @Headers({
     "Content-Type:application/json"
   })
   @PUT("leveling/{name}")
-  Call<LevelingResource> updateLevel(
+  Call<Void> updateLevel(
     @retrofit2.http.Path("name") String name, @retrofit2.http.Body LevelingResource newLevel
   );
 

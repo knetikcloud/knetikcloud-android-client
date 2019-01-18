@@ -1,6 +1,6 @@
 # LocationsApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="getCountries"></a>
 # **getCountries**
-> List&lt;CountryResource&gt; getCountries()
+> PageResourceCountryResource getCountries(size, page)
 
 Get a list of countries
 
@@ -38,8 +38,10 @@ OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_pa
 oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 LocationsApi apiInstance = new LocationsApi();
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<CountryResource> result = apiInstance.getCountries();
+    PageResourceCountryResource result = apiInstance.getCountries(size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LocationsApi#getCountries");
@@ -48,11 +50,15 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-[**List&lt;CountryResource&gt;**](CountryResource.md)
+[**PageResourceCountryResource**](PageResourceCountryResource.md)
 
 ### Authorization
 
@@ -65,7 +71,7 @@ This endpoint does not need any parameter.
 
 <a name="getCountryByGeoLocation"></a>
 # **getCountryByGeoLocation**
-> String getCountryByGeoLocation()
+> StringWrapper getCountryByGeoLocation()
 
 Get the iso3 code of your country
 
@@ -92,7 +98,7 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 LocationsApi apiInstance = new LocationsApi();
 try {
-    String result = apiInstance.getCountryByGeoLocation();
+    StringWrapper result = apiInstance.getCountryByGeoLocation();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LocationsApi#getCountryByGeoLocation");
@@ -105,7 +111,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**String**
+[**StringWrapper**](StringWrapper.md)
 
 ### Authorization
 
@@ -118,7 +124,7 @@ This endpoint does not need any parameter.
 
 <a name="getCountryStates"></a>
 # **getCountryStates**
-> List&lt;StateResource&gt; getCountryStates(countryCodeIso3)
+> PageResourceStateResource getCountryStates(countryCodeIso3, size, page)
 
 Get a list of a country&#39;s states
 
@@ -145,8 +151,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 LocationsApi apiInstance = new LocationsApi();
 String countryCodeIso3 = "countryCodeIso3_example"; // String | The iso3 code of the country
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<StateResource> result = apiInstance.getCountryStates(countryCodeIso3);
+    PageResourceStateResource result = apiInstance.getCountryStates(countryCodeIso3, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LocationsApi#getCountryStates");
@@ -159,10 +167,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **countryCodeIso3** | **String**| The iso3 code of the country |
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-[**List&lt;StateResource&gt;**](StateResource.md)
+[**PageResourceStateResource**](PageResourceStateResource.md)
 
 ### Authorization
 

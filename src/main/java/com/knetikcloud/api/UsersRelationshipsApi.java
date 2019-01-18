@@ -20,7 +20,7 @@ import java.util.Map;
 public interface UsersRelationshipsApi {
   /**
    * Create a user relationship
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param relationship The new relationship (optional)
    * @return Call&lt;UserRelationshipResource&gt;
    */
@@ -34,7 +34,7 @@ public interface UsersRelationshipsApi {
 
   /**
    * Delete a user relationship
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param id The id of the relationship (required)
    * @return Call&lt;Void&gt;
    */
@@ -45,18 +45,18 @@ public interface UsersRelationshipsApi {
 
   /**
    * Get a user relationship
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param id The id of the relationship (required)
    * @return Call&lt;UserRelationshipResource&gt;
    */
   @GET("users/relationships/{id}")
-  Call<UserRelationshipResource> getUserRelationship(
+  Call<UserRelationshipResource> getRelationship(
     @retrofit2.http.Path("id") Long id
   );
 
   /**
    * Get a list of user relationships
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
@@ -69,7 +69,7 @@ public interface UsersRelationshipsApi {
 
   /**
    * Update a user relationship
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param id The id of the relationship (required)
    * @param relationship The new relationship (optional)
    * @return Call&lt;UserRelationshipResource&gt;

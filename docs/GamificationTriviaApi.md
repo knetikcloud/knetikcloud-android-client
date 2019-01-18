@@ -1,6 +1,6 @@
 # GamificationTriviaApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -32,7 +32,7 @@ Method | HTTP request | Description
 [**updateImportJob**](GamificationTriviaApi.md#updateImportJob) | **PUT** trivia/import/{id} | Update an import job
 [**updateQuestion**](GamificationTriviaApi.md#updateQuestion) | **PUT** trivia/questions/{id} | Update a question
 [**updateQuestionAnswer**](GamificationTriviaApi.md#updateQuestionAnswer) | **PUT** trivia/questions/{question_id}/answers/{id} | Update an answer for a question
-[**updateQuestionTemplate**](GamificationTriviaApi.md#updateQuestionTemplate) | **PUT** trivia/questions/templates/{id} | Update a question template
+[**updateQuestionTemplate**](GamificationTriviaApi.md#updateQuestionTemplate) | **PATCH** trivia/questions/templates/{id} | Update a question template
 [**updateQuestionsInBulk**](GamificationTriviaApi.md#updateQuestionsInBulk) | **PUT** trivia/questions | Bulk update questions
 
 
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 
 Create a question template
 
-Question templates define a type of question and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
+Question templates define a type of question and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
 
 ### Example
 ```java
@@ -577,7 +577,7 @@ Name | Type | Description  | Notes
 
 Delete a question template
 
-If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
 
 ### Example
 ```java
@@ -874,7 +874,7 @@ Name | Type | Description  | Notes
 
 <a name="getQuestionAnswers"></a>
 # **getQuestionAnswers**
-> List&lt;AnswerResource&gt; getQuestionAnswers(questionId)
+> PageResourceAnswerResource getQuestionAnswers(questionId, size, page)
 
 List the answers available for a question
 
@@ -901,8 +901,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 GamificationTriviaApi apiInstance = new GamificationTriviaApi();
 String questionId = "questionId_example"; // String | The id of the question
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<AnswerResource> result = apiInstance.getQuestionAnswers(questionId);
+    PageResourceAnswerResource result = apiInstance.getQuestionAnswers(questionId, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GamificationTriviaApi#getQuestionAnswers");
@@ -915,10 +917,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **questionId** | **String**| The id of the question |
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-[**List&lt;AnswerResource&gt;**](AnswerResource.md)
+[**PageResourceAnswerResource**](PageResourceAnswerResource.md)
 
 ### Authorization
 
@@ -931,7 +935,7 @@ Name | Type | Description  | Notes
 
 <a name="getQuestionDeltas"></a>
 # **getQuestionDeltas**
-> List&lt;DeltaResource&gt; getQuestionDeltas(since)
+> PageResourceDeltaResource getQuestionDeltas(since, size, page)
 
 List question deltas in ascending order of updated date
 
@@ -958,8 +962,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 GamificationTriviaApi apiInstance = new GamificationTriviaApi();
 Long since = 789L; // Long | Timestamp in seconds
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<DeltaResource> result = apiInstance.getQuestionDeltas(since);
+    PageResourceDeltaResource result = apiInstance.getQuestionDeltas(since, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GamificationTriviaApi#getQuestionDeltas");
@@ -972,10 +978,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **since** | **Long**| Timestamp in seconds | [optional]
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-[**List&lt;DeltaResource&gt;**](DeltaResource.md)
+[**PageResourceDeltaResource**](PageResourceDeltaResource.md)
 
 ### Authorization
 
@@ -988,7 +996,7 @@ Name | Type | Description  | Notes
 
 <a name="getQuestionTags"></a>
 # **getQuestionTags**
-> List&lt;String&gt; getQuestionTags(id)
+> PageResourcestring getQuestionTags(id, size, page)
 
 List the tags for a question
 
@@ -1015,8 +1023,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 GamificationTriviaApi apiInstance = new GamificationTriviaApi();
 String id = "id_example"; // String | The id of the question
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<String> result = apiInstance.getQuestionTags(id);
+    PageResourcestring result = apiInstance.getQuestionTags(id, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GamificationTriviaApi#getQuestionTags");
@@ -1029,10 +1039,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the question |
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-**List&lt;String&gt;**
+[**PageResourcestring**](PageResourcestring.md)
 
 ### Authorization
 
@@ -1049,7 +1061,7 @@ Name | Type | Description  | Notes
 
 Get a single question template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or TRIVIA_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or TRIVIA_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
 
 ### Example
 ```java
@@ -1106,7 +1118,7 @@ Name | Type | Description  | Notes
 
 List and search question templates
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or TRIVIA_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or TRIVIA_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -1240,7 +1252,7 @@ Name | Type | Description  | Notes
 
 <a name="getQuestionsCount"></a>
 # **getQuestionsCount**
-> Long getQuestionsCount(filterSearch, filterIdset, filterCategory, filterTag, filterTagset, filterType, filterPublished)
+> LongWrapper getQuestionsCount(filterSearch, filterIdset, filterCategory, filterTag, filterTagset, filterType, filterPublished)
 
 Count questions based on filters
 
@@ -1274,7 +1286,7 @@ String filterTagset = "filterTagset_example"; // String | Filter for questions w
 String filterType = "filterType_example"; // String | Filter for questions with specified type.  Allowable values: ('TEXT', 'IMAGE', 'VIDEO', 'AUDIO')
 Boolean filterPublished = true; // Boolean | Filter for questions currenctly published or not
 try {
-    Long result = apiInstance.getQuestionsCount(filterSearch, filterIdset, filterCategory, filterTag, filterTagset, filterType, filterPublished);
+    LongWrapper result = apiInstance.getQuestionsCount(filterSearch, filterIdset, filterCategory, filterTag, filterTagset, filterType, filterPublished);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GamificationTriviaApi#getQuestionsCount");
@@ -1296,7 +1308,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Long**
+[**LongWrapper**](LongWrapper.md)
 
 ### Authorization
 
@@ -1500,7 +1512,7 @@ Name | Type | Description  | Notes
 
 <a name="searchQuestionTags"></a>
 # **searchQuestionTags**
-> List&lt;String&gt; searchQuestionTags(filterSearch, filterCategory, filterImportId)
+> PageResourcestring searchQuestionTags(filterSearch, filterCategory, filterImportId, size, page)
 
 List and search tags by the beginning of the string
 
@@ -1529,8 +1541,10 @@ GamificationTriviaApi apiInstance = new GamificationTriviaApi();
 String filterSearch = "filterSearch_example"; // String | Filter for tags starting with the given text
 String filterCategory = "filterCategory_example"; // String | Filter for tags on questions from a specific category
 Long filterImportId = 789L; // Long | Filter for tags on questions from a specific import job
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<String> result = apiInstance.searchQuestionTags(filterSearch, filterCategory, filterImportId);
+    PageResourcestring result = apiInstance.searchQuestionTags(filterSearch, filterCategory, filterImportId, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GamificationTriviaApi#searchQuestionTags");
@@ -1545,10 +1559,12 @@ Name | Type | Description  | Notes
  **filterSearch** | **String**| Filter for tags starting with the given text | [optional]
  **filterCategory** | **String**| Filter for tags on questions from a specific category | [optional]
  **filterImportId** | **Long**| Filter for tags on questions from a specific import job | [optional]
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-**List&lt;String&gt;**
+[**PageResourcestring**](PageResourcestring.md)
 
 ### Authorization
 
@@ -1740,11 +1756,11 @@ Name | Type | Description  | Notes
 
 <a name="updateQuestionTemplate"></a>
 # **updateQuestionTemplate**
-> QuestionTemplateResource updateQuestionTemplate(id, questionTemplateResource)
+> QuestionTemplateResource updateQuestionTemplate(id, templatePatchResource, testValidation)
 
 Update a question template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -1767,9 +1783,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 GamificationTriviaApi apiInstance = new GamificationTriviaApi();
 String id = "id_example"; // String | The id of the template
-QuestionTemplateResource questionTemplateResource = new QuestionTemplateResource(); // QuestionTemplateResource | The question template resource object
+PatchResource templatePatchResource = new PatchResource(); // PatchResource | The patch resource object
+Boolean testValidation = true; // Boolean | If true, this will test validation but not submit the patch request
 try {
-    QuestionTemplateResource result = apiInstance.updateQuestionTemplate(id, questionTemplateResource);
+    QuestionTemplateResource result = apiInstance.updateQuestionTemplate(id, templatePatchResource, testValidation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GamificationTriviaApi#updateQuestionTemplate");
@@ -1782,7 +1799,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the template |
- **questionTemplateResource** | [**QuestionTemplateResource**](QuestionTemplateResource.md)| The question template resource object | [optional]
+ **templatePatchResource** | [**PatchResource**](PatchResource.md)| The patch resource object | [optional]
+ **testValidation** | **Boolean**| If true, this will test validation but not submit the patch request | [optional]
 
 ### Return type
 

@@ -1,6 +1,6 @@
 # RuleEngineExpressionsApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 <a name="getBREExpressions"></a>
 # **getBREExpressions**
-> List&lt;ExpressionResource&gt; getBREExpressions(filterTypeGroup)
+> PageResourceExpressionResource getBREExpressions(filterTypeGroup, size, page)
 
 Get a list of supported expressions to use in conditions or actions.
 
@@ -95,8 +95,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 RuleEngineExpressionsApi apiInstance = new RuleEngineExpressionsApi();
 String filterTypeGroup = "filterTypeGroup_example"; // String | Filter for expressions by type group
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<ExpressionResource> result = apiInstance.getBREExpressions(filterTypeGroup);
+    PageResourceExpressionResource result = apiInstance.getBREExpressions(filterTypeGroup, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RuleEngineExpressionsApi#getBREExpressions");
@@ -109,10 +111,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filterTypeGroup** | **String**| Filter for expressions by type group | [optional] [enum: operation, lookup, predicate]
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-[**List&lt;ExpressionResource&gt;**](ExpressionResource.md)
+[**PageResourceExpressionResource**](PageResourceExpressionResource.md)
 
 ### Authorization
 

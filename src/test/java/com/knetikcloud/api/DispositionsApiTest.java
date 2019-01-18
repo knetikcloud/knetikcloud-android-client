@@ -1,8 +1,8 @@
 package com.knetikcloud.api;
 
 import com.knetikcloud.client.ApiClient;
-import com.knetikcloud.model.DispositionCount;
 import com.knetikcloud.model.DispositionResource;
+import com.knetikcloud.model.PageResourceDispositionCount;
 import com.knetikcloud.model.PageResourceDispositionResource;
 import com.knetikcloud.model.Result;
 import org.junit.Before;
@@ -71,7 +71,9 @@ public class DispositionsApiTest {
         String filterCreatedDate = null;
         String filterContext = null;
         String filterOwner = null;
-        // List<DispositionCount> response = api.getDispositionCounts(filterCreatedDate, filterContext, filterOwner);
+        Integer size = null;
+        Integer page = null;
+        // PageResourceDispositionCount response = api.getDispositionCounts(filterCreatedDate, filterContext, filterOwner, size, page);
 
         // TODO: test validations
     }

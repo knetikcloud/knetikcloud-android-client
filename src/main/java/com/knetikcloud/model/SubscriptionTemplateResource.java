@@ -30,11 +30,8 @@ import java.util.List;
 /**
  * SubscriptionTemplateResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:44.564-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:20.820-05:00")
 public class SubscriptionTemplateResource {
-  @SerializedName("allow_additional")
-  private Boolean allowAdditional = null;
-
   @SerializedName("created_date")
   private Long createdDate = null;
 
@@ -52,24 +49,6 @@ public class SubscriptionTemplateResource {
 
   @SerializedName("updated_date")
   private Long updatedDate = null;
-
-  public SubscriptionTemplateResource allowAdditional(Boolean allowAdditional) {
-    this.allowAdditional = allowAdditional;
-    return this;
-  }
-
-   /**
-   * Whether to allow additional properties beyond those specified or not
-   * @return allowAdditional
-  **/
-  @ApiModelProperty(example = "false", value = "Whether to allow additional properties beyond those specified or not")
-  public Boolean isAllowAdditional() {
-    return allowAdditional;
-  }
-
-  public void setAllowAdditional(Boolean allowAdditional) {
-    this.allowAdditional = allowAdditional;
-  }
 
    /**
    * The date/time this resource was created in seconds since unix epoch
@@ -170,8 +149,7 @@ public class SubscriptionTemplateResource {
       return false;
     }
     SubscriptionTemplateResource subscriptionTemplateResource = (SubscriptionTemplateResource) o;
-    return Objects.equals(this.allowAdditional, subscriptionTemplateResource.allowAdditional) &&
-        Objects.equals(this.createdDate, subscriptionTemplateResource.createdDate) &&
+    return Objects.equals(this.createdDate, subscriptionTemplateResource.createdDate) &&
         Objects.equals(this.id, subscriptionTemplateResource.id) &&
         Objects.equals(this.name, subscriptionTemplateResource.name) &&
         Objects.equals(this.planTemplate, subscriptionTemplateResource.planTemplate) &&
@@ -181,7 +159,7 @@ public class SubscriptionTemplateResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAdditional, createdDate, id, name, planTemplate, properties, updatedDate);
+    return Objects.hash(createdDate, id, name, planTemplate, properties, updatedDate);
   }
 
 
@@ -190,7 +168,6 @@ public class SubscriptionTemplateResource {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubscriptionTemplateResource {\n");
     
-    sb.append("    allowAdditional: ").append(toIndentedString(allowAdditional)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

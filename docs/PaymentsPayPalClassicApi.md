@@ -1,6 +1,6 @@
 # PaymentsPayPalClassicApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="createPayPalBillingAgreementUrl"></a>
 # **createPayPalBillingAgreementUrl**
-> String createPayPalBillingAgreementUrl(request)
+> StringWrapper createPayPalBillingAgreementUrl(request)
 
 Create a PayPal Classic billing agreement for the user
 
@@ -40,7 +40,7 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 PaymentsPayPalClassicApi apiInstance = new PaymentsPayPalClassicApi();
 CreateBillingAgreementRequest request = new CreateBillingAgreementRequest(); // CreateBillingAgreementRequest | The request to create a PayPal billing agreement
 try {
-    String result = apiInstance.createPayPalBillingAgreementUrl(request);
+    StringWrapper result = apiInstance.createPayPalBillingAgreementUrl(request);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PaymentsPayPalClassicApi#createPayPalBillingAgreementUrl");
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
+[**StringWrapper**](StringWrapper.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 <a name="createPayPalExpressCheckout"></a>
 # **createPayPalExpressCheckout**
-> String createPayPalExpressCheckout(request)
+> StringWrapper createPayPalExpressCheckout(request)
 
 Create a payment token for PayPal express checkout
 
@@ -97,7 +97,7 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 PaymentsPayPalClassicApi apiInstance = new PaymentsPayPalClassicApi();
 CreatePayPalPaymentRequest request = new CreatePayPalPaymentRequest(); // CreatePayPalPaymentRequest | The request to create a PayPal payment token
 try {
-    String result = apiInstance.createPayPalExpressCheckout(request);
+    StringWrapper result = apiInstance.createPayPalExpressCheckout(request);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PaymentsPayPalClassicApi#createPayPalExpressCheckout");
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
+[**StringWrapper**](StringWrapper.md)
 
 ### Authorization
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 <a name="finalizePayPalBillingAgreement"></a>
 # **finalizePayPalBillingAgreement**
-> Integer finalizePayPalBillingAgreement(request)
+> IntWrapper finalizePayPalBillingAgreement(request)
 
 Finalizes a billing agreement after the user has accepted through PayPal
 
@@ -154,7 +154,7 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 PaymentsPayPalClassicApi apiInstance = new PaymentsPayPalClassicApi();
 FinalizeBillingAgreementRequest request = new FinalizeBillingAgreementRequest(); // FinalizeBillingAgreementRequest | The request to finalize a PayPal billing agreement
 try {
-    Integer result = apiInstance.finalizePayPalBillingAgreement(request);
+    IntWrapper result = apiInstance.finalizePayPalBillingAgreement(request);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PaymentsPayPalClassicApi#finalizePayPalBillingAgreement");
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Integer**
+[**IntWrapper**](IntWrapper.md)
 
 ### Authorization
 

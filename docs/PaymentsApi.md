@@ -1,6 +1,6 @@
 # PaymentsApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 
 <a name="getPaymentMethods"></a>
 # **getPaymentMethods**
-> List&lt;PaymentMethodResource&gt; getPaymentMethods(userId, filterName, filterPaymentType, filterPaymentMethodTypeId, filterPaymentMethodTypeName, size, page, order)
+> PageResourcePaymentMethodResource getPaymentMethods(userId, filterName, filterPaymentType, filterPaymentMethodTypeId, filterPaymentMethodTypeName, size, page, order)
 
 Get all payment methods for a user
 
@@ -349,7 +349,7 @@ Integer size = 25; // Integer | The number of objects returned per page
 Integer page = 1; // Integer | The number of the page returned, starting with 1
 String order = "id:ASC"; // String | a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
 try {
-    List<PaymentMethodResource> result = apiInstance.getPaymentMethods(userId, filterName, filterPaymentType, filterPaymentMethodTypeId, filterPaymentMethodTypeName, size, page, order);
+    PageResourcePaymentMethodResource result = apiInstance.getPaymentMethods(userId, filterName, filterPaymentType, filterPaymentMethodTypeId, filterPaymentMethodTypeName, size, page, order);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PaymentsApi#getPaymentMethods");
@@ -372,7 +372,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;PaymentMethodResource&gt;**](PaymentMethodResource.md)
+[**PageResourcePaymentMethodResource**](PageResourcePaymentMethodResource.md)
 
 ### Authorization
 

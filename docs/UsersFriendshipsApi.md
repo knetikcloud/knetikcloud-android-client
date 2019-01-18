@@ -1,6 +1,6 @@
 # UsersFriendshipsApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 <a name="getInviteToken"></a>
 # **getInviteToken**
-> String getInviteToken(userId)
+> StringWrapper getInviteToken(userId)
 
 Returns the invite token
 
@@ -166,7 +166,7 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 UsersFriendshipsApi apiInstance = new UsersFriendshipsApi();
 String userId = "userId_example"; // String | The id of the user or 'me' if logged in
 try {
-    String result = apiInstance.getInviteToken(userId);
+    StringWrapper result = apiInstance.getInviteToken(userId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersFriendshipsApi#getInviteToken");
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
+[**StringWrapper**](StringWrapper.md)
 
 ### Authorization
 

@@ -2,6 +2,7 @@ package com.knetikcloud.api;
 
 import com.knetikcloud.client.ApiClient;
 import com.knetikcloud.model.ExpressionResource;
+import com.knetikcloud.model.PageResourceExpressionResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StringWrapper;
 import org.junit.Before;
@@ -44,7 +45,9 @@ public class RuleEngineExpressionsApiTest {
     @Test
     public void getBREExpressionsTest() {
         String filterTypeGroup = null;
-        // List<ExpressionResource> response = api.getBREExpressions(filterTypeGroup);
+        Integer size = null;
+        Integer page = null;
+        // PageResourceExpressionResource response = api.getBREExpressions(filterTypeGroup, size, page);
 
         // TODO: test validations
     }

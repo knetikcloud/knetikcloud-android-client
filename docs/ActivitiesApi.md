@@ -1,15 +1,15 @@
 # ActivitiesApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addUser**](ActivitiesApi.md#addUser) | **POST** activity-occurrences/{activity_occurrence_id}/users | Add a user to an occurrence
 [**createActivity**](ActivitiesApi.md#createActivity) | **POST** activities | Create an activity
 [**createActivityOccurrence**](ActivitiesApi.md#createActivityOccurrence) | **POST** activity-occurrences | Create a new activity occurrence. Ex: start a game
-[**createActivityTemplate**](ActivitiesApi.md#createActivityTemplate) | **POST** activities/templates | Create a activity template
+[**createActivityTemplate**](ActivitiesApi.md#createActivityTemplate) | **POST** activities/templates | Create an activity template
 [**deleteActivity**](ActivitiesApi.md#deleteActivity) | **DELETE** activities/{id} | Delete an activity
-[**deleteActivityTemplate**](ActivitiesApi.md#deleteActivityTemplate) | **DELETE** activities/templates/{id} | Delete a activity template
+[**deleteActivityTemplate**](ActivitiesApi.md#deleteActivityTemplate) | **DELETE** activities/templates/{id} | Delete an activity template
 [**getActivities**](ActivitiesApi.md#getActivities) | **GET** activities | List activity definitions
 [**getActivity**](ActivitiesApi.md#getActivity) | **GET** activities/{id} | Get a single activity
 [**getActivityOccurrenceDetails**](ActivitiesApi.md#getActivityOccurrenceDetails) | **GET** activity-occurrences/{activity_occurrence_id} | Load a single activity occurrence details
@@ -22,7 +22,7 @@ Method | HTTP request | Description
 [**setUserStatus**](ActivitiesApi.md#setUserStatus) | **PUT** activity-occurrences/{activity_occurrence_id}/users/{user_id}/status | Set a user&#39;s status within an occurrence
 [**updateActivity**](ActivitiesApi.md#updateActivity) | **PUT** activities/{id} | Update an activity
 [**updateActivityOccurrenceStatus**](ActivitiesApi.md#updateActivityOccurrenceStatus) | **PUT** activity-occurrences/{activity_occurrence_id}/status | Update the status of an activity occurrence
-[**updateActivityTemplate**](ActivitiesApi.md#updateActivityTemplate) | **PUT** activities/templates/{id} | Update an activity template
+[**updateActivityTemplate**](ActivitiesApi.md#updateActivityTemplate) | **PATCH** activities/templates/{id} | Update an activity template
 
 
 <a name="addUser"></a>
@@ -208,9 +208,9 @@ Name | Type | Description  | Notes
 # **createActivityTemplate**
 > TemplateResource createActivityTemplate(activityTemplateResource)
 
-Create a activity template
+Create an activity template
 
-Activity Templates define a type of activity and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+Activity Templates define a type of activity and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
 
 ### Example
 ```java
@@ -322,9 +322,9 @@ Name | Type | Description  | Notes
 # **deleteActivityTemplate**
 > Void deleteActivityTemplate(id, cascade)
 
-Delete a activity template
+Delete an activity template
 
-If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
 
 ### Example
 ```java
@@ -564,7 +564,7 @@ Name | Type | Description  | Notes
 
 Get a single activity template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACTIVITIES_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
 
 ### Example
 ```java
@@ -621,7 +621,7 @@ Name | Type | Description  | Notes
 
 List and search activity templates
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACTIVITIES_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -1107,11 +1107,11 @@ Name | Type | Description  | Notes
 
 <a name="updateActivityTemplate"></a>
 # **updateActivityTemplate**
-> TemplateResource updateActivityTemplate(id, activityTemplateResource)
+> TemplateResource updateActivityTemplate(id, templatePatchResource, testValidation)
 
 Update an activity template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -1134,9 +1134,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 ActivitiesApi apiInstance = new ActivitiesApi();
 String id = "id_example"; // String | The id of the template
-TemplateResource activityTemplateResource = new TemplateResource(); // TemplateResource | The activity template resource object
+PatchResource templatePatchResource = new PatchResource(); // PatchResource | The patch resource object
+Boolean testValidation = true; // Boolean | If true, this will test validation but not submit the patch request
 try {
-    TemplateResource result = apiInstance.updateActivityTemplate(id, activityTemplateResource);
+    TemplateResource result = apiInstance.updateActivityTemplate(id, templatePatchResource, testValidation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ActivitiesApi#updateActivityTemplate");
@@ -1149,7 +1150,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the template |
- **activityTemplateResource** | [**TemplateResource**](TemplateResource.md)| The activity template resource object | [optional]
+ **templatePatchResource** | [**PatchResource**](PatchResource.md)| The patch resource object | [optional]
+ **testValidation** | **Boolean**| If true, this will test validation but not submit the patch request | [optional]
 
 ### Return type
 

@@ -1,6 +1,6 @@
 # StoreApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**getStoreItem**](StoreApi.md#getStoreItem) | **GET** store/items/{id} | Get a single store item
 [**getStoreItems**](StoreApi.md#getStoreItems) | **GET** store/items | List and search store items
 [**quickBuy**](StoreApi.md#quickBuy) | **POST** store/quick-buy | One-step purchase and pay for a single SKU item from a user&#39;s wallet
-[**updateItemTemplate**](StoreApi.md#updateItemTemplate) | **PUT** store/items/templates/{id} | Update an item template
+[**updateItemTemplate**](StoreApi.md#updateItemTemplate) | **PATCH** store/items/templates/{id} | Update an item template
 [**updateStoreItem**](StoreApi.md#updateStoreItem) | **PUT** store/items/{id} | Update a store item
 
 
@@ -24,7 +24,7 @@ Method | HTTP request | Description
 
 Create an item template
 
-Item Templates define a type of item and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+Item Templates define a type of item and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
 
 ### Example
 ```java
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 Delete an item template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
 
 ### Example
 ```java
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 <a name="getBehaviors"></a>
 # **getBehaviors**
-> List&lt;BehaviorDefinitionResource&gt; getBehaviors()
+> PageResourceBehaviorDefinitionResource getBehaviors(size, page)
 
 List available item behaviors
 
@@ -278,8 +278,10 @@ OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_pa
 oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 StoreApi apiInstance = new StoreApi();
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<BehaviorDefinitionResource> result = apiInstance.getBehaviors();
+    PageResourceBehaviorDefinitionResource result = apiInstance.getBehaviors(size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StoreApi#getBehaviors");
@@ -288,11 +290,15 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-[**List&lt;BehaviorDefinitionResource&gt;**](BehaviorDefinitionResource.md)
+[**PageResourceBehaviorDefinitionResource**](PageResourceBehaviorDefinitionResource.md)
 
 ### Authorization
 
@@ -309,7 +315,7 @@ This endpoint does not need any parameter.
 
 Get a single item template
 
-Item Templates define a type of item and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+Item Templates define a type of item and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
 
 ### Example
 ```java
@@ -366,7 +372,7 @@ Name | Type | Description  | Notes
 
 List and search item templates
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -626,11 +632,11 @@ Name | Type | Description  | Notes
 
 <a name="updateItemTemplate"></a>
 # **updateItemTemplate**
-> StoreItemTemplateResource updateItemTemplate(id, itemTemplateResource)
+> StoreItemTemplateResource updateItemTemplate(id, templatePatchResource, testValidation)
 
 Update an item template
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -653,9 +659,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 StoreApi apiInstance = new StoreApi();
 String id = "id_example"; // String | The id of the template
-StoreItemTemplateResource itemTemplateResource = new StoreItemTemplateResource(); // StoreItemTemplateResource | The item template resource object
+PatchResource templatePatchResource = new PatchResource(); // PatchResource | The patch resource object
+Boolean testValidation = true; // Boolean | If true, this will test validation but not submit the patch request
 try {
-    StoreItemTemplateResource result = apiInstance.updateItemTemplate(id, itemTemplateResource);
+    StoreItemTemplateResource result = apiInstance.updateItemTemplate(id, templatePatchResource, testValidation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StoreApi#updateItemTemplate");
@@ -668,7 +675,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The id of the template |
- **itemTemplateResource** | [**StoreItemTemplateResource**](StoreItemTemplateResource.md)| The item template resource object | [optional]
+ **templatePatchResource** | [**PatchResource**](PatchResource.md)| The patch resource object | [optional]
+ **testValidation** | **Boolean**| If true, this will test validation but not submit the patch request | [optional]
 
 ### Return type
 

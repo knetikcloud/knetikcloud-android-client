@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * CustomerConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:44.564-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:20.820-05:00")
 public class CustomerConfig {
   @SerializedName("aliases")
   private String aliases = null;
@@ -36,11 +36,17 @@ public class CustomerConfig {
   @SerializedName("database")
   private DatabaseConfig database = null;
 
+  @SerializedName("force_templates")
+  private Boolean forceTemplates = null;
+
   @SerializedName("name")
   private String name = null;
 
   @SerializedName("s3_config")
   private S3Config s3Config = null;
+
+  @SerializedName("search_enabled")
+  private Boolean searchEnabled = null;
 
   public CustomerConfig aliases(String aliases) {
     this.aliases = aliases;
@@ -76,6 +82,24 @@ public class CustomerConfig {
 
   public void setDatabase(DatabaseConfig database) {
     this.database = database;
+  }
+
+  public CustomerConfig forceTemplates(Boolean forceTemplates) {
+    this.forceTemplates = forceTemplates;
+    return this;
+  }
+
+   /**
+   * Get forceTemplates
+   * @return forceTemplates
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isForceTemplates() {
+    return forceTemplates;
+  }
+
+  public void setForceTemplates(Boolean forceTemplates) {
+    this.forceTemplates = forceTemplates;
   }
 
   public CustomerConfig name(String name) {
@@ -114,6 +138,24 @@ public class CustomerConfig {
     this.s3Config = s3Config;
   }
 
+  public CustomerConfig searchEnabled(Boolean searchEnabled) {
+    this.searchEnabled = searchEnabled;
+    return this;
+  }
+
+   /**
+   * Get searchEnabled
+   * @return searchEnabled
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isSearchEnabled() {
+    return searchEnabled;
+  }
+
+  public void setSearchEnabled(Boolean searchEnabled) {
+    this.searchEnabled = searchEnabled;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -126,13 +168,15 @@ public class CustomerConfig {
     CustomerConfig customerConfig = (CustomerConfig) o;
     return Objects.equals(this.aliases, customerConfig.aliases) &&
         Objects.equals(this.database, customerConfig.database) &&
+        Objects.equals(this.forceTemplates, customerConfig.forceTemplates) &&
         Objects.equals(this.name, customerConfig.name) &&
-        Objects.equals(this.s3Config, customerConfig.s3Config);
+        Objects.equals(this.s3Config, customerConfig.s3Config) &&
+        Objects.equals(this.searchEnabled, customerConfig.searchEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aliases, database, name, s3Config);
+    return Objects.hash(aliases, database, forceTemplates, name, s3Config, searchEnabled);
   }
 
 
@@ -143,8 +187,10 @@ public class CustomerConfig {
     
     sb.append("    aliases: ").append(toIndentedString(aliases)).append("\n");
     sb.append("    database: ").append(toIndentedString(database)).append("\n");
+    sb.append("    forceTemplates: ").append(toIndentedString(forceTemplates)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    s3Config: ").append(toIndentedString(s3Config)).append("\n");
+    sb.append("    searchEnabled: ").append(toIndentedString(searchEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

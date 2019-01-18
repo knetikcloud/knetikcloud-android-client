@@ -37,7 +37,7 @@ public interface MessagingApi {
     "Content-Type:application/json"
   })
   @POST("messaging/templates/compilations")
-  Call<Map<String, String>> compileMessageTemplate(
+  Call<Map<String, String>> compileMessageTemplates(
     @retrofit2.http.Body MessageTemplateBulkRequest request
   );
 
