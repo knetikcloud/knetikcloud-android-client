@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * PriceOverridable
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:20.820-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T13:11:14.426-05:00")
 public class PriceOverridable extends Behavior {
   @SerializedName("max_price")
   private BigDecimal maxPrice = null;
