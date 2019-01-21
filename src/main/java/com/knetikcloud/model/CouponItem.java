@@ -34,7 +34,7 @@ import java.util.Map;
 /**
  * CouponItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T13:11:14.426-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T15:40:11.397-05:00")
 public class CouponItem extends StoreItem {
   /**
    * The type of coupon

@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * InvoiceResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T13:11:14.426-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T15:40:11.397-05:00")
 public class InvoiceResource {
   @SerializedName("billing_address1")
   private String billingAddress1 = null;
