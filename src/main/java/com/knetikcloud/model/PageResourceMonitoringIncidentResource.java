@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * PageResourceMonitoringIncidentResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T15:40:11.397-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T16:40:51.235-05:00")
 public class PageResourceMonitoringIncidentResource {
   @SerializedName("content")
   private List<MonitoringIncidentResource> content = null;

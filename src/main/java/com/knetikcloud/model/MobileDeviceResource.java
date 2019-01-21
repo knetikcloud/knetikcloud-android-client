@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * MobileDeviceResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T15:40:11.397-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T16:40:51.235-05:00")
 public class MobileDeviceResource extends DeviceResource {
   @SerializedName("authorization")
   private String authorization = null;

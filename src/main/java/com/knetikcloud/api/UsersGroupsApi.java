@@ -21,6 +21,7 @@ import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StringWrapper;
 import com.knetikcloud.model.TemplateResource;
 import com.knetikcloud.model.ValueWrapperboolean;
+import com.knetikcloud.model.VerificationRequest;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -276,6 +277,21 @@ public interface UsersGroupsApi {
   @GET("users/{user_id}/groups")
   Call<PageResourcestring> getGroupsForUser(
     @retrofit2.http.Path("user_id") Integer userId, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page, @retrofit2.http.Query("filter_children") Boolean filterChildren
+  );
+
+  /**
+   * Invite to group
+   * This will create a verification for joining the group which uses the &#39;group_invite&#39; template and sets the additional_property &#39;group&#39; with the unique name
+   * @param uniqueName The group unique name (required)
+   * @param request The id of the user to invite (optional)
+   * @return Call&lt;VerificationRequest&gt;
+   */
+  @Headers({
+    "Content-Type:application/json"
+  })
+  @POST("users/groups/{unique_name}/invite")
+  Call<VerificationRequest> inviteToGroup(
+    @retrofit2.http.Path("unique_name") String uniqueName, @retrofit2.http.Body VerificationRequest request
   );
 
   /**

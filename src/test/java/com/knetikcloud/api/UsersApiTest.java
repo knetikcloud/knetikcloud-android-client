@@ -172,8 +172,9 @@ public class UsersApiTest {
     @Test
     public void passwordResetTest() {
         Integer id = null;
+        Boolean test = null;
         NewPasswordRequest newPasswordRequest = null;
-        // Void response = api.passwordReset(id, newPasswordRequest);
+        // Void response = api.passwordReset(id, test, newPasswordRequest);
 
         // TODO: test validations
     }

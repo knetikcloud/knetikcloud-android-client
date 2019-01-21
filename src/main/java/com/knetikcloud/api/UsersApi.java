@@ -159,6 +159,7 @@ public interface UsersApi {
    * Choose a new password after a reset
    * Finish resetting a user&#39;s password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param id The id of the user (required)
+   * @param test If true, test for valid code without changing password or burning code (optional, default to false)
    * @param newPasswordRequest The new password request object (optional)
    * @return Call&lt;Void&gt;
    */
@@ -167,7 +168,7 @@ public interface UsersApi {
   })
   @PUT("users/{id}/password-reset")
   Call<Void> passwordReset(
-    @retrofit2.http.Path("id") Integer id, @retrofit2.http.Body NewPasswordRequest newPasswordRequest
+    @retrofit2.http.Path("id") Integer id, @retrofit2.http.Query("test") Boolean test, @retrofit2.http.Body NewPasswordRequest newPasswordRequest
   );
 
   /**

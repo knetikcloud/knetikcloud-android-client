@@ -54,7 +54,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterCategory** | **String**| Filter for actions that are within a specific category | [optional] [enum: achievement, behavior, comment, disposition, device, entitlement, friends, fulfillment, gamification, inventory, invoice, media, scheduler, store, subscription, user, wallet, custom, challenge, activity, campaign, event, monitoring, verification]
+ **filterCategory** | **String**| Filter for actions that are within a specific category | [optional] [enum: achievement, behavior, comment, disposition, device, entitlement, friends, fulfillment, gamification, inventory, invoice, media, scheduler, store, subscription, user, wallet, custom, challenge, activity, campaign, event, monitoring, verification, group]
  **filterName** | **String**| Filter for actions that have names containing the given string | [optional]
  **filterTags** | **String**| Filter for actions that have all of the given tags (comma separated list) | [optional]
  **filterSearch** | **String**| Filter for actions containing the given words somewhere within name, description and tags | [optional]

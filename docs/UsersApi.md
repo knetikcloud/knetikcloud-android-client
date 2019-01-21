@@ -583,7 +583,7 @@ Name | Type | Description  | Notes
 
 <a name="passwordReset"></a>
 # **passwordReset**
-> Void passwordReset(id, newPasswordRequest)
+> Void passwordReset(id, test, newPasswordRequest)
 
 Choose a new password after a reset
 
@@ -610,9 +610,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 UsersApi apiInstance = new UsersApi();
 Integer id = 56; // Integer | The id of the user
+Boolean test = false; // Boolean | If true, test for valid code without changing password or burning code
 NewPasswordRequest newPasswordRequest = new NewPasswordRequest(); // NewPasswordRequest | The new password request object
 try {
-    Void result = apiInstance.passwordReset(id, newPasswordRequest);
+    Void result = apiInstance.passwordReset(id, test, newPasswordRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersApi#passwordReset");
@@ -625,6 +626,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Integer**| The id of the user |
+ **test** | **Boolean**| If true, test for valid code without changing password or burning code | [optional] [default to false]
  **newPasswordRequest** | [**NewPasswordRequest**](NewPasswordRequest.md)| The new password request object | [optional]
 
 ### Return type
