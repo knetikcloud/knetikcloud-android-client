@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SimpleUserResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T16:40:51.235-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-22T09:25:50.362-05:00")
 public class SimpleUserResource {
   @SerializedName("avatar_url")
   private String avatarUrl = null;

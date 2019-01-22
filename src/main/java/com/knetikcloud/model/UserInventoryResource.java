@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UserInventoryResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T16:40:51.235-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-22T09:25:50.362-05:00")
 public class UserInventoryResource {
   @SerializedName("behavior_data")
   private Object behaviorData = null;
