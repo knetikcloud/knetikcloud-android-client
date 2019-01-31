@@ -174,6 +174,20 @@ public interface MonitoringApi {
   );
 
   /**
+   * Post a metric datapoint batch
+   * Only works with counter and gauge metrics. Re-submit the entire batch in case of failure. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
+   * @param batch The metric datapoints (optional)
+   * @return Call&lt;Void&gt;
+   */
+  @Headers({
+    "Content-Type:application/json"
+  })
+  @POST("monitoring/metrics/datapoints")
+  Call<Void> postBatch(
+    @retrofit2.http.Body List<MonitoringMetricDatapointResource> batch
+  );
+
+  /**
    * Post a metric datapoint
    * Only works with counter and gauge metrics. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD
    * @param id The metric id (required)

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * GuestPlayable
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-22T09:25:50.362-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-31T16:19:51.285-05:00")
 public class GuestPlayable extends Behavior {
   @SerializedName("allowed")
   private Boolean allowed = null;

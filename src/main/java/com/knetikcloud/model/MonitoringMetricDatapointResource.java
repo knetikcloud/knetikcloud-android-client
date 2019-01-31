@@ -30,10 +30,13 @@ import java.util.Map;
 /**
  * MonitoringMetricDatapointResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-22T09:25:50.362-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-31T16:19:51.285-05:00")
 public class MonitoringMetricDatapointResource {
   @SerializedName("dimensions")
   private Map<String, String> dimensions = null;
+
+  @SerializedName("id")
+  private String id = null;
 
   @SerializedName("timestamp")
   private Long timestamp = null;
@@ -65,6 +68,24 @@ public class MonitoringMetricDatapointResource {
 
   public void setDimensions(Map<String, String> dimensions) {
     this.dimensions = dimensions;
+  }
+
+  public MonitoringMetricDatapointResource id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * The id of the metric. Required for batch endpoint
+   * @return id
+  **/
+  @ApiModelProperty(value = "The id of the metric. Required for batch endpoint")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public MonitoringMetricDatapointResource timestamp(Long timestamp) {
@@ -114,13 +135,14 @@ public class MonitoringMetricDatapointResource {
     }
     MonitoringMetricDatapointResource monitoringMetricDatapointResource = (MonitoringMetricDatapointResource) o;
     return Objects.equals(this.dimensions, monitoringMetricDatapointResource.dimensions) &&
+        Objects.equals(this.id, monitoringMetricDatapointResource.id) &&
         Objects.equals(this.timestamp, monitoringMetricDatapointResource.timestamp) &&
         Objects.equals(this.value, monitoringMetricDatapointResource.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dimensions, timestamp, value);
+    return Objects.hash(dimensions, id, timestamp, value);
   }
 
 
@@ -130,6 +152,7 @@ public class MonitoringMetricDatapointResource {
     sb.append("class MonitoringMetricDatapointResource {\n");
     
     sb.append("    dimensions: ").append(toIndentedString(dimensions)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");

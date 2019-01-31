@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**getIncidents**](MonitoringApi.md#getIncidents) | **GET** monitoring/incidents | List and search incidents
 [**getMetric**](MonitoringApi.md#getMetric) | **GET** monitoring/metrics/{id} | Get a single metric
 [**getMetrics**](MonitoringApi.md#getMetrics) | **GET** monitoring/metrics | List and search metrics
+[**postBatch**](MonitoringApi.md#postBatch) | **POST** monitoring/metrics/datapoints | Post a metric datapoint batch
 [**postDatapoint**](MonitoringApi.md#postDatapoint) | **POST** monitoring/metrics/{id}/datapoints | Post a metric datapoint
 [**receiveEvent**](MonitoringApi.md#receiveEvent) | **POST** monitoring/incidents | Report an incident event
 [**startRecordMetric**](MonitoringApi.md#startRecordMetric) | **POST** monitoring/metrics/{id}/start | Start recording a metric
@@ -724,6 +725,63 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="postBatch"></a>
+# **postBatch**
+> Void postBatch(batch)
+
+Post a metric datapoint batch
+
+Only works with counter and gauge metrics. Re-submit the entire batch in case of failure. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
+
+### Example
+```java
+// Import classes:
+//import com.knetikcloud.client.ApiClient;
+//import com.knetikcloud.client.ApiException;
+//import com.knetikcloud.client.Configuration;
+//import com.knetikcloud.client.auth.*;
+//import com.knetikcloud.api.MonitoringApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+OAuth oauth2_client_credentials_grant = (OAuth) defaultClient.getAuthentication("oauth2_client_credentials_grant");
+oauth2_client_credentials_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure OAuth2 access token for authorization: oauth2_password_grant
+OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_password_grant");
+oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+MonitoringApi apiInstance = new MonitoringApi();
+List<MonitoringMetricDatapointResource> batch = Arrays.asList(new MonitoringMetricDatapointResource()); // List<MonitoringMetricDatapointResource> | The metric datapoints
+try {
+    Void result = apiInstance.postBatch(batch);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MonitoringApi#postBatch");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batch** | [**List&lt;MonitoringMetricDatapointResource&gt;**](MonitoringMetricDatapointResource.md)| The metric datapoints | [optional]
+
+### Return type
+
+[**Void**](.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="postDatapoint"></a>

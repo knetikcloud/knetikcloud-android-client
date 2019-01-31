@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * CoreActivityOccurrenceSettings
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-22T09:25:50.362-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-31T16:19:51.285-05:00")
 public class CoreActivityOccurrenceSettings {
   @SerializedName("boot_in_play")
   private Boolean bootInPlay = null;
