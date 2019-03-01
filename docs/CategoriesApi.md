@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 
 <a name="getCategories"></a>
 # **getCategories**
-> PageResourceCategoryResource getCategories(filterSearch, filterActive, size, page, order)
+> PageResourceCategoryResource getCategories(filterSearch, filterActive, filterTemplate, size, page, order)
 
 List and search categories with optional filters
 
@@ -277,11 +277,12 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 CategoriesApi apiInstance = new CategoriesApi();
 String filterSearch = "filterSearch_example"; // String | Filter for categories whose names begin with provided string
 Boolean filterActive = true; // Boolean | Filter for categories that are specifically active or inactive
+String filterTemplate = "filterTemplate_example"; // String | Filter for categories with a specific template
 Integer size = 25; // Integer | The number of objects returned per page
 Integer page = 1; // Integer | The number of the page returned, starting with 1
 String order = "id:ASC"; // String | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
 try {
-    PageResourceCategoryResource result = apiInstance.getCategories(filterSearch, filterActive, size, page, order);
+    PageResourceCategoryResource result = apiInstance.getCategories(filterSearch, filterActive, filterTemplate, size, page, order);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CategoriesApi#getCategories");
@@ -295,6 +296,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filterSearch** | **String**| Filter for categories whose names begin with provided string | [optional]
  **filterActive** | **Boolean**| Filter for categories that are specifically active or inactive | [optional]
+ **filterTemplate** | **String**| Filter for categories with a specific template | [optional]
  **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
  **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
  **order** | **String**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]

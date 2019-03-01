@@ -78,6 +78,7 @@ public interface CategoriesApi {
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
    * @param filterSearch Filter for categories whose names begin with provided string (optional)
    * @param filterActive Filter for categories that are specifically active or inactive (optional)
+   * @param filterTemplate Filter for categories with a specific template (optional)
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
@@ -85,7 +86,7 @@ public interface CategoriesApi {
    */
   @GET("categories")
   Call<PageResourceCategoryResource> getCategories(
-    @retrofit2.http.Query("filter_search") String filterSearch, @retrofit2.http.Query("filter_active") Boolean filterActive, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page, @retrofit2.http.Query("order") String order
+    @retrofit2.http.Query("filter_search") String filterSearch, @retrofit2.http.Query("filter_active") Boolean filterActive, @retrofit2.http.Query("filter_template") String filterTemplate, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page, @retrofit2.http.Query("order") String order
   );
 
   /**

@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * EntitlementGrantRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-31T16:19:51.285-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-01T09:22:38.058-05:00")
 public class EntitlementGrantRequest {
   @SerializedName("entitlement_id")
   private Integer entitlementId = null;

@@ -86,10 +86,11 @@ public class CategoriesApiTest {
     public void getCategoriesTest() {
         String filterSearch = null;
         Boolean filterActive = null;
+        String filterTemplate = null;
         Integer size = null;
         Integer page = null;
         String order = null;
-        // PageResourceCategoryResource response = api.getCategories(filterSearch, filterActive, size, page, order);
+        // PageResourceCategoryResource response = api.getCategories(filterSearch, filterActive, filterTemplate, size, page, order);
 
         // TODO: test validations
     }

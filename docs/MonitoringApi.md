@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**createAlert**](MonitoringApi.md#createAlert) | **POST** monitoring/alerts | Create a new alert
 [**createMetric**](MonitoringApi.md#createMetric) | **POST** monitoring/metrics | Create a new metric
 [**deleteAlert**](MonitoringApi.md#deleteAlert) | **DELETE** monitoring/alerts/{id} | Delete an existing alert
+[**deleteDatapoint**](MonitoringApi.md#deleteDatapoint) | **DELETE** monitoring/metrics/{id}/datapoints | Delete a metric datapoint
 [**deleteIncident**](MonitoringApi.md#deleteIncident) | **DELETE** monitoring/incidents/{id} | End an existing incident
 [**deleteMetric**](MonitoringApi.md#deleteMetric) | **DELETE** monitoring/metrics/{id} | Delete an existing metric
 [**getAlert**](MonitoringApi.md#getAlert) | **GET** monitoring/alerts/{id} | Get a single alert
@@ -182,6 +183,65 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The alert id |
+
+### Return type
+
+[**Void**](.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="deleteDatapoint"></a>
+# **deleteDatapoint**
+> Void deleteDatapoint(id, dimensions)
+
+Delete a metric datapoint
+
+Only works for counter and guage type. &lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD
+
+### Example
+```java
+// Import classes:
+//import com.knetikcloud.client.ApiClient;
+//import com.knetikcloud.client.ApiException;
+//import com.knetikcloud.client.Configuration;
+//import com.knetikcloud.client.auth.*;
+//import com.knetikcloud.api.MonitoringApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+OAuth oauth2_client_credentials_grant = (OAuth) defaultClient.getAuthentication("oauth2_client_credentials_grant");
+oauth2_client_credentials_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure OAuth2 access token for authorization: oauth2_password_grant
+OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_password_grant");
+oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+MonitoringApi apiInstance = new MonitoringApi();
+String id = "id_example"; // String | The metric id
+String dimensions = "dimensions_example"; // String | The dimensions of the specific datapoint to delete, in the form key1:value1,key2:val2
+try {
+    Void result = apiInstance.deleteDatapoint(id, dimensions);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MonitoringApi#deleteDatapoint");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| The metric id |
+ **dimensions** | **String**| The dimensions of the specific datapoint to delete, in the form key1:value1,key2:val2 | [optional]
 
 ### Return type
 
@@ -733,7 +793,7 @@ Name | Type | Description  | Notes
 
 Post a metric datapoint batch
 
-Only works with counter and gauge metrics. Re-submit the entire batch in case of failure. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
+Only works with counter and gauge metrics. Re-submit the entire batch in case of failure. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
 
 ### Example
 ```java

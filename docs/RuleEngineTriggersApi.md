@@ -231,7 +231,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filterSystem** | **Boolean**| Filter for triggers that are system triggers when true, or not when false. Leave off for both mixed | [optional]
- **filterCategory** | **String**| Filter for triggers that are within a specific category | [optional] [enum: achievement, behavior, comment, disposition, device, entitlement, friends, fulfillment, gamification, inventory, invoice, media, scheduler, store, subscription, user, wallet, custom, challenge, activity, campaign, event, monitoring, verification, group]
+ **filterCategory** | **String**| Filter for triggers that are within a specific category | [optional] [enum: achievement, behavior, comment, disposition, device, entitlement, friends, fulfillment, gamification, inventory, invoice, media, scheduler, store, subscription, user, wallet, custom, challenge, activity, campaign, event, monitoring, verification, group, access]
  **filterTags** | **String**| Filter for triggers that have all of the given tags (comma separated list) | [optional]
  **filterName** | **String**| Filter for triggers that have names containing the given string | [optional]
  **filterSearch** | **String**| Filter for triggers containing the given words somewhere within name, description and tags | [optional]

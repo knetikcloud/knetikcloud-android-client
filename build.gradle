@@ -2,7 +2,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 group = 'com.knetikcloud'
-version = '3.0.14'
+version = '3.0.15'
 
 buildscript {
     repositories {

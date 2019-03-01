@@ -66,6 +66,18 @@ public interface MonitoringApi {
   );
 
   /**
+   * Delete a metric datapoint
+   * Only works for counter and guage type. &lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD
+   * @param id The metric id (required)
+   * @param dimensions The dimensions of the specific datapoint to delete, in the form key1:value1,key2:val2 (optional)
+   * @return Call&lt;Void&gt;
+   */
+  @DELETE("monitoring/metrics/{id}/datapoints")
+  Call<Void> deleteDatapoint(
+    @retrofit2.http.Path("id") String id, @retrofit2.http.Query("dimensions") String dimensions
+  );
+
+  /**
    * End an existing incident
    * Does not delete the incident, but marks it as resolved by setting the end date.&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param id The incident id (required)
@@ -175,7 +187,7 @@ public interface MonitoringApi {
 
   /**
    * Post a metric datapoint batch
-   * Only works with counter and gauge metrics. Re-submit the entire batch in case of failure. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
+   * Only works with counter and gauge metrics. Re-submit the entire batch in case of failure. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param batch The metric datapoints (optional)
    * @return Call&lt;Void&gt;
    */
