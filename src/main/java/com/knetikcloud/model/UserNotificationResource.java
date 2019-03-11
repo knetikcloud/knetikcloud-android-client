@@ -26,10 +26,13 @@ import java.io.IOException;
 /**
  * UserNotificationResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-01T09:22:38.058-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-11T10:17:25.583-04:00")
 public class UserNotificationResource {
   @SerializedName("data")
   private Object data = null;
+
+  @SerializedName("message")
+  private String message = null;
 
   @SerializedName("notification_id")
   private String notificationId = null;
@@ -169,6 +172,24 @@ public class UserNotificationResource {
     this.data = data;
   }
 
+  public UserNotificationResource message(String message) {
+    this.message = message;
+    return this;
+  }
+
+   /**
+   * The resolved message, if template provided in the notification ype
+   * @return message
+  **/
+  @ApiModelProperty(value = "The resolved message, if template provided in the notification ype")
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
   public UserNotificationResource notificationId(String notificationId) {
     this.notificationId = notificationId;
     return this;
@@ -306,6 +327,7 @@ public class UserNotificationResource {
     }
     UserNotificationResource userNotificationResource = (UserNotificationResource) o;
     return Objects.equals(this.data, userNotificationResource.data) &&
+        Objects.equals(this.message, userNotificationResource.message) &&
         Objects.equals(this.notificationId, userNotificationResource.notificationId) &&
         Objects.equals(this.notificationTypeId, userNotificationResource.notificationTypeId) &&
         Objects.equals(this.recipient, userNotificationResource.recipient) &&
@@ -318,7 +340,7 @@ public class UserNotificationResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, notificationId, notificationTypeId, recipient, recipientType, retrieveDate, sendDate, status, userId);
+    return Objects.hash(data, message, notificationId, notificationTypeId, recipient, recipientType, retrieveDate, sendDate, status, userId);
   }
 
 
@@ -328,6 +350,7 @@ public class UserNotificationResource {
     sb.append("class UserNotificationResource {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
     sb.append("    notificationTypeId: ").append(toIndentedString(notificationTypeId)).append("\n");
     sb.append("    recipient: ").append(toIndentedString(recipient)).append("\n");

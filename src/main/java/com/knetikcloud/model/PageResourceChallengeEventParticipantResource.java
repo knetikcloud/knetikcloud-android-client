@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * PageResourceChallengeEventParticipantResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-01T09:22:38.058-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-11T10:17:25.583-04:00")
 public class PageResourceChallengeEventParticipantResource {
   @SerializedName("content")
   private List<ChallengeEventParticipantResource> content = null;

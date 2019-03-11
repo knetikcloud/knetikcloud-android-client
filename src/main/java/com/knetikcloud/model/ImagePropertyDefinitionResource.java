@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ImagePropertyDefinitionResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-01T09:22:38.058-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-11T10:17:25.583-04:00")
 public class ImagePropertyDefinitionResource extends PropertyDefinitionResource {
   @SerializedName("file_type")
   private String fileType = null;

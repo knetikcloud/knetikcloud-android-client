@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * NotificationTypeResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-01T09:22:38.058-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-11T10:17:25.583-04:00")
 public class NotificationTypeResource {
   @SerializedName("created_date")
   private Long createdDate = null;
@@ -48,6 +48,9 @@ public class NotificationTypeResource {
 
   @SerializedName("sms_template_id")
   private String smsTemplateId = null;
+
+  @SerializedName("template_id")
+  private String templateId = null;
 
   @SerializedName("updated_date")
   private Long updatedDate = null;
@@ -169,6 +172,24 @@ public class NotificationTypeResource {
     this.smsTemplateId = smsTemplateId;
   }
 
+  public NotificationTypeResource templateId(String templateId) {
+    this.templateId = templateId;
+    return this;
+  }
+
+   /**
+   * The id of a message template to resolve the basic message (for user retrieval). If null, message wil be blank
+   * @return templateId
+  **/
+  @ApiModelProperty(value = "The id of a message template to resolve the basic message (for user retrieval). If null, message wil be blank")
+  public String getTemplateId() {
+    return templateId;
+  }
+
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
+  }
+
    /**
    * The date the type was last updated, as a unix timestamp in seconds
    * @return updatedDate
@@ -195,12 +216,13 @@ public class NotificationTypeResource {
         Objects.equals(this.id, notificationTypeResource.id) &&
         Objects.equals(this.name, notificationTypeResource.name) &&
         Objects.equals(this.smsTemplateId, notificationTypeResource.smsTemplateId) &&
+        Objects.equals(this.templateId, notificationTypeResource.templateId) &&
         Objects.equals(this.updatedDate, notificationTypeResource.updatedDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdDate, emailBodyTemplateExternal, emailBodyTemplateId, emailSubjectTemplateId, id, name, smsTemplateId, updatedDate);
+    return Objects.hash(createdDate, emailBodyTemplateExternal, emailBodyTemplateId, emailSubjectTemplateId, id, name, smsTemplateId, templateId, updatedDate);
   }
 
 
@@ -216,6 +238,7 @@ public class NotificationTypeResource {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    smsTemplateId: ").append(toIndentedString(smsTemplateId)).append("\n");
+    sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("    updatedDate: ").append(toIndentedString(updatedDate)).append("\n");
     sb.append("}");
     return sb.toString();

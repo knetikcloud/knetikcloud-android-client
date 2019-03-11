@@ -26,10 +26,13 @@ import java.io.IOException;
 /**
  * NotificationResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-01T09:22:38.058-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-11T10:17:25.583-04:00")
 public class NotificationResource {
   @SerializedName("data")
   private Object data = null;
+
+  @SerializedName("message")
+  private String message = null;
 
   @SerializedName("notification_id")
   private String notificationId = null;
@@ -109,6 +112,15 @@ public class NotificationResource {
 
   public void setData(Object data) {
     this.data = data;
+  }
+
+   /**
+   * The resolved message template, if configured on the notification type
+   * @return message
+  **/
+  @ApiModelProperty(value = "The resolved message template, if configured on the notification type")
+  public String getMessage() {
+    return message;
   }
 
   public NotificationResource notificationId(String notificationId) {
@@ -203,6 +215,7 @@ public class NotificationResource {
     }
     NotificationResource notificationResource = (NotificationResource) o;
     return Objects.equals(this.data, notificationResource.data) &&
+        Objects.equals(this.message, notificationResource.message) &&
         Objects.equals(this.notificationId, notificationResource.notificationId) &&
         Objects.equals(this.notificationTypeId, notificationResource.notificationTypeId) &&
         Objects.equals(this.recipient, notificationResource.recipient) &&
@@ -212,7 +225,7 @@ public class NotificationResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, notificationId, notificationTypeId, recipient, recipientType, sendDate);
+    return Objects.hash(data, message, notificationId, notificationTypeId, recipient, recipientType, sendDate);
   }
 
 
@@ -222,6 +235,7 @@ public class NotificationResource {
     sb.append("class NotificationResource {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
     sb.append("    notificationTypeId: ").append(toIndentedString(notificationTypeId)).append("\n");
     sb.append("    recipient: ").append(toIndentedString(recipient)).append("\n");
