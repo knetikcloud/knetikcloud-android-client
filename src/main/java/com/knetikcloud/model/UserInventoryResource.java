@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UserInventoryResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:20:56.767-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:50:49.584-04:00")
 public class UserInventoryResource {
   @SerializedName("behavior_data")
   private Object behaviorData = null;
@@ -52,6 +52,9 @@ public class UserInventoryResource {
 
   @SerializedName("item_type_hint")
   private String itemTypeHint = null;
+
+  @SerializedName("notes")
+  private String notes = null;
 
   /**
    * The status of the inventory. Pending inventory is not yet ready for use. Inactive inventory has expired or been used up
@@ -237,6 +240,24 @@ public class UserInventoryResource {
     this.itemTypeHint = itemTypeHint;
   }
 
+  public UserInventoryResource notes(String notes) {
+    this.notes = notes;
+    return this;
+  }
+
+   /**
+   * Optional notes about the item
+   * @return notes
+  **/
+  @ApiModelProperty(value = "Optional notes about the item")
+  public String getNotes() {
+    return notes;
+  }
+
+  public void setNotes(String notes) {
+    this.notes = notes;
+  }
+
   public UserInventoryResource status(StatusEnum status) {
     this.status = status;
     return this;
@@ -300,6 +321,7 @@ public class UserInventoryResource {
         Objects.equals(this.itemId, userInventoryResource.itemId) &&
         Objects.equals(this.itemName, userInventoryResource.itemName) &&
         Objects.equals(this.itemTypeHint, userInventoryResource.itemTypeHint) &&
+        Objects.equals(this.notes, userInventoryResource.notes) &&
         Objects.equals(this.status, userInventoryResource.status) &&
         Objects.equals(this.updatedDate, userInventoryResource.updatedDate) &&
         Objects.equals(this.user, userInventoryResource.user);
@@ -307,7 +329,7 @@ public class UserInventoryResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(behaviorData, createdDate, expires, id, invoiceId, itemId, itemName, itemTypeHint, status, updatedDate, user);
+    return Objects.hash(behaviorData, createdDate, expires, id, invoiceId, itemId, itemName, itemTypeHint, notes, status, updatedDate, user);
   }
 
 
@@ -324,6 +346,7 @@ public class UserInventoryResource {
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    itemName: ").append(toIndentedString(itemName)).append("\n");
     sb.append("    itemTypeHint: ").append(toIndentedString(itemTypeHint)).append("\n");
+    sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updatedDate: ").append(toIndentedString(updatedDate)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");

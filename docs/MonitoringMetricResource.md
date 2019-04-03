@@ -16,9 +16,7 @@ Name | Type | Description | Notes
 Name | Value
 ---- | -----
 COUNTER | &quot;counter&quot;
-DELTA | &quot;delta&quot;
 GAUGE | &quot;gauge&quot;
-TIMER | &quot;timer&quot;
 
 
 

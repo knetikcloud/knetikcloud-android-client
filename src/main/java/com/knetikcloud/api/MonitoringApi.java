@@ -11,7 +11,6 @@ import com.knetikcloud.model.MonitoringAlertResource;
 import com.knetikcloud.model.MonitoringIncidentEventResource;
 import com.knetikcloud.model.MonitoringIncidentResource;
 import com.knetikcloud.model.MonitoringMetricDatapointResource;
-import com.knetikcloud.model.MonitoringMetricRecordResource;
 import com.knetikcloud.model.MonitoringMetricResource;
 import com.knetikcloud.model.PageResourceMonitoringAlertResource;
 import com.knetikcloud.model.PageResourceMonitoringIncidentEventResource;
@@ -226,36 +225,6 @@ public interface MonitoringApi {
   @POST("monitoring/incidents")
   Call<MonitoringIncidentResource> receiveEvent(
     @retrofit2.http.Body MonitoringIncidentEventResource incidentResource
-  );
-
-  /**
-   * Start recording a metric
-   * Only works with delta and timer metrics. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD
-   * @param id The metric id (required)
-   * @param metricRecord The metric record (optional)
-   * @return Call&lt;Void&gt;
-   */
-  @Headers({
-    "Content-Type:application/json"
-  })
-  @POST("monitoring/metrics/{id}/start")
-  Call<Void> startRecordMetric(
-    @retrofit2.http.Path("id") String id, @retrofit2.http.Body MonitoringMetricRecordResource metricRecord
-  );
-
-  /**
-   * Stop recording a metric
-   * Only works with delta and timer metrics. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD
-   * @param id The metric id (required)
-   * @param metricRecord The metric record (optional)
-   * @return Call&lt;Void&gt;
-   */
-  @Headers({
-    "Content-Type:application/json"
-  })
-  @POST("monitoring/metrics/{id}/stop")
-  Call<Void> stopRecordMetric(
-    @retrofit2.http.Path("id") String id, @retrofit2.http.Body MonitoringMetricRecordResource metricRecord
   );
 
   /**

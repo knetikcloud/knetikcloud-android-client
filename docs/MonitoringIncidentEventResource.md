@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **incidentId** | **String** | The id of the incident. will be added to any current incident for the alert or a new one created |  [optional]
 **levelName** | **String** | The name of the alert level | 
 **status** | [**StatusEnum**](#StatusEnum) | The new status of the alert level | 
-**triggerValue** | **String** | The value that triggered the alarm |  [optional]
 
 
 <a name="StatusEnum"></a>

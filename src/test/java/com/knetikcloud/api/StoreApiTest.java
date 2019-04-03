@@ -7,6 +7,7 @@ import com.knetikcloud.model.PageResourceStoreItem;
 import com.knetikcloud.model.PageResourceStoreItemTemplateResource;
 import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.QuickBuyRequest;
+import com.knetikcloud.model.QuickPaidRequest;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StoreItem;
 import com.knetikcloud.model.StoreItemTemplateResource;
@@ -168,6 +169,18 @@ public class StoreApiTest {
     public void quickBuyTest() {
         QuickBuyRequest quickBuyRequest = null;
         // InvoiceResource response = api.quickBuy(quickBuyRequest);
+
+        // TODO: test validations
+    }
+    /**
+     * One-step purchase when already paid
+     *
+     * Used to create and automatically mark paid an invoice. Must not be an item that requires shipping. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PAYMENTS_USER and owner, or PAYMENTS_ADMIN
+     */
+    @Test
+    public void quickPaidTest() {
+        QuickPaidRequest quickPaidRequest = null;
+        // InvoiceResource response = api.quickPaid(quickPaidRequest);
 
         // TODO: test validations
     }

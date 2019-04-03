@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * MonitoringMetricResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:20:56.767-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:50:49.584-04:00")
 public class MonitoringMetricResource {
   @SerializedName("dimension_keys")
   private List<String> dimensionKeys = null;
@@ -43,11 +43,7 @@ public class MonitoringMetricResource {
   public enum MetricTypeEnum {
     COUNTER("counter"),
     
-    DELTA("delta"),
-    
-    GAUGE("gauge"),
-    
-    TIMER("timer");
+    GAUGE("gauge");
 
     private String value;
 

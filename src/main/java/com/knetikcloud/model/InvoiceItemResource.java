@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * InvoiceItemResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:20:56.767-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:50:49.584-04:00")
 public class InvoiceItemResource {
   @SerializedName("bundle_sku")
   private String bundleSku = null;
@@ -38,6 +38,9 @@ public class InvoiceItemResource {
 
   @SerializedName("discount")
   private Discount discount = null;
+
+  @SerializedName("gift_target")
+  private Integer giftTarget = null;
 
   @SerializedName("id")
   private Integer id = null;
@@ -50,6 +53,9 @@ public class InvoiceItemResource {
 
   @SerializedName("item_name")
   private String itemName = null;
+
+  @SerializedName("notes")
+  private String notes = null;
 
   @SerializedName("original_total_price")
   private BigDecimal originalTotalPrice = null;
@@ -135,6 +141,24 @@ public class InvoiceItemResource {
     this.discount = discount;
   }
 
+  public InvoiceItemResource giftTarget(Integer giftTarget) {
+    this.giftTarget = giftTarget;
+    return this;
+  }
+
+   /**
+   * Get giftTarget
+   * @return giftTarget
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getGiftTarget() {
+    return giftTarget;
+  }
+
+  public void setGiftTarget(Integer giftTarget) {
+    this.giftTarget = giftTarget;
+  }
+
   public InvoiceItemResource id(Integer id) {
     this.id = id;
     return this;
@@ -205,6 +229,24 @@ public class InvoiceItemResource {
 
   public void setItemName(String itemName) {
     this.itemName = itemName;
+  }
+
+  public InvoiceItemResource notes(String notes) {
+    this.notes = notes;
+    return this;
+  }
+
+   /**
+   * Get notes
+   * @return notes
+  **/
+  @ApiModelProperty(value = "")
+  public String getNotes() {
+    return notes;
+  }
+
+  public void setNotes(String notes) {
+    this.notes = notes;
   }
 
   public InvoiceItemResource originalTotalPrice(BigDecimal originalTotalPrice) {
@@ -400,10 +442,12 @@ public class InvoiceItemResource {
     return Objects.equals(this.bundleSku, invoiceItemResource.bundleSku) &&
         Objects.equals(this.currentFulfillmentStatus, invoiceItemResource.currentFulfillmentStatus) &&
         Objects.equals(this.discount, invoiceItemResource.discount) &&
+        Objects.equals(this.giftTarget, invoiceItemResource.giftTarget) &&
         Objects.equals(this.id, invoiceItemResource.id) &&
         Objects.equals(this.invoiceId, invoiceItemResource.invoiceId) &&
         Objects.equals(this.itemId, invoiceItemResource.itemId) &&
         Objects.equals(this.itemName, invoiceItemResource.itemName) &&
+        Objects.equals(this.notes, invoiceItemResource.notes) &&
         Objects.equals(this.originalTotalPrice, invoiceItemResource.originalTotalPrice) &&
         Objects.equals(this.originalUnitPrice, invoiceItemResource.originalUnitPrice) &&
         Objects.equals(this.qty, invoiceItemResource.qty) &&
@@ -418,7 +462,7 @@ public class InvoiceItemResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bundleSku, currentFulfillmentStatus, discount, id, invoiceId, itemId, itemName, originalTotalPrice, originalUnitPrice, qty, saleName, sku, skuDescription, systemPrice, totalPrice, typeHint, unitPrice);
+    return Objects.hash(bundleSku, currentFulfillmentStatus, discount, giftTarget, id, invoiceId, itemId, itemName, notes, originalTotalPrice, originalUnitPrice, qty, saleName, sku, skuDescription, systemPrice, totalPrice, typeHint, unitPrice);
   }
 
 
@@ -430,10 +474,12 @@ public class InvoiceItemResource {
     sb.append("    bundleSku: ").append(toIndentedString(bundleSku)).append("\n");
     sb.append("    currentFulfillmentStatus: ").append(toIndentedString(currentFulfillmentStatus)).append("\n");
     sb.append("    discount: ").append(toIndentedString(discount)).append("\n");
+    sb.append("    giftTarget: ").append(toIndentedString(giftTarget)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    invoiceId: ").append(toIndentedString(invoiceId)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    itemName: ").append(toIndentedString(itemName)).append("\n");
+    sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
     sb.append("    originalTotalPrice: ").append(toIndentedString(originalTotalPrice)).append("\n");
     sb.append("    originalUnitPrice: ").append(toIndentedString(originalUnitPrice)).append("\n");
     sb.append("    qty: ").append(toIndentedString(qty)).append("\n");

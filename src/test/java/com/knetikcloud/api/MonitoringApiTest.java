@@ -5,7 +5,6 @@ import com.knetikcloud.model.MonitoringAlertResource;
 import com.knetikcloud.model.MonitoringIncidentEventResource;
 import com.knetikcloud.model.MonitoringIncidentResource;
 import com.knetikcloud.model.MonitoringMetricDatapointResource;
-import com.knetikcloud.model.MonitoringMetricRecordResource;
 import com.knetikcloud.model.MonitoringMetricResource;
 import com.knetikcloud.model.PageResourceMonitoringAlertResource;
 import com.knetikcloud.model.PageResourceMonitoringIncidentEventResource;
@@ -232,32 +231,6 @@ public class MonitoringApiTest {
     public void receiveEventTest() {
         MonitoringIncidentEventResource incidentResource = null;
         // MonitoringIncidentResource response = api.receiveEvent(incidentResource);
-
-        // TODO: test validations
-    }
-    /**
-     * Start recording a metric
-     *
-     * Only works with delta and timer metrics. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD
-     */
-    @Test
-    public void startRecordMetricTest() {
-        String id = null;
-        MonitoringMetricRecordResource metricRecord = null;
-        // Void response = api.startRecordMetric(id, metricRecord);
-
-        // TODO: test validations
-    }
-    /**
-     * Stop recording a metric
-     *
-     * Only works with delta and timer metrics. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD
-     */
-    @Test
-    public void stopRecordMetricTest() {
-        String id = null;
-        MonitoringMetricRecordResource metricRecord = null;
-        // Void response = api.stopRecordMetric(id, metricRecord);
 
         // TODO: test validations
     }

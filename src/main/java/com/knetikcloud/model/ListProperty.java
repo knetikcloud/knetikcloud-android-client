@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * ListProperty
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:20:56.767-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:50:49.584-04:00")
 public class ListProperty extends Property {
   @SerializedName("values")
   private List<Property> values = new ArrayList<Property>();

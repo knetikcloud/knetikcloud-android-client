@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**getStoreItem**](StoreApi.md#getStoreItem) | **GET** store/items/{id} | Get a single store item
 [**getStoreItems**](StoreApi.md#getStoreItems) | **GET** store/items | List and search store items
 [**quickBuy**](StoreApi.md#quickBuy) | **POST** store/quick-buy | One-step purchase and pay for a single SKU item from a user&#39;s wallet
+[**quickPaid**](StoreApi.md#quickPaid) | **POST** store/quick-paid | One-step purchase when already paid
 [**updateItemTemplate**](StoreApi.md#updateItemTemplate) | **PATCH** store/items/templates/{id} | Update an item template
 [**updateStoreItem**](StoreApi.md#updateStoreItem) | **PUT** store/items/{id} | Update a store item
 
@@ -616,6 +617,63 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **quickBuyRequest** | [**QuickBuyRequest**](QuickBuyRequest.md)| Quick buy details | [optional]
+
+### Return type
+
+[**InvoiceResource**](InvoiceResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="quickPaid"></a>
+# **quickPaid**
+> InvoiceResource quickPaid(quickPaidRequest)
+
+One-step purchase when already paid
+
+Used to create and automatically mark paid an invoice. Must not be an item that requires shipping. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PAYMENTS_USER and owner, or PAYMENTS_ADMIN
+
+### Example
+```java
+// Import classes:
+//import com.knetikcloud.client.ApiClient;
+//import com.knetikcloud.client.ApiException;
+//import com.knetikcloud.client.Configuration;
+//import com.knetikcloud.client.auth.*;
+//import com.knetikcloud.api.StoreApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+OAuth oauth2_client_credentials_grant = (OAuth) defaultClient.getAuthentication("oauth2_client_credentials_grant");
+oauth2_client_credentials_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure OAuth2 access token for authorization: oauth2_password_grant
+OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_password_grant");
+oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+StoreApi apiInstance = new StoreApi();
+QuickPaidRequest quickPaidRequest = new QuickPaidRequest(); // QuickPaidRequest | Quick buy details
+try {
+    InvoiceResource result = apiInstance.quickPaid(quickPaidRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling StoreApi#quickPaid");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **quickPaidRequest** | [**QuickPaidRequest**](QuickPaidRequest.md)| Quick buy details | [optional]
 
 ### Return type
 

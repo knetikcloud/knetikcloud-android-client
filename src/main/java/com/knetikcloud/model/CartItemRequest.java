@@ -27,13 +27,19 @@ import java.math.BigDecimal;
 /**
  * CartItemRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:20:56.767-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:50:49.584-04:00")
 public class CartItemRequest {
   @SerializedName("affiliate_key")
   private String affiliateKey = null;
 
   @SerializedName("catalog_sku")
   private String catalogSku = null;
+
+  @SerializedName("gift_target")
+  private Integer giftTarget = null;
+
+  @SerializedName("notes")
+  private String notes = null;
 
   @SerializedName("price_override")
   private BigDecimal priceOverride = null;
@@ -75,6 +81,42 @@ public class CartItemRequest {
 
   public void setCatalogSku(String catalogSku) {
     this.catalogSku = catalogSku;
+  }
+
+  public CartItemRequest giftTarget(Integer giftTarget) {
+    this.giftTarget = giftTarget;
+    return this;
+  }
+
+   /**
+   * The id of a user that this is being gifted to
+   * @return giftTarget
+  **/
+  @ApiModelProperty(value = "The id of a user that this is being gifted to")
+  public Integer getGiftTarget() {
+    return giftTarget;
+  }
+
+  public void setGiftTarget(Integer giftTarget) {
+    this.giftTarget = giftTarget;
+  }
+
+  public CartItemRequest notes(String notes) {
+    this.notes = notes;
+    return this;
+  }
+
+   /**
+   * Notes about this item purchase
+   * @return notes
+  **/
+  @ApiModelProperty(value = "Notes about this item purchase")
+  public String getNotes() {
+    return notes;
+  }
+
+  public void setNotes(String notes) {
+    this.notes = notes;
   }
 
   public CartItemRequest priceOverride(BigDecimal priceOverride) {
@@ -125,13 +167,15 @@ public class CartItemRequest {
     CartItemRequest cartItemRequest = (CartItemRequest) o;
     return Objects.equals(this.affiliateKey, cartItemRequest.affiliateKey) &&
         Objects.equals(this.catalogSku, cartItemRequest.catalogSku) &&
+        Objects.equals(this.giftTarget, cartItemRequest.giftTarget) &&
+        Objects.equals(this.notes, cartItemRequest.notes) &&
         Objects.equals(this.priceOverride, cartItemRequest.priceOverride) &&
         Objects.equals(this.quantity, cartItemRequest.quantity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateKey, catalogSku, priceOverride, quantity);
+    return Objects.hash(affiliateKey, catalogSku, giftTarget, notes, priceOverride, quantity);
   }
 
 
@@ -142,6 +186,8 @@ public class CartItemRequest {
     
     sb.append("    affiliateKey: ").append(toIndentedString(affiliateKey)).append("\n");
     sb.append("    catalogSku: ").append(toIndentedString(catalogSku)).append("\n");
+    sb.append("    giftTarget: ").append(toIndentedString(giftTarget)).append("\n");
+    sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
     sb.append("    priceOverride: ").append(toIndentedString(priceOverride)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("}");

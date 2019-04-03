@@ -20,8 +20,6 @@ Method | HTTP request | Description
 [**postBatch**](MonitoringApi.md#postBatch) | **POST** monitoring/metrics/datapoints | Post a metric datapoint batch
 [**postDatapoint**](MonitoringApi.md#postDatapoint) | **POST** monitoring/metrics/{id}/datapoints | Post a metric datapoint
 [**receiveEvent**](MonitoringApi.md#receiveEvent) | **POST** monitoring/incidents | Report an incident event
-[**startRecordMetric**](MonitoringApi.md#startRecordMetric) | **POST** monitoring/metrics/{id}/start | Start recording a metric
-[**stopRecordMetric**](MonitoringApi.md#stopRecordMetric) | **POST** monitoring/metrics/{id}/stop | Stop recording a metric
 [**updateAlert**](MonitoringApi.md#updateAlert) | **PUT** monitoring/alerts/{id} | Update an existing alert
 [**updateMetric**](MonitoringApi.md#updateMetric) | **PUT** monitoring/metrics/{id} | Update an existing metric
 
@@ -950,124 +948,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**MonitoringIncidentResource**](MonitoringIncidentResource.md)
-
-### Authorization
-
-[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="startRecordMetric"></a>
-# **startRecordMetric**
-> Void startRecordMetric(id, metricRecord)
-
-Start recording a metric
-
-Only works with delta and timer metrics. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD
-
-### Example
-```java
-// Import classes:
-//import com.knetikcloud.client.ApiClient;
-//import com.knetikcloud.client.ApiException;
-//import com.knetikcloud.client.Configuration;
-//import com.knetikcloud.client.auth.*;
-//import com.knetikcloud.api.MonitoringApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
-OAuth oauth2_client_credentials_grant = (OAuth) defaultClient.getAuthentication("oauth2_client_credentials_grant");
-oauth2_client_credentials_grant.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure OAuth2 access token for authorization: oauth2_password_grant
-OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_password_grant");
-oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
-
-MonitoringApi apiInstance = new MonitoringApi();
-String id = "id_example"; // String | The metric id
-MonitoringMetricRecordResource metricRecord = new MonitoringMetricRecordResource(); // MonitoringMetricRecordResource | The metric record
-try {
-    Void result = apiInstance.startRecordMetric(id, metricRecord);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MonitoringApi#startRecordMetric");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**| The metric id |
- **metricRecord** | [**MonitoringMetricRecordResource**](MonitoringMetricRecordResource.md)| The metric record | [optional]
-
-### Return type
-
-[**Void**](.md)
-
-### Authorization
-
-[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="stopRecordMetric"></a>
-# **stopRecordMetric**
-> Void stopRecordMetric(id, metricRecord)
-
-Stop recording a metric
-
-Only works with delta and timer metrics. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD
-
-### Example
-```java
-// Import classes:
-//import com.knetikcloud.client.ApiClient;
-//import com.knetikcloud.client.ApiException;
-//import com.knetikcloud.client.Configuration;
-//import com.knetikcloud.client.auth.*;
-//import com.knetikcloud.api.MonitoringApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
-OAuth oauth2_client_credentials_grant = (OAuth) defaultClient.getAuthentication("oauth2_client_credentials_grant");
-oauth2_client_credentials_grant.setAccessToken("YOUR ACCESS TOKEN");
-
-// Configure OAuth2 access token for authorization: oauth2_password_grant
-OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_password_grant");
-oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
-
-MonitoringApi apiInstance = new MonitoringApi();
-String id = "id_example"; // String | The metric id
-MonitoringMetricRecordResource metricRecord = new MonitoringMetricRecordResource(); // MonitoringMetricRecordResource | The metric record
-try {
-    Void result = apiInstance.stopRecordMetric(id, metricRecord);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MonitoringApi#stopRecordMetric");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**| The metric id |
- **metricRecord** | [**MonitoringMetricRecordResource**](MonitoringMetricRecordResource.md)| The metric record | [optional]
-
-### Return type
-
-[**Void**](.md)
 
 ### Authorization
 

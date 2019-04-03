@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **itemId** | **Integer** | The id of the item |  [optional]
 **itemName** | **String** | The name of the item |  [optional]
 **itemTypeHint** | **String** | The type hint of the item |  [optional]
+**notes** | **String** | Optional notes about the item |  [optional]
 **status** | [**StatusEnum**](#StatusEnum) | The status of the inventory. Pending inventory is not yet ready for use. Inactive inventory has expired or been used up |  [optional]
 **updatedDate** | **Long** | The date/time this resource was last updated in seconds since epoch |  [optional]
 **user** | [**SimpleUserResource**](SimpleUserResource.md) | The id of the user this inventory belongs to |  [optional]

@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * BehaviorDefinitionResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:20:56.767-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:50:49.584-04:00")
 public class BehaviorDefinitionResource {
   @SerializedName("description")
   private String description = null;

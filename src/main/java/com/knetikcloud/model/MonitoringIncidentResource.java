@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * MonitoringIncidentResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:20:56.767-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:50:49.584-04:00")
 public class MonitoringIncidentResource {
   @SerializedName("alert")
   private SimpleReferenceResourcestring alert = null;
@@ -52,9 +52,6 @@ public class MonitoringIncidentResource {
 
   @SerializedName("start_date")
   private Long startDate = null;
-
-  @SerializedName("trigger_value")
-  private String triggerValue = null;
 
   public MonitoringIncidentResource alert(SimpleReferenceResourcestring alert) {
     this.alert = alert;
@@ -187,24 +184,6 @@ public class MonitoringIncidentResource {
     this.startDate = startDate;
   }
 
-  public MonitoringIncidentResource triggerValue(String triggerValue) {
-    this.triggerValue = triggerValue;
-    return this;
-  }
-
-   /**
-   * The value that triggered the incident
-   * @return triggerValue
-  **/
-  @ApiModelProperty(required = true, value = "The value that triggered the incident")
-  public String getTriggerValue() {
-    return triggerValue;
-  }
-
-  public void setTriggerValue(String triggerValue) {
-    this.triggerValue = triggerValue;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -221,13 +200,12 @@ public class MonitoringIncidentResource {
         Objects.equals(this.id, monitoringIncidentResource.id) &&
         Objects.equals(this.insufficientData, monitoringIncidentResource.insufficientData) &&
         Objects.equals(this.levels, monitoringIncidentResource.levels) &&
-        Objects.equals(this.startDate, monitoringIncidentResource.startDate) &&
-        Objects.equals(this.triggerValue, monitoringIncidentResource.triggerValue);
+        Objects.equals(this.startDate, monitoringIncidentResource.startDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alert, currentLevel, endDate, id, insufficientData, levels, startDate, triggerValue);
+    return Objects.hash(alert, currentLevel, endDate, id, insufficientData, levels, startDate);
   }
 
 
@@ -243,7 +221,6 @@ public class MonitoringIncidentResource {
     sb.append("    insufficientData: ").append(toIndentedString(insufficientData)).append("\n");
     sb.append("    levels: ").append(toIndentedString(levels)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
-    sb.append("    triggerValue: ").append(toIndentedString(triggerValue)).append("\n");
     sb.append("}");
     return sb.toString();
   }
