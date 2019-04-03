@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * ValueWrapperboolean
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-11T10:17:25.583-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:20:56.767-04:00")
 public class ValueWrapperboolean {
   @SerializedName("value")
   private Boolean value = null;
