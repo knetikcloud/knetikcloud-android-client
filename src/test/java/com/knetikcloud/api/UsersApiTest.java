@@ -8,6 +8,7 @@ import com.knetikcloud.model.PageResourceChatMessageResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
 import com.knetikcloud.model.PageResourceUserBaseResource;
 import com.knetikcloud.model.PageResourcestring;
+import com.knetikcloud.model.PasswordChangeRequest;
 import com.knetikcloud.model.PasswordResetRequest;
 import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
@@ -219,13 +220,13 @@ public class UsersApiTest {
     /**
      * Set a user&#39;s password
      *
-     * Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
+     * Password should be in plain text and will be encrypted on receipt. Use SSL for security. If not USERS_ADMIN, the correct current password must be supplied as wellPUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      */
     @Test
     public void setPasswordTest() {
         Integer id = null;
-        StringWrapper password = null;
-        // Void response = api.setPassword(id, password);
+        PasswordChangeRequest passwordRequest = null;
+        // Void response = api.setPassword(id, passwordRequest);
 
         // TODO: test validations
     }

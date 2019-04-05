@@ -19,16 +19,23 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.knetikcloud.model.Property;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * QuickPaidRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:50:49.584-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-05T10:20:40.002-04:00")
 public class QuickPaidRequest {
+  @SerializedName("additional_properties")
+  private Map<String, Property> additionalProperties = null;
+
   @SerializedName("gift_target")
   private Integer giftTarget = null;
 
@@ -44,6 +51,9 @@ public class QuickPaidRequest {
   @SerializedName("sku")
   private String sku = null;
 
+  @SerializedName("template")
+  private String template = null;
+
   @SerializedName("transaction_details")
   private String transactionDetails = null;
 
@@ -52,6 +62,32 @@ public class QuickPaidRequest {
 
   @SerializedName("user_id")
   private Integer userId = null;
+
+  public QuickPaidRequest additionalProperties(Map<String, Property> additionalProperties) {
+    this.additionalProperties = additionalProperties;
+    return this;
+  }
+
+  public QuickPaidRequest putAdditionalPropertiesItem(String key, Property additionalPropertiesItem) {
+    if (this.additionalProperties == null) {
+      this.additionalProperties = new HashMap<String, Property>();
+    }
+    this.additionalProperties.put(key, additionalPropertiesItem);
+    return this;
+  }
+
+   /**
+   * A map of additional properties, keyed on the property name (private). Must match the names and types defined in the template for this invoice type, or be an extra not from the template
+   * @return additionalProperties
+  **/
+  @ApiModelProperty(value = "A map of additional properties, keyed on the property name (private). Must match the names and types defined in the template for this invoice type, or be an extra not from the template")
+  public Map<String, Property> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  public void setAdditionalProperties(Map<String, Property> additionalProperties) {
+    this.additionalProperties = additionalProperties;
+  }
 
   public QuickPaidRequest giftTarget(Integer giftTarget) {
     this.giftTarget = giftTarget;
@@ -143,6 +179,24 @@ public class QuickPaidRequest {
     this.sku = sku;
   }
 
+  public QuickPaidRequest template(String template) {
+    this.template = template;
+    return this;
+  }
+
+   /**
+   * An invoice template this invoice is validated against (private). May be null and no validation of properties will be done
+   * @return template
+  **/
+  @ApiModelProperty(value = "An invoice template this invoice is validated against (private). May be null and no validation of properties will be done")
+  public String getTemplate() {
+    return template;
+  }
+
+  public void setTemplate(String template) {
+    this.template = template;
+  }
+
   public QuickPaidRequest transactionDetails(String transactionDetails) {
     this.transactionDetails = transactionDetails;
     return this;
@@ -207,11 +261,13 @@ public class QuickPaidRequest {
       return false;
     }
     QuickPaidRequest quickPaidRequest = (QuickPaidRequest) o;
-    return Objects.equals(this.giftTarget, quickPaidRequest.giftTarget) &&
+    return Objects.equals(this.additionalProperties, quickPaidRequest.additionalProperties) &&
+        Objects.equals(this.giftTarget, quickPaidRequest.giftTarget) &&
         Objects.equals(this.itemNotes, quickPaidRequest.itemNotes) &&
         Objects.equals(this.paidAmount, quickPaidRequest.paidAmount) &&
         Objects.equals(this.priceOverride, quickPaidRequest.priceOverride) &&
         Objects.equals(this.sku, quickPaidRequest.sku) &&
+        Objects.equals(this.template, quickPaidRequest.template) &&
         Objects.equals(this.transactionDetails, quickPaidRequest.transactionDetails) &&
         Objects.equals(this.transactionType, quickPaidRequest.transactionType) &&
         Objects.equals(this.userId, quickPaidRequest.userId);
@@ -219,7 +275,7 @@ public class QuickPaidRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(giftTarget, itemNotes, paidAmount, priceOverride, sku, transactionDetails, transactionType, userId);
+    return Objects.hash(additionalProperties, giftTarget, itemNotes, paidAmount, priceOverride, sku, template, transactionDetails, transactionType, userId);
   }
 
 
@@ -228,11 +284,13 @@ public class QuickPaidRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class QuickPaidRequest {\n");
     
+    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("    giftTarget: ").append(toIndentedString(giftTarget)).append("\n");
     sb.append("    itemNotes: ").append(toIndentedString(itemNotes)).append("\n");
     sb.append("    paidAmount: ").append(toIndentedString(paidAmount)).append("\n");
     sb.append("    priceOverride: ").append(toIndentedString(priceOverride)).append("\n");
     sb.append("    sku: ").append(toIndentedString(sku)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    transactionDetails: ").append(toIndentedString(transactionDetails)).append("\n");
     sb.append("    transactionType: ").append(toIndentedString(transactionType)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");

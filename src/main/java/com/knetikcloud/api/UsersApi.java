@@ -14,6 +14,7 @@ import com.knetikcloud.model.PageResourceChatMessageResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
 import com.knetikcloud.model.PageResourceUserBaseResource;
 import com.knetikcloud.model.PageResourcestring;
+import com.knetikcloud.model.PasswordChangeRequest;
 import com.knetikcloud.model.PasswordResetRequest;
 import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
@@ -214,9 +215,9 @@ public interface UsersApi {
 
   /**
    * Set a user&#39;s password
-   * Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
+   * Password should be in plain text and will be encrypted on receipt. Use SSL for security. If not USERS_ADMIN, the correct current password must be supplied as wellPUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the user (required)
-   * @param password The new plain text password (optional)
+   * @param passwordRequest request body for password change (optional)
    * @return Call&lt;Void&gt;
    */
   @Headers({
@@ -224,7 +225,7 @@ public interface UsersApi {
   })
   @PUT("users/{id}/password")
   Call<Void> setPassword(
-    @retrofit2.http.Path("id") Integer id, @retrofit2.http.Body StringWrapper password
+    @retrofit2.http.Path("id") Integer id, @retrofit2.http.Body PasswordChangeRequest passwordRequest
   );
 
   /**

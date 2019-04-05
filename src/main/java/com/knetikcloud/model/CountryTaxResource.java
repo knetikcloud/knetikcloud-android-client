@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * CountryTaxResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:50:49.584-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-05T10:20:40.002-04:00")
 public class CountryTaxResource {
   @SerializedName("country_iso3")
   private String countryIso3 = null;

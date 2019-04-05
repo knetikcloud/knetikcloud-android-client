@@ -5,9 +5,13 @@ All URIs are relative to *https://devsandbox.knetikcloud.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createInvoice**](InvoicesApi.md#createInvoice) | **POST** invoices | Create an invoice
+[**createInvoiceTemplate**](InvoicesApi.md#createInvoiceTemplate) | **POST** invoices/templates | Create a invoice template
+[**deleteInvoiceTemplate**](InvoicesApi.md#deleteInvoiceTemplate) | **DELETE** invoices/templates/{id} | Delete a invoice template
 [**getFulFillmentStatuses**](InvoicesApi.md#getFulFillmentStatuses) | **GET** invoices/fulfillment-statuses | Lists available fulfillment statuses
 [**getInvoice**](InvoicesApi.md#getInvoice) | **GET** invoices/{id} | Retrieve an invoice
 [**getInvoiceLogs**](InvoicesApi.md#getInvoiceLogs) | **GET** invoices/{id}/logs | List invoice logs
+[**getInvoiceTemplate**](InvoicesApi.md#getInvoiceTemplate) | **GET** invoices/templates/{id} | Get a single invoice template
+[**getInvoiceTemplates**](InvoicesApi.md#getInvoiceTemplates) | **GET** invoices/templates | List and search invoice templates
 [**getInvoices**](InvoicesApi.md#getInvoices) | **GET** invoices | Retrieve invoices
 [**getPaymentStatuses**](InvoicesApi.md#getPaymentStatuses) | **GET** invoices/payment-statuses | Lists available payment statuses
 [**payInvoice**](InvoicesApi.md#payInvoice) | **POST** invoices/{id}/payments | Pay an invoice using a saved payment method
@@ -17,6 +21,7 @@ Method | HTTP request | Description
 [**setOrderNotes**](InvoicesApi.md#setOrderNotes) | **PUT** invoices/{id}/order-notes | Set the order notes of an invoice
 [**setPaymentStatus**](InvoicesApi.md#setPaymentStatus) | **PUT** invoices/{id}/payment-status | Set the payment status of an invoice
 [**updateBillingInfo**](InvoicesApi.md#updateBillingInfo) | **PUT** invoices/{id}/billing-address | Set or update billing info
+[**updateInvoiceTemplate**](InvoicesApi.md#updateInvoiceTemplate) | **PATCH** invoices/templates/{id} | Update a invoice template
 
 
 <a name="createInvoice"></a>
@@ -74,6 +79,122 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="createInvoiceTemplate"></a>
+# **createInvoiceTemplate**
+> TemplateResource createInvoiceTemplate(invoiceTemplateResource)
+
+Create a invoice template
+
+Invoice templates define a type of invoice and the properties they have.
+
+### Example
+```java
+// Import classes:
+//import com.knetikcloud.client.ApiClient;
+//import com.knetikcloud.client.ApiException;
+//import com.knetikcloud.client.Configuration;
+//import com.knetikcloud.client.auth.*;
+//import com.knetikcloud.api.InvoicesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+OAuth oauth2_client_credentials_grant = (OAuth) defaultClient.getAuthentication("oauth2_client_credentials_grant");
+oauth2_client_credentials_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure OAuth2 access token for authorization: oauth2_password_grant
+OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_password_grant");
+oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+InvoicesApi apiInstance = new InvoicesApi();
+TemplateResource invoiceTemplateResource = new TemplateResource(); // TemplateResource | The invoice template resource object
+try {
+    TemplateResource result = apiInstance.createInvoiceTemplate(invoiceTemplateResource);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling InvoicesApi#createInvoiceTemplate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **invoiceTemplateResource** | [**TemplateResource**](TemplateResource.md)| The invoice template resource object | [optional]
+
+### Return type
+
+[**TemplateResource**](TemplateResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="deleteInvoiceTemplate"></a>
+# **deleteInvoiceTemplate**
+> Void deleteInvoiceTemplate(id, cascade)
+
+Delete a invoice template
+
+If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.
+
+### Example
+```java
+// Import classes:
+//import com.knetikcloud.client.ApiClient;
+//import com.knetikcloud.client.ApiException;
+//import com.knetikcloud.client.Configuration;
+//import com.knetikcloud.client.auth.*;
+//import com.knetikcloud.api.InvoicesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+OAuth oauth2_client_credentials_grant = (OAuth) defaultClient.getAuthentication("oauth2_client_credentials_grant");
+oauth2_client_credentials_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure OAuth2 access token for authorization: oauth2_password_grant
+OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_password_grant");
+oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+InvoicesApi apiInstance = new InvoicesApi();
+String id = "id_example"; // String | The id of the template
+String cascade = "cascade_example"; // String | The value needed to delete used templates
+try {
+    Void result = apiInstance.deleteInvoiceTemplate(id, cascade);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling InvoicesApi#deleteInvoiceTemplate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| The id of the template |
+ **cascade** | **String**| The value needed to delete used templates | [optional]
+
+### Return type
+
+[**Void**](.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getFulFillmentStatuses"></a>
@@ -243,6 +364,120 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PageResourceInvoiceLogEntry**](PageResourceInvoiceLogEntry.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getInvoiceTemplate"></a>
+# **getInvoiceTemplate**
+> TemplateResource getInvoiceTemplate(id)
+
+Get a single invoice template
+
+### Example
+```java
+// Import classes:
+//import com.knetikcloud.client.ApiClient;
+//import com.knetikcloud.client.ApiException;
+//import com.knetikcloud.client.Configuration;
+//import com.knetikcloud.client.auth.*;
+//import com.knetikcloud.api.InvoicesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+OAuth oauth2_client_credentials_grant = (OAuth) defaultClient.getAuthentication("oauth2_client_credentials_grant");
+oauth2_client_credentials_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure OAuth2 access token for authorization: oauth2_password_grant
+OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_password_grant");
+oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+InvoicesApi apiInstance = new InvoicesApi();
+String id = "id_example"; // String | The id of the template
+try {
+    TemplateResource result = apiInstance.getInvoiceTemplate(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling InvoicesApi#getInvoiceTemplate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| The id of the template |
+
+### Return type
+
+[**TemplateResource**](TemplateResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getInvoiceTemplates"></a>
+# **getInvoiceTemplates**
+> PageResourceTemplateResource getInvoiceTemplates(size, page, order)
+
+List and search invoice templates
+
+### Example
+```java
+// Import classes:
+//import com.knetikcloud.client.ApiClient;
+//import com.knetikcloud.client.ApiException;
+//import com.knetikcloud.client.Configuration;
+//import com.knetikcloud.client.auth.*;
+//import com.knetikcloud.api.InvoicesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+OAuth oauth2_client_credentials_grant = (OAuth) defaultClient.getAuthentication("oauth2_client_credentials_grant");
+oauth2_client_credentials_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure OAuth2 access token for authorization: oauth2_password_grant
+OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_password_grant");
+oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+InvoicesApi apiInstance = new InvoicesApi();
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
+String order = "id:ASC"; // String | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
+try {
+    PageResourceTemplateResource result = apiInstance.getInvoiceTemplates(size, page, order);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling InvoicesApi#getInvoiceTemplates");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **order** | **String**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+
+### Return type
+
+[**PageResourceTemplateResource**](PageResourceTemplateResource.md)
 
 ### Authorization
 
@@ -810,6 +1045,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Void**](.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="updateInvoiceTemplate"></a>
+# **updateInvoiceTemplate**
+> TemplateResource updateInvoiceTemplate(id, templatePatchResource, testValidation)
+
+Update a invoice template
+
+### Example
+```java
+// Import classes:
+//import com.knetikcloud.client.ApiClient;
+//import com.knetikcloud.client.ApiException;
+//import com.knetikcloud.client.Configuration;
+//import com.knetikcloud.client.auth.*;
+//import com.knetikcloud.api.InvoicesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+OAuth oauth2_client_credentials_grant = (OAuth) defaultClient.getAuthentication("oauth2_client_credentials_grant");
+oauth2_client_credentials_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure OAuth2 access token for authorization: oauth2_password_grant
+OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_password_grant");
+oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+InvoicesApi apiInstance = new InvoicesApi();
+String id = "id_example"; // String | The id of the template
+PatchResource templatePatchResource = new PatchResource(); // PatchResource | The patch resource object
+Boolean testValidation = true; // Boolean | If true, this will test validation but not submit the patch request
+try {
+    TemplateResource result = apiInstance.updateInvoiceTemplate(id, templatePatchResource, testValidation);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling InvoicesApi#updateInvoiceTemplate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| The id of the template |
+ **templatePatchResource** | [**PatchResource**](PatchResource.md)| The patch resource object | [optional]
+ **testValidation** | **Boolean**| If true, this will test validation but not submit the patch request | [optional]
+
+### Return type
+
+[**TemplateResource**](TemplateResource.md)
 
 ### Authorization
 

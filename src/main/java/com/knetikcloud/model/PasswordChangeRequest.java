@@ -24,29 +24,50 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * InvoiceCreateRequest
+ * PasswordChangeRequest
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-05T10:20:40.002-04:00")
-public class InvoiceCreateRequest {
-  @SerializedName("cart_guid")
-  private String cartGuid = null;
+public class PasswordChangeRequest {
+  @SerializedName("current_password")
+  private String currentPassword = null;
 
-  public InvoiceCreateRequest cartGuid(String cartGuid) {
-    this.cartGuid = cartGuid;
+  @SerializedName("value")
+  private String value = null;
+
+  public PasswordChangeRequest currentPassword(String currentPassword) {
+    this.currentPassword = currentPassword;
     return this;
   }
 
    /**
-   * The guid of a cart to create a new invoice for
-   * @return cartGuid
+   * The current password in plain text. Required if not admin
+   * @return currentPassword
   **/
-  @ApiModelProperty(required = true, value = "The guid of a cart to create a new invoice for")
-  public String getCartGuid() {
-    return cartGuid;
+  @ApiModelProperty(value = "The current password in plain text. Required if not admin")
+  public String getCurrentPassword() {
+    return currentPassword;
   }
 
-  public void setCartGuid(String cartGuid) {
-    this.cartGuid = cartGuid;
+  public void setCurrentPassword(String currentPassword) {
+    this.currentPassword = currentPassword;
+  }
+
+  public PasswordChangeRequest value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * The new password in plain text
+   * @return value
+  **/
+  @ApiModelProperty(required = true, value = "The new password in plain text")
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -58,22 +79,24 @@ public class InvoiceCreateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InvoiceCreateRequest invoiceCreateRequest = (InvoiceCreateRequest) o;
-    return Objects.equals(this.cartGuid, invoiceCreateRequest.cartGuid);
+    PasswordChangeRequest passwordChangeRequest = (PasswordChangeRequest) o;
+    return Objects.equals(this.currentPassword, passwordChangeRequest.currentPassword) &&
+        Objects.equals(this.value, passwordChangeRequest.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cartGuid);
+    return Objects.hash(currentPassword, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InvoiceCreateRequest {\n");
+    sb.append("class PasswordChangeRequest {\n");
     
-    sb.append("    cartGuid: ").append(toIndentedString(cartGuid)).append("\n");
+    sb.append("    currentPassword: ").append(toIndentedString(currentPassword)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -13,10 +13,13 @@ import com.knetikcloud.model.InvoicePaymentStatusRequest;
 import com.knetikcloud.model.InvoiceResource;
 import com.knetikcloud.model.PageResourceInvoiceLogEntry;
 import com.knetikcloud.model.PageResourceInvoiceResource;
+import com.knetikcloud.model.PageResourceTemplateResource;
 import com.knetikcloud.model.PageResourcestring;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.PayBySavedMethodRequest;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StringWrapper;
+import com.knetikcloud.model.TemplateResource;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,6 +40,32 @@ public interface InvoicesApi {
   @POST("invoices")
   Call<List<InvoiceResource>> createInvoice(
     @retrofit2.http.Body InvoiceCreateRequest req
+  );
+
+  /**
+   * Create a invoice template
+   * Invoice templates define a type of invoice and the properties they have.
+   * @param invoiceTemplateResource The invoice template resource object (optional)
+   * @return Call&lt;TemplateResource&gt;
+   */
+  @Headers({
+    "Content-Type:application/json"
+  })
+  @POST("invoices/templates")
+  Call<TemplateResource> createInvoiceTemplate(
+    @retrofit2.http.Body TemplateResource invoiceTemplateResource
+  );
+
+  /**
+   * Delete a invoice template
+   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.
+   * @param id The id of the template (required)
+   * @param cascade The value needed to delete used templates (optional)
+   * @return Call&lt;Void&gt;
+   */
+  @DELETE("invoices/templates/{id}")
+  Call<Void> deleteInvoiceTemplate(
+    @retrofit2.http.Path("id") String id, @retrofit2.http.Query("cascade") String cascade
   );
 
   /**
@@ -73,6 +102,30 @@ public interface InvoicesApi {
   @GET("invoices/{id}/logs")
   Call<PageResourceInvoiceLogEntry> getInvoiceLogs(
     @retrofit2.http.Path("id") Integer id, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page
+  );
+
+  /**
+   * Get a single invoice template
+   * 
+   * @param id The id of the template (required)
+   * @return Call&lt;TemplateResource&gt;
+   */
+  @GET("invoices/templates/{id}")
+  Call<TemplateResource> getInvoiceTemplate(
+    @retrofit2.http.Path("id") String id
+  );
+
+  /**
+   * List and search invoice templates
+   * 
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
+   * @return Call&lt;PageResourceTemplateResource&gt;
+   */
+  @GET("invoices/templates")
+  Call<PageResourceTemplateResource> getInvoiceTemplates(
+    @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page, @retrofit2.http.Query("order") String order
   );
 
   /**
@@ -220,6 +273,22 @@ public interface InvoicesApi {
   @PUT("invoices/{id}/billing-address")
   Call<Void> updateBillingInfo(
     @retrofit2.http.Path("id") Integer id, @retrofit2.http.Body AddressResource billingInfoRequest
+  );
+
+  /**
+   * Update a invoice template
+   * 
+   * @param id The id of the template (required)
+   * @param templatePatchResource The patch resource object (optional)
+   * @param testValidation If true, this will test validation but not submit the patch request (optional)
+   * @return Call&lt;TemplateResource&gt;
+   */
+  @Headers({
+    "Content-Type:application/json"
+  })
+  @PATCH("invoices/templates/{id}")
+  Call<TemplateResource> updateInvoiceTemplate(
+    @retrofit2.http.Path("id") String id, @retrofit2.http.Body PatchResource templatePatchResource, @retrofit2.http.Query("test_validation") Boolean testValidation
   );
 
 }

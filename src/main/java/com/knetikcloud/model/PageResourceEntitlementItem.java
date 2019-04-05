@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * PageResourceEntitlementItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:50:49.584-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-05T10:20:40.002-04:00")
 public class PageResourceEntitlementItem {
   @SerializedName("content")
   private List<EntitlementItem> content = null;

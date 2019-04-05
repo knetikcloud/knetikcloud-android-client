@@ -7,10 +7,13 @@ import com.knetikcloud.model.InvoicePaymentStatusRequest;
 import com.knetikcloud.model.InvoiceResource;
 import com.knetikcloud.model.PageResourceInvoiceLogEntry;
 import com.knetikcloud.model.PageResourceInvoiceResource;
+import com.knetikcloud.model.PageResourceTemplateResource;
 import com.knetikcloud.model.PageResourcestring;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.PayBySavedMethodRequest;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StringWrapper;
+import com.knetikcloud.model.TemplateResource;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -40,6 +43,31 @@ public class InvoicesApiTest {
     public void createInvoiceTest() {
         InvoiceCreateRequest req = null;
         // List<InvoiceResource> response = api.createInvoice(req);
+
+        // TODO: test validations
+    }
+    /**
+     * Create a invoice template
+     *
+     * Invoice templates define a type of invoice and the properties they have.
+     */
+    @Test
+    public void createInvoiceTemplateTest() {
+        TemplateResource invoiceTemplateResource = null;
+        // TemplateResource response = api.createInvoiceTemplate(invoiceTemplateResource);
+
+        // TODO: test validations
+    }
+    /**
+     * Delete a invoice template
+     *
+     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.
+     */
+    @Test
+    public void deleteInvoiceTemplateTest() {
+        String id = null;
+        String cascade = null;
+        // Void response = api.deleteInvoiceTemplate(id, cascade);
 
         // TODO: test validations
     }
@@ -79,6 +107,32 @@ public class InvoicesApiTest {
         Integer size = null;
         Integer page = null;
         // PageResourceInvoiceLogEntry response = api.getInvoiceLogs(id, size, page);
+
+        // TODO: test validations
+    }
+    /**
+     * Get a single invoice template
+     *
+     * 
+     */
+    @Test
+    public void getInvoiceTemplateTest() {
+        String id = null;
+        // TemplateResource response = api.getInvoiceTemplate(id);
+
+        // TODO: test validations
+    }
+    /**
+     * List and search invoice templates
+     *
+     * 
+     */
+    @Test
+    public void getInvoiceTemplatesTest() {
+        Integer size = null;
+        Integer page = null;
+        String order = null;
+        // PageResourceTemplateResource response = api.getInvoiceTemplates(size, page, order);
 
         // TODO: test validations
     }
@@ -214,6 +268,20 @@ public class InvoicesApiTest {
         Integer id = null;
         AddressResource billingInfoRequest = null;
         // Void response = api.updateBillingInfo(id, billingInfoRequest);
+
+        // TODO: test validations
+    }
+    /**
+     * Update a invoice template
+     *
+     * 
+     */
+    @Test
+    public void updateInvoiceTemplateTest() {
+        String id = null;
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        // TemplateResource response = api.updateInvoiceTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }
