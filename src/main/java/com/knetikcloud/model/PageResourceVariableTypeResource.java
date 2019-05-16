@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * PageResourceVariableTypeResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-16T13:07:11.101-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-16T13:16:46.445-04:00")
 public class PageResourceVariableTypeResource {
   @SerializedName("content")
   private List<VariableTypeResource> content = null;
