@@ -205,6 +205,18 @@ public class UsersApiTest {
         // TODO: test validations
     }
     /**
+     * Register a new cuentas user
+     *
+     * Password should be in plain text and will be encrypted on receipt. Use SSL for security.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
+     */
+    @Test
+    public void registerUserCuentasTest() {
+        UserResource userResource = null;
+        // UserResource response = api.registerUserCuentas(userResource);
+
+        // TODO: test validations
+    }
+    /**
      * Remove a tag from a user
      *
      * &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN

@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * RawPushResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-05T10:20:40.002-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-16T13:07:11.101-04:00")
 public class RawPushResource {
   @SerializedName("recipients")
   private List<Integer> recipients = new ArrayList<Integer>();

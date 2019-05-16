@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * MonitoringIncidentEventResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-05T10:20:40.002-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-16T13:07:11.101-04:00")
 public class MonitoringIncidentEventResource {
   @SerializedName("alert_id")
   private String alertId = null;
@@ -42,6 +42,9 @@ public class MonitoringIncidentEventResource {
 
   @SerializedName("level_name")
   private String levelName = null;
+
+  @SerializedName("merge_value")
+  private String mergeValue = null;
 
   /**
    * The new status of the alert level
@@ -176,6 +179,24 @@ public class MonitoringIncidentEventResource {
     this.levelName = levelName;
   }
 
+  public MonitoringIncidentEventResource mergeValue(String mergeValue) {
+    this.mergeValue = mergeValue;
+    return this;
+  }
+
+   /**
+   * The value of the label from the alert that incidents are merged on
+   * @return mergeValue
+  **/
+  @ApiModelProperty(value = "The value of the label from the alert that incidents are merged on")
+  public String getMergeValue() {
+    return mergeValue;
+  }
+
+  public void setMergeValue(String mergeValue) {
+    this.mergeValue = mergeValue;
+  }
+
   public MonitoringIncidentEventResource status(StatusEnum status) {
     this.status = status;
     return this;
@@ -209,12 +230,13 @@ public class MonitoringIncidentEventResource {
         Objects.equals(this.id, monitoringIncidentEventResource.id) &&
         Objects.equals(this.incidentId, monitoringIncidentEventResource.incidentId) &&
         Objects.equals(this.levelName, monitoringIncidentEventResource.levelName) &&
+        Objects.equals(this.mergeValue, monitoringIncidentEventResource.mergeValue) &&
         Objects.equals(this.status, monitoringIncidentEventResource.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertId, date, id, incidentId, levelName, status);
+    return Objects.hash(alertId, date, id, incidentId, levelName, mergeValue, status);
   }
 
 
@@ -228,6 +250,7 @@ public class MonitoringIncidentEventResource {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    incidentId: ").append(toIndentedString(incidentId)).append("\n");
     sb.append("    levelName: ").append(toIndentedString(levelName)).append("\n");
+    sb.append("    mergeValue: ").append(toIndentedString(mergeValue)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();

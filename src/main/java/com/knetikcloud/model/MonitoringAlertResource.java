@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * MonitoringAlertResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-05T10:20:40.002-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-16T13:07:11.101-04:00")
 public class MonitoringAlertResource {
   @SerializedName("enabled")
   private Boolean enabled = null;
@@ -40,6 +40,9 @@ public class MonitoringAlertResource {
 
   @SerializedName("levels")
   private List<MonitoringAlertLevel> levels = new ArrayList<MonitoringAlertLevel>();
+
+  @SerializedName("merge_label")
+  private String mergeLabel = null;
 
   @SerializedName("metric")
   private SimpleReferenceResourcestring metric = null;
@@ -106,6 +109,24 @@ public class MonitoringAlertResource {
     this.levels = levels;
   }
 
+  public MonitoringAlertResource mergeLabel(String mergeLabel) {
+    this.mergeLabel = mergeLabel;
+    return this;
+  }
+
+   /**
+   * The name of a label returned in the alert query that is used to merge multiple incidents when they match
+   * @return mergeLabel
+  **/
+  @ApiModelProperty(value = "The name of a label returned in the alert query that is used to merge multiple incidents when they match")
+  public String getMergeLabel() {
+    return mergeLabel;
+  }
+
+  public void setMergeLabel(String mergeLabel) {
+    this.mergeLabel = mergeLabel;
+  }
+
   public MonitoringAlertResource metric(SimpleReferenceResourcestring metric) {
     this.metric = metric;
     return this;
@@ -115,7 +136,7 @@ public class MonitoringAlertResource {
    * The id of the metric the alert is monitoring
    * @return metric
   **/
-  @ApiModelProperty(required = true, value = "The id of the metric the alert is monitoring")
+  @ApiModelProperty(value = "The id of the metric the alert is monitoring")
   public SimpleReferenceResourcestring getMetric() {
     return metric;
   }
@@ -155,13 +176,14 @@ public class MonitoringAlertResource {
     return Objects.equals(this.enabled, monitoringAlertResource.enabled) &&
         Objects.equals(this.id, monitoringAlertResource.id) &&
         Objects.equals(this.levels, monitoringAlertResource.levels) &&
+        Objects.equals(this.mergeLabel, monitoringAlertResource.mergeLabel) &&
         Objects.equals(this.metric, monitoringAlertResource.metric) &&
         Objects.equals(this.name, monitoringAlertResource.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, id, levels, metric, name);
+    return Objects.hash(enabled, id, levels, mergeLabel, metric, name);
   }
 
 
@@ -173,6 +195,7 @@ public class MonitoringAlertResource {
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    levels: ").append(toIndentedString(levels)).append("\n");
+    sb.append("    mergeLabel: ").append(toIndentedString(mergeLabel)).append("\n");
     sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");

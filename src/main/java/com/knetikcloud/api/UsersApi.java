@@ -202,6 +202,20 @@ public interface UsersApi {
   );
 
   /**
+   * Register a new cuentas user
+   * Password should be in plain text and will be encrypted on receipt. Use SSL for security.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
+   * @param userResource The user resource object (optional)
+   * @return Call&lt;UserResource&gt;
+   */
+  @Headers({
+    "Content-Type:application/json"
+  })
+  @POST("users/cuentas")
+  Call<UserResource> registerUserCuentas(
+    @retrofit2.http.Body UserResource userResource
+  );
+
+  /**
    * Remove a tag from a user
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN
    * @param userId The id of the user (required)

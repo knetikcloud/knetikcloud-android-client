@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**passwordReset**](UsersApi.md#passwordReset) | **PUT** users/{id}/password-reset | Choose a new password after a reset
 [**postUserMessage**](UsersApi.md#postUserMessage) | **POST** users/{recipient_id}/messages | Send a user message
 [**registerUser**](UsersApi.md#registerUser) | **POST** users | Register a new user
+[**registerUserCuentas**](UsersApi.md#registerUserCuentas) | **POST** users/cuentas | Register a new cuentas user
 [**removeUserTag**](UsersApi.md#removeUserTag) | **DELETE** users/{user_id}/tags/{tag} | Remove a tag from a user
 [**setPassword**](UsersApi.md#setPassword) | **PUT** users/{id}/password | Set a user&#39;s password
 [**startPasswordReset**](UsersApi.md#startPasswordReset) | **POST** users/{id}/password-reset | Reset a user&#39;s password
@@ -733,6 +734,63 @@ try {
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersApi#registerUser");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userResource** | [**UserResource**](UserResource.md)| The user resource object | [optional]
+
+### Return type
+
+[**UserResource**](UserResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="registerUserCuentas"></a>
+# **registerUserCuentas**
+> UserResource registerUserCuentas(userResource)
+
+Register a new cuentas user
+
+Password should be in plain text and will be encrypted on receipt. Use SSL for security.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
+
+### Example
+```java
+// Import classes:
+//import com.knetikcloud.client.ApiClient;
+//import com.knetikcloud.client.ApiException;
+//import com.knetikcloud.client.Configuration;
+//import com.knetikcloud.client.auth.*;
+//import com.knetikcloud.api.UsersApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+OAuth oauth2_client_credentials_grant = (OAuth) defaultClient.getAuthentication("oauth2_client_credentials_grant");
+oauth2_client_credentials_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure OAuth2 access token for authorization: oauth2_password_grant
+OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_password_grant");
+oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+UsersApi apiInstance = new UsersApi();
+UserResource userResource = new UserResource(); // UserResource | The user resource object
+try {
+    UserResource result = apiInstance.registerUserCuentas(userResource);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling UsersApi#registerUserCuentas");
     e.printStackTrace();
 }
 ```
