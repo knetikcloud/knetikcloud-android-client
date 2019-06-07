@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * TimePeriodUsable
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-07T13:17:32.471-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-07T15:46:55.685-04:00")
 public class TimePeriodUsable extends Behavior {
   @SerializedName("max_use")
   private Integer maxUse = null;

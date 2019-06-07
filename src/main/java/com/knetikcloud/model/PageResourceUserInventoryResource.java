@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * PageResourceUserInventoryResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-07T13:17:32.471-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-07T15:46:55.685-04:00")
 public class PageResourceUserInventoryResource {
   @SerializedName("content")
   private List<UserInventoryResource> content = null;
