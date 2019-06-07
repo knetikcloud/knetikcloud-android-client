@@ -1164,7 +1164,7 @@ Name | Type | Description  | Notes
 
 <a name="inviteToGroup"></a>
 # **inviteToGroup**
-> VerificationRequest inviteToGroup(uniqueName, request)
+> VerificationRequest inviteToGroup(uniqueName, request, originator)
 
 Invite to group
 
@@ -1192,8 +1192,9 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 UsersGroupsApi apiInstance = new UsersGroupsApi();
 String uniqueName = "uniqueName_example"; // String | The group unique name
 VerificationRequest request = new VerificationRequest(); // VerificationRequest | The id of the user to invite
+Integer originator = 56; // Integer | Optional originator id, admin only
 try {
-    VerificationRequest result = apiInstance.inviteToGroup(uniqueName, request);
+    VerificationRequest result = apiInstance.inviteToGroup(uniqueName, request, originator);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersGroupsApi#inviteToGroup");
@@ -1207,6 +1208,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uniqueName** | **String**| The group unique name |
  **request** | [**VerificationRequest**](VerificationRequest.md)| The id of the user to invite | [optional]
+ **originator** | **Integer**| Optional originator id, admin only | [optional]
 
 ### Return type
 

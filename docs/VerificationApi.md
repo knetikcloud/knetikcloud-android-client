@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 <a name="createVerificationRequest"></a>
 # **createVerificationRequest**
-> VerificationRequest createVerificationRequest(verificationRequest)
+> VerificationRequest createVerificationRequest(verificationRequest, originator)
 
 Create a new request
 
@@ -103,8 +103,9 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 VerificationApi apiInstance = new VerificationApi();
 VerificationRequest verificationRequest = new VerificationRequest(); // VerificationRequest | The request
+Integer originator = 56; // Integer | Optional originator id, admin only
 try {
-    VerificationRequest result = apiInstance.createVerificationRequest(verificationRequest);
+    VerificationRequest result = apiInstance.createVerificationRequest(verificationRequest, originator);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling VerificationApi#createVerificationRequest");
@@ -117,6 +118,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **verificationRequest** | [**VerificationRequest**](VerificationRequest.md)| The request | [optional]
+ **originator** | **Integer**| Optional originator id, admin only | [optional]
 
 ### Return type
 

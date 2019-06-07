@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * PageResourceRewardSetResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-16T13:16:46.445-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-07T13:17:32.471-04:00")
 public class PageResourceRewardSetResource {
   @SerializedName("content")
   private List<RewardSetResource> content = null;

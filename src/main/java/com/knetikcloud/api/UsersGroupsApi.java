@@ -284,6 +284,7 @@ public interface UsersGroupsApi {
    * This will create a verification for joining the group which uses the &#39;group_invite&#39; template and sets the additional_property &#39;group&#39; with the unique name&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; INVITE
    * @param uniqueName The group unique name (required)
    * @param request The id of the user to invite (optional)
+   * @param originator Optional originator id, admin only (optional)
    * @return Call&lt;VerificationRequest&gt;
    */
   @Headers({
@@ -291,7 +292,7 @@ public interface UsersGroupsApi {
   })
   @POST("users/groups/{unique_name}/invite")
   Call<VerificationRequest> inviteToGroup(
-    @retrofit2.http.Path("unique_name") String uniqueName, @retrofit2.http.Body VerificationRequest request
+    @retrofit2.http.Path("unique_name") String uniqueName, @retrofit2.http.Body VerificationRequest request, @retrofit2.http.Body Integer originator
   );
 
   /**

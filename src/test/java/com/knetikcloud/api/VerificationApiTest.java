@@ -47,7 +47,8 @@ public class VerificationApiTest {
     @Test
     public void createVerificationRequestTest() {
         VerificationRequest verificationRequest = null;
-        // VerificationRequest response = api.createVerificationRequest(verificationRequest);
+        Integer originator = null;
+        // VerificationRequest response = api.createVerificationRequest(verificationRequest, originator);
 
         // TODO: test validations
     }

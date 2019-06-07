@@ -39,6 +39,7 @@ public interface VerificationApi {
    * Create a new request
    * Verification requests ask for a user to respond and confirm something, like their email address of an invitation to join a group.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param verificationRequest The request (optional)
+   * @param originator Optional originator id, admin only (optional)
    * @return Call&lt;VerificationRequest&gt;
    */
   @Headers({
@@ -46,7 +47,7 @@ public interface VerificationApi {
   })
   @POST("verification/requests")
   Call<VerificationRequest> createVerificationRequest(
-    @retrofit2.http.Body VerificationRequest verificationRequest
+    @retrofit2.http.Body VerificationRequest verificationRequest, @retrofit2.http.Body Integer originator
   );
 
   /**

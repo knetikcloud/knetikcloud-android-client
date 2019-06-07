@@ -295,7 +295,8 @@ public class UsersGroupsApiTest {
     public void inviteToGroupTest() {
         String uniqueName = null;
         VerificationRequest request = null;
-        // VerificationRequest response = api.inviteToGroup(uniqueName, request);
+        Integer originator = null;
+        // VerificationRequest response = api.inviteToGroup(uniqueName, request, originator);
 
         // TODO: test validations
     }
