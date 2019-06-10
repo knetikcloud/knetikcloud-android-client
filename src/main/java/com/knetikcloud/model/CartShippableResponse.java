@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * CartShippableResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-07T15:46:55.685-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-10T11:33:32.911-04:00")
 public class CartShippableResponse {
   @SerializedName("cart_id")
   private Integer cartId = null;

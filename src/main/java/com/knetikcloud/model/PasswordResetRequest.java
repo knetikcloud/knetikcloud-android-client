@@ -27,7 +27,7 @@ import java.io.IOException;
  * A request to reset a user&#39;s password by using a known user property
  */
 @ApiModel(description = "A request to reset a user's password by using a known user property")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-07T15:46:55.685-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-10T11:33:32.911-04:00")
 public class PasswordResetRequest {
   @SerializedName("email")
   private String email = null;

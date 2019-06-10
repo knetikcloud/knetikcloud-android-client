@@ -47,7 +47,7 @@ public interface VerificationApi {
   })
   @POST("verification/requests")
   Call<VerificationRequest> createVerificationRequest(
-    @retrofit2.http.Body VerificationRequest verificationRequest, @retrofit2.http.Body Integer originator
+    @retrofit2.http.Body VerificationRequest verificationRequest, @retrofit2.http.Query("originator") Integer originator
   );
 
   /**

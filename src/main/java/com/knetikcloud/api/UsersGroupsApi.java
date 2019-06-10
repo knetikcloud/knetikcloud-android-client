@@ -292,7 +292,7 @@ public interface UsersGroupsApi {
   })
   @POST("users/groups/{unique_name}/invite")
   Call<VerificationRequest> inviteToGroup(
-    @retrofit2.http.Path("unique_name") String uniqueName, @retrofit2.http.Body VerificationRequest request, @retrofit2.http.Body Integer originator
+    @retrofit2.http.Path("unique_name") String uniqueName, @retrofit2.http.Body VerificationRequest request, @retrofit2.http.Query("originator") Integer originator
   );
 
   /**

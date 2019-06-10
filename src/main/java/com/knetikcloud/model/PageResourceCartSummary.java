@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * PageResourceCartSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-07T15:46:55.685-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-10T11:33:32.911-04:00")
 public class PageResourceCartSummary {
   @SerializedName("content")
   private List<CartSummary> content = null;
