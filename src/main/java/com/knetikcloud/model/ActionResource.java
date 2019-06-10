@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * ActionResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-10T11:33:32.911-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-10T16:27:41.909-04:00")
 public class ActionResource {
   /**
    * The category the action is in. All customer specific actions are in the &#39;custom&#39; category

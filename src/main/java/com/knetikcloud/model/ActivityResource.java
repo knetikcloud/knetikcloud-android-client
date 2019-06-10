@@ -36,7 +36,7 @@ import java.util.Map;
  * Represents an activity that can be parameterized and tracked through metrics (scores, etc)
  */
 @ApiModel(description = "Represents an activity that can be parameterized and tracked through metrics (scores, etc)")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-10T11:33:32.911-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-10T16:27:41.909-04:00")
 public class ActivityResource {
   @SerializedName("additional_properties")
   private Map<String, Property> additionalProperties = null;

@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ActivityOccurrenceSettingsResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-10T11:33:32.911-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-10T16:27:41.909-04:00")
 public class ActivityOccurrenceSettingsResource {
   @SerializedName("core_settings")
   private CoreActivityOccurrenceSettings coreSettings = null;
