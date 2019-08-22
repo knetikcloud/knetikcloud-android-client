@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * FilePropertyDefinitionResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-10T16:27:41.909-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-22T09:25:43.839-04:00")
 public class FilePropertyDefinitionResource extends PropertyDefinitionResource {
   @SerializedName("file_type")
   private String fileType = null;

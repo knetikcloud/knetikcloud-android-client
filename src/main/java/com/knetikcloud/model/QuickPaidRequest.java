@@ -31,10 +31,13 @@ import java.util.Map;
 /**
  * QuickPaidRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-10T16:27:41.909-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-22T09:25:43.839-04:00")
 public class QuickPaidRequest {
   @SerializedName("additional_properties")
   private Map<String, Property> additionalProperties = null;
+
+  @SerializedName("federal_tax")
+  private BigDecimal federalTax = null;
 
   @SerializedName("gift_target")
   private Integer giftTarget = null;
@@ -50,6 +53,9 @@ public class QuickPaidRequest {
 
   @SerializedName("sku")
   private String sku = null;
+
+  @SerializedName("state_tax")
+  private BigDecimal stateTax = null;
 
   @SerializedName("template")
   private String template = null;
@@ -87,6 +93,24 @@ public class QuickPaidRequest {
 
   public void setAdditionalProperties(Map<String, Property> additionalProperties) {
     this.additionalProperties = additionalProperties;
+  }
+
+  public QuickPaidRequest federalTax(BigDecimal federalTax) {
+    this.federalTax = federalTax;
+    return this;
+  }
+
+   /**
+   * The amount of federal tax to add (increases final price of invoice even if using price override). Minimum 0
+   * @return federalTax
+  **/
+  @ApiModelProperty(value = "The amount of federal tax to add (increases final price of invoice even if using price override). Minimum 0")
+  public BigDecimal getFederalTax() {
+    return federalTax;
+  }
+
+  public void setFederalTax(BigDecimal federalTax) {
+    this.federalTax = federalTax;
   }
 
   public QuickPaidRequest giftTarget(Integer giftTarget) {
@@ -131,10 +155,10 @@ public class QuickPaidRequest {
   }
 
    /**
-   * The amount already paid. Must match final price to complete purchase. Minimum 0
+   * The amount already paid. Must match final price to complete purchase. Ignored for non-paid endpoints. Minimum 0
    * @return paidAmount
   **/
-  @ApiModelProperty(required = true, value = "The amount already paid. Must match final price to complete purchase. Minimum 0")
+  @ApiModelProperty(value = "The amount already paid. Must match final price to complete purchase. Ignored for non-paid endpoints. Minimum 0")
   public BigDecimal getPaidAmount() {
     return paidAmount;
   }
@@ -177,6 +201,24 @@ public class QuickPaidRequest {
 
   public void setSku(String sku) {
     this.sku = sku;
+  }
+
+  public QuickPaidRequest stateTax(BigDecimal stateTax) {
+    this.stateTax = stateTax;
+    return this;
+  }
+
+   /**
+   * The amount of state tax to add (increases final price of invoice even if using price override). Minimum 0
+   * @return stateTax
+  **/
+  @ApiModelProperty(value = "The amount of state tax to add (increases final price of invoice even if using price override). Minimum 0")
+  public BigDecimal getStateTax() {
+    return stateTax;
+  }
+
+  public void setStateTax(BigDecimal stateTax) {
+    this.stateTax = stateTax;
   }
 
   public QuickPaidRequest template(String template) {
@@ -262,11 +304,13 @@ public class QuickPaidRequest {
     }
     QuickPaidRequest quickPaidRequest = (QuickPaidRequest) o;
     return Objects.equals(this.additionalProperties, quickPaidRequest.additionalProperties) &&
+        Objects.equals(this.federalTax, quickPaidRequest.federalTax) &&
         Objects.equals(this.giftTarget, quickPaidRequest.giftTarget) &&
         Objects.equals(this.itemNotes, quickPaidRequest.itemNotes) &&
         Objects.equals(this.paidAmount, quickPaidRequest.paidAmount) &&
         Objects.equals(this.priceOverride, quickPaidRequest.priceOverride) &&
         Objects.equals(this.sku, quickPaidRequest.sku) &&
+        Objects.equals(this.stateTax, quickPaidRequest.stateTax) &&
         Objects.equals(this.template, quickPaidRequest.template) &&
         Objects.equals(this.transactionDetails, quickPaidRequest.transactionDetails) &&
         Objects.equals(this.transactionType, quickPaidRequest.transactionType) &&
@@ -275,7 +319,7 @@ public class QuickPaidRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalProperties, giftTarget, itemNotes, paidAmount, priceOverride, sku, template, transactionDetails, transactionType, userId);
+    return Objects.hash(additionalProperties, federalTax, giftTarget, itemNotes, paidAmount, priceOverride, sku, stateTax, template, transactionDetails, transactionType, userId);
   }
 
 
@@ -285,11 +329,13 @@ public class QuickPaidRequest {
     sb.append("class QuickPaidRequest {\n");
     
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
+    sb.append("    federalTax: ").append(toIndentedString(federalTax)).append("\n");
     sb.append("    giftTarget: ").append(toIndentedString(giftTarget)).append("\n");
     sb.append("    itemNotes: ").append(toIndentedString(itemNotes)).append("\n");
     sb.append("    paidAmount: ").append(toIndentedString(paidAmount)).append("\n");
     sb.append("    priceOverride: ").append(toIndentedString(priceOverride)).append("\n");
     sb.append("    sku: ").append(toIndentedString(sku)).append("\n");
+    sb.append("    stateTax: ").append(toIndentedString(stateTax)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    transactionDetails: ").append(toIndentedString(transactionDetails)).append("\n");
     sb.append("    transactionType: ").append(toIndentedString(transactionType)).append("\n");
