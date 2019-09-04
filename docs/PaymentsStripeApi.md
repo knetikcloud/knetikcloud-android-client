@@ -67,11 +67,11 @@ Name | Type | Description  | Notes
 
 <a name="payStripeInvoice"></a>
 # **payStripeInvoice**
-> Void payStripeInvoice(request)
+> StringWrapper payStripeInvoice(request)
 
 Pay with a single use token
 
-Obtain a token from Stripe, following their examples and documentation. Pays an invoice without creating a payment method. Ensure that Stripe itself has been configured with the webhook so that invoices are marked paid. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+Obtain a token from Stripe, following their examples and documentation. Pays an invoice without creating a payment method. Ensure that Stripe itself has been configured with the webhook so that invoices are marked paid. A 200 status code indicates sucess with a return value of \&quot;succeeded\&quot;. \&quot;pending\&quot; status is also a 200 and otherwise a non-200 will be sent for failures. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
 
 ### Example
 ```java
@@ -95,7 +95,7 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 PaymentsStripeApi apiInstance = new PaymentsStripeApi();
 StripePaymentRequest request = new StripePaymentRequest(); // StripePaymentRequest | The request to pay an invoice
 try {
-    Void result = apiInstance.payStripeInvoice(request);
+    StringWrapper result = apiInstance.payStripeInvoice(request);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PaymentsStripeApi#payStripeInvoice");
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Void**](.md)
+[**StringWrapper**](StringWrapper.md)
 
 ### Authorization
 
