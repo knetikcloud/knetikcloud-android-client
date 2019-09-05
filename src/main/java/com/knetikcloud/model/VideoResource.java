@@ -36,7 +36,7 @@ import java.util.Map;
 /**
  * VideoResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-04T08:45:55.233-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-05T08:45:52.063-04:00")
 public class VideoResource {
   @SerializedName("active")
   private Boolean active = null;

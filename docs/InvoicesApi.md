@@ -638,7 +638,7 @@ Name | Type | Description  | Notes
 
 <a name="payInvoice"></a>
 # **payInvoice**
-> Void payInvoice(id, request)
+> StringWrapper payInvoice(id, request)
 
 Pay an invoice using a saved payment method
 
@@ -667,7 +667,7 @@ InvoicesApi apiInstance = new InvoicesApi();
 Integer id = 56; // Integer | The id of the invoice
 PayBySavedMethodRequest request = new PayBySavedMethodRequest(); // PayBySavedMethodRequest | The payment method details. Will default to the appropriate user's wallet in the invoice currency if ommited.
 try {
-    Void result = apiInstance.payInvoice(id, request);
+    StringWrapper result = apiInstance.payInvoice(id, request);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling InvoicesApi#payInvoice");
@@ -684,7 +684,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Void**](.md)
+[**StringWrapper**](StringWrapper.md)
 
 ### Authorization
 

@@ -172,13 +172,13 @@ public interface InvoicesApi {
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_USER and owner, or INVOICES_ADMIN
    * @param id The id of the invoice (required)
    * @param request The payment method details. Will default to the appropriate user&#39;s wallet in the invoice currency if ommited. (optional)
-   * @return Call&lt;Void&gt;
+   * @return Call&lt;StringWrapper&gt;
    */
   @Headers({
     "Content-Type:application/json"
   })
   @POST("invoices/{id}/payments")
-  Call<Void> payInvoice(
+  Call<StringWrapper> payInvoice(
     @retrofit2.http.Path("id") Integer id, @retrofit2.http.Body PayBySavedMethodRequest request
   );
 

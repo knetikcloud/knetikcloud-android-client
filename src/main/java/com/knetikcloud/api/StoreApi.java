@@ -166,6 +166,20 @@ public interface StoreApi {
   );
 
   /**
+   * One-step invoice creation
+   * Used to create an invoice. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PAYMENTS_USER and owner, or PAYMENTS_ADMIN
+   * @param quickNewRequest Quick new details (optional)
+   * @return Call&lt;InvoiceResource&gt;
+   */
+  @Headers({
+    "Content-Type:application/json"
+  })
+  @POST("store/quick-new")
+  Call<InvoiceResource> quickNew(
+    @retrofit2.http.Body QuickPaidRequest quickNewRequest
+  );
+
+  /**
    * One-step purchase when already paid
    * Used to create and automatically mark paid an invoice. Must not be an item that requires shipping. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PAYMENTS_USER and owner, or PAYMENTS_ADMIN
    * @param quickPaidRequest Quick buy details (optional)

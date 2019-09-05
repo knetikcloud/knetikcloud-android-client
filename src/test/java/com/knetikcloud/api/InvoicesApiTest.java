@@ -186,7 +186,7 @@ public class InvoicesApiTest {
     public void payInvoiceTest() {
         Integer id = null;
         PayBySavedMethodRequest request = null;
-        // Void response = api.payInvoice(id, request);
+        // StringWrapper response = api.payInvoice(id, request);
 
         // TODO: test validations
     }
