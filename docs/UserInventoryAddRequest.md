@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**invoiceId** | **Integer** | An invoice id to link the inventory to (skip_invoice should be true) |  [optional]
 **note** | **String** | A note to be passed to the invoice or transaction | 
 **overrides** | **List&lt;String&gt;** | A list of behaviors to ignore explicitely.  Ex: &#39;limited_gettable&#39; |  [optional]
 **skipInvoice** | **Boolean** | If set to true will cause the endpoint to skip creation of cart and invoice to track the inventory change | 

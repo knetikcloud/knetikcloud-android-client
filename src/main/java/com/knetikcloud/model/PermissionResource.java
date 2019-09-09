@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * PermissionResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-05T08:45:52.063-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-09T10:25:47.390-04:00")
 public class PermissionResource {
   @SerializedName("created_date")
   private Long createdDate = null;
