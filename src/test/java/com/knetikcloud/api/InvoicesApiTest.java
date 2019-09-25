@@ -157,10 +157,11 @@ public class InvoicesApiTest {
         String filterShipping = null;
         String filterVendorName = null;
         String filterSku = null;
+        String filterNotSku = null;
         Integer size = null;
         Integer page = null;
         String order = null;
-        // PageResourceInvoiceResource response = api.getInvoices(filterUser, filterEmail, filterFulfillmentStatus, filterPaymentStatus, filterItemName, filterExternalRef, filterCreatedDate, filterVendorIds, filterCurrency, filterShippingStateName, filterShippingCountryName, filterShipping, filterVendorName, filterSku, size, page, order);
+        // PageResourceInvoiceResource response = api.getInvoices(filterUser, filterEmail, filterFulfillmentStatus, filterPaymentStatus, filterItemName, filterExternalRef, filterCreatedDate, filterVendorIds, filterCurrency, filterShippingStateName, filterShippingCountryName, filterShipping, filterVendorName, filterSku, filterNotSku, size, page, order);
 
         // TODO: test validations
     }

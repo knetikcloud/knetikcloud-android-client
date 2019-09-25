@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * ForwardLog
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-12T16:33:10.036-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T09:41:32.579-04:00")
 public class ForwardLog {
   @SerializedName("end_date")
   private Long endDate = null;

@@ -490,7 +490,7 @@ Name | Type | Description  | Notes
 
 <a name="getInvoices"></a>
 # **getInvoices**
-> PageResourceInvoiceResource getInvoices(filterUser, filterEmail, filterFulfillmentStatus, filterPaymentStatus, filterItemName, filterExternalRef, filterCreatedDate, filterVendorIds, filterCurrency, filterShippingStateName, filterShippingCountryName, filterShipping, filterVendorName, filterSku, size, page, order)
+> PageResourceInvoiceResource getInvoices(filterUser, filterEmail, filterFulfillmentStatus, filterPaymentStatus, filterItemName, filterExternalRef, filterCreatedDate, filterVendorIds, filterCurrency, filterShippingStateName, filterShippingCountryName, filterShipping, filterVendorName, filterSku, filterNotSku, size, page, order)
 
 Retrieve invoices
 
@@ -530,11 +530,12 @@ String filterShippingCountryName = "filterShippingCountryName_example"; // Strin
 String filterShipping = "filterShipping_example"; // String | Filters invoices by shipping price. Multiple values possible for range search. Format: filter_shipping=OP,ts&... where OP in (GT, LT, GOE, LOE, EQ). Ex: filter_shipping=GT,14.58,LT,15.54
 String filterVendorName = "filterVendorName_example"; // String | Filters invoices by vendor name starting with given string
 String filterSku = "filterSku_example"; // String | Filters invoices by item sku
+String filterNotSku = "filterNotSku_example"; // String | Filters for invoices that do not have an item sku
 Integer size = 25; // Integer | The number of objects returned per page
 Integer page = 1; // Integer | The number of the page returned, starting with 1
 String order = "order_example"; // String | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
 try {
-    PageResourceInvoiceResource result = apiInstance.getInvoices(filterUser, filterEmail, filterFulfillmentStatus, filterPaymentStatus, filterItemName, filterExternalRef, filterCreatedDate, filterVendorIds, filterCurrency, filterShippingStateName, filterShippingCountryName, filterShipping, filterVendorName, filterSku, size, page, order);
+    PageResourceInvoiceResource result = apiInstance.getInvoices(filterUser, filterEmail, filterFulfillmentStatus, filterPaymentStatus, filterItemName, filterExternalRef, filterCreatedDate, filterVendorIds, filterCurrency, filterShippingStateName, filterShippingCountryName, filterShipping, filterVendorName, filterSku, filterNotSku, size, page, order);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling InvoicesApi#getInvoices");
@@ -560,6 +561,7 @@ Name | Type | Description  | Notes
  **filterShipping** | **String**| Filters invoices by shipping price. Multiple values possible for range search. Format: filter_shipping&#x3D;OP,ts&amp;... where OP in (GT, LT, GOE, LOE, EQ). Ex: filter_shipping&#x3D;GT,14.58,LT,15.54 | [optional]
  **filterVendorName** | **String**| Filters invoices by vendor name starting with given string | [optional]
  **filterSku** | **String**| Filters invoices by item sku | [optional]
+ **filterNotSku** | **String**| Filters for invoices that do not have an item sku | [optional]
  **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
  **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
  **order** | **String**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional]

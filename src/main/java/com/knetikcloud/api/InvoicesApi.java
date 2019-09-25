@@ -145,6 +145,7 @@ public interface InvoicesApi {
    * @param filterShipping Filters invoices by shipping price. Multiple values possible for range search. Format: filter_shipping&#x3D;OP,ts&amp;... where OP in (GT, LT, GOE, LOE, EQ). Ex: filter_shipping&#x3D;GT,14.58,LT,15.54 (optional)
    * @param filterVendorName Filters invoices by vendor name starting with given string (optional)
    * @param filterSku Filters invoices by item sku (optional)
+   * @param filterNotSku Filters for invoices that do not have an item sku (optional)
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
@@ -152,7 +153,7 @@ public interface InvoicesApi {
    */
   @GET("invoices")
   Call<PageResourceInvoiceResource> getInvoices(
-    @retrofit2.http.Query("filter_user") Integer filterUser, @retrofit2.http.Query("filter_email") String filterEmail, @retrofit2.http.Query("filter_fulfillment_status") String filterFulfillmentStatus, @retrofit2.http.Query("filter_payment_status") String filterPaymentStatus, @retrofit2.http.Query("filter_item_name") String filterItemName, @retrofit2.http.Query("filter_external_ref") String filterExternalRef, @retrofit2.http.Query("filter_created_date") String filterCreatedDate, @retrofit2.http.Query("filter_vendor_ids") String filterVendorIds, @retrofit2.http.Query("filter_currency") String filterCurrency, @retrofit2.http.Query("filter_shipping_state_name") String filterShippingStateName, @retrofit2.http.Query("filter_shipping_country_name") String filterShippingCountryName, @retrofit2.http.Query("filter_shipping") String filterShipping, @retrofit2.http.Query("filter_vendor_name") String filterVendorName, @retrofit2.http.Query("filter_sku") String filterSku, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page, @retrofit2.http.Query("order") String order
+    @retrofit2.http.Query("filter_user") Integer filterUser, @retrofit2.http.Query("filter_email") String filterEmail, @retrofit2.http.Query("filter_fulfillment_status") String filterFulfillmentStatus, @retrofit2.http.Query("filter_payment_status") String filterPaymentStatus, @retrofit2.http.Query("filter_item_name") String filterItemName, @retrofit2.http.Query("filter_external_ref") String filterExternalRef, @retrofit2.http.Query("filter_created_date") String filterCreatedDate, @retrofit2.http.Query("filter_vendor_ids") String filterVendorIds, @retrofit2.http.Query("filter_currency") String filterCurrency, @retrofit2.http.Query("filter_shipping_state_name") String filterShippingStateName, @retrofit2.http.Query("filter_shipping_country_name") String filterShippingCountryName, @retrofit2.http.Query("filter_shipping") String filterShipping, @retrofit2.http.Query("filter_vendor_name") String filterVendorName, @retrofit2.http.Query("filter_sku") String filterSku, @retrofit2.http.Query("filter_not_sku") String filterNotSku, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page, @retrofit2.http.Query("order") String order
   );
 
   /**

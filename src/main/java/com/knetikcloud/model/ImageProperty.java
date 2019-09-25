@@ -19,7 +19,7 @@ import com.knetikcloud.model.FileProperty;
 /**
  * ImageProperty
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-12T16:33:10.036-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T09:41:32.579-04:00")
 public class ImageProperty extends FileProperty {
 
   @Override
