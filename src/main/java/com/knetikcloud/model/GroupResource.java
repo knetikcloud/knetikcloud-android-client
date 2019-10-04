@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * GroupResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T09:41:32.579-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-04T11:35:52.223-04:00")
 public class GroupResource {
   @SerializedName("additional_properties")
   private Map<String, Property> additionalProperties = null;

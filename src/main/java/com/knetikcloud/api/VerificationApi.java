@@ -111,6 +111,9 @@ public interface VerificationApi {
   /**
    * List requests
    * Get a list of verification requests.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
+   * @param filterTemplate Filter for verifications with specified template (optional)
+   * @param filterTarget Filter for verifications with specified user id as the target (optional)
+   * @param filterOriginator Filter for verifications with specified user id as the originator (optional)
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
@@ -118,7 +121,7 @@ public interface VerificationApi {
    */
   @GET("verification/requests")
   Call<PageResourceVerificationRequest> getVerificationRequests(
-    @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page, @retrofit2.http.Query("order") String order
+    @retrofit2.http.Query("filter_template") String filterTemplate, @retrofit2.http.Query("filter_target") String filterTarget, @retrofit2.http.Query("filter_originator") String filterOriginator, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page, @retrofit2.http.Query("order") String order
   );
 
   /**

@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 
 <a name="getVerificationRequests"></a>
 # **getVerificationRequests**
-> PageResourceVerificationRequest getVerificationRequests(size, page, order)
+> PageResourceVerificationRequest getVerificationRequests(filterTemplate, filterTarget, filterOriginator, size, page, order)
 
 List requests
 
@@ -448,11 +448,14 @@ OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_pa
 oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 VerificationApi apiInstance = new VerificationApi();
+String filterTemplate = "filterTemplate_example"; // String | Filter for verifications with specified template
+String filterTarget = "filterTarget_example"; // String | Filter for verifications with specified user id as the target
+String filterOriginator = "filterOriginator_example"; // String | Filter for verifications with specified user id as the originator
 Integer size = 25; // Integer | The number of objects returned per page
 Integer page = 1; // Integer | The number of the page returned
 String order = "id:ASC"; // String | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
 try {
-    PageResourceVerificationRequest result = apiInstance.getVerificationRequests(size, page, order);
+    PageResourceVerificationRequest result = apiInstance.getVerificationRequests(filterTemplate, filterTarget, filterOriginator, size, page, order);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling VerificationApi#getVerificationRequests");
@@ -464,6 +467,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **filterTemplate** | **String**| Filter for verifications with specified template | [optional]
+ **filterTarget** | **String**| Filter for verifications with specified user id as the target | [optional]
+ **filterOriginator** | **String**| Filter for verifications with specified user id as the originator | [optional]
  **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
  **page** | **Integer**| The number of the page returned | [optional] [default to 1]
  **order** | **String**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]

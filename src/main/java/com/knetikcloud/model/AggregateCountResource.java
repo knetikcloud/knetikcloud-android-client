@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * AggregateCountResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T09:41:32.579-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-04T11:35:52.223-04:00")
 public class AggregateCountResource {
   @SerializedName("count")
   private Long count = null;

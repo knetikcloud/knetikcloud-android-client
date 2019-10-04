@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ChatBlacklistResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T09:41:32.579-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-04T11:35:52.223-04:00")
 public class ChatBlacklistResource {
   @SerializedName("blacklisted_user")
   private SimpleUserResource blacklistedUser = null;
