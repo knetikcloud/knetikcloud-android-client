@@ -184,6 +184,21 @@ public interface InvoicesApi {
   );
 
   /**
+   * Set the additional properties of an invoice
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_ADMIN
+   * @param id The id of the invoice (required)
+   * @param properties The new properties for the membership (required)
+   * @return Call&lt;Void&gt;
+   */
+  @Headers({
+    "Content-Type:application/json"
+  })
+  @PUT("invoices/{id}/properties")
+  Call<Void> setAdditionalProperties(
+    @retrofit2.http.Path("id") Integer id, @retrofit2.http.Body Object properties
+  );
+
+  /**
    * Set the fulfillment status of a bundled invoice item
    * This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_ADMIN
    * @param id The id of the invoice (required)

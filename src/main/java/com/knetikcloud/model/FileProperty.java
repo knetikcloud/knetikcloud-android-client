@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * FileProperty
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-04T11:35:52.223-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-07T16:43:21.868-04:00")
 public class FileProperty extends Property {
   @SerializedName("crc")
   private String crc = null;

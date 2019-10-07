@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**getInvoices**](InvoicesApi.md#getInvoices) | **GET** invoices | Retrieve invoices
 [**getPaymentStatuses**](InvoicesApi.md#getPaymentStatuses) | **GET** invoices/payment-statuses | Lists available payment statuses
 [**payInvoice**](InvoicesApi.md#payInvoice) | **POST** invoices/{id}/payments | Pay an invoice using a saved payment method
+[**setAdditionalProperties**](InvoicesApi.md#setAdditionalProperties) | **PUT** invoices/{id}/properties | Set the additional properties of an invoice
 [**setBundledInvoiceItemFulfillmentStatus**](InvoicesApi.md#setBundledInvoiceItemFulfillmentStatus) | **PUT** invoices/{id}/items/{bundleSku}/bundled-skus/{sku}/fulfillment-status | Set the fulfillment status of a bundled invoice item
 [**setExternalRef**](InvoicesApi.md#setExternalRef) | **PUT** invoices/{id}/external-ref | Set the external reference of an invoice
 [**setInvoiceItemFulfillmentStatus**](InvoicesApi.md#setInvoiceItemFulfillmentStatus) | **PUT** invoices/{id}/items/{sku}/fulfillment-status | Set the fulfillment status of an invoice item
@@ -687,6 +688,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="setAdditionalProperties"></a>
+# **setAdditionalProperties**
+> Void setAdditionalProperties(id, properties)
+
+Set the additional properties of an invoice
+
+&lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_ADMIN
+
+### Example
+```java
+// Import classes:
+//import com.knetikcloud.client.ApiClient;
+//import com.knetikcloud.client.ApiException;
+//import com.knetikcloud.client.Configuration;
+//import com.knetikcloud.client.auth.*;
+//import com.knetikcloud.api.InvoicesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+OAuth oauth2_client_credentials_grant = (OAuth) defaultClient.getAuthentication("oauth2_client_credentials_grant");
+oauth2_client_credentials_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+// Configure OAuth2 access token for authorization: oauth2_password_grant
+OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_password_grant");
+oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
+
+InvoicesApi apiInstance = new InvoicesApi();
+Integer id = 56; // Integer | The id of the invoice
+Object properties = null; // Object | The new properties for the membership
+try {
+    Void result = apiInstance.setAdditionalProperties(id, properties);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling InvoicesApi#setAdditionalProperties");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer**| The id of the invoice |
+ **properties** | **Object**| The new properties for the membership |
+
+### Return type
+
+[**Void**](.md)
 
 ### Authorization
 

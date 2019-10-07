@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * ActivityUserStatusWrapper
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-04T11:35:52.223-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-07T16:43:21.868-04:00")
 public class ActivityUserStatusWrapper {
   /**
    * Gets or Sets value

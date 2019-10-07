@@ -192,6 +192,19 @@ public class InvoicesApiTest {
         // TODO: test validations
     }
     /**
+     * Set the additional properties of an invoice
+     *
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_ADMIN
+     */
+    @Test
+    public void setAdditionalPropertiesTest() {
+        Integer id = null;
+        Object properties = null;
+        // Void response = api.setAdditionalProperties(id, properties);
+
+        // TODO: test validations
+    }
+    /**
      * Set the fulfillment status of a bundled invoice item
      *
      * This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_ADMIN
