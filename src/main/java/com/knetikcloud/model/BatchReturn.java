@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * BatchReturn
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-07T16:43:21.868-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-04T08:55:54.185-05:00")
 public class BatchReturn {
   @SerializedName("body")
   private Object body = null;

@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * UserResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-07T16:43:21.868-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-04T08:55:54.185-05:00")
 public class UserResource {
   @SerializedName("additional_properties")
   private Map<String, Property> additionalProperties = null;
