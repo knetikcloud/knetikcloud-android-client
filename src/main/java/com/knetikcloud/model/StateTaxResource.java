@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * StateTaxResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-04T08:55:54.185-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-09T14:18:22.878-05:00")
 public class StateTaxResource {
   @SerializedName("country_iso3")
   private String countryIso3 = null;

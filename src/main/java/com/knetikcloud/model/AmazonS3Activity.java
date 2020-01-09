@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * AmazonS3Activity
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-04T08:55:54.185-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-09T14:18:22.878-05:00")
 public class AmazonS3Activity {
   @SerializedName("action")
   private String action = null;

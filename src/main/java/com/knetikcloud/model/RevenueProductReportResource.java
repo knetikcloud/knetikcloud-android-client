@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * RevenueProductReportResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-04T08:55:54.185-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-09T14:18:22.878-05:00")
 public class RevenueProductReportResource {
   @SerializedName("item_id")
   private Integer itemId = null;

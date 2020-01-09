@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * PageResourceOAuth2ProviderResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-04T08:55:54.185-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-09T14:18:22.878-05:00")
 public class PageResourceOAuth2ProviderResource {
   @SerializedName("content")
   private List<OAuth2ProviderResource> content = null;
