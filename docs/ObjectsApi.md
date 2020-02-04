@@ -313,7 +313,7 @@ Name | Type | Description  | Notes
 
 <a name="getObjectItems"></a>
 # **getObjectItems**
-> PageResourceObjectResource getObjectItems(templateId, size, page, order)
+> PageResourceObjectResource getObjectItems(templateId, filterNameSearch, size, page, order)
 
 List and search objects
 
@@ -340,11 +340,12 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 ObjectsApi apiInstance = new ObjectsApi();
 String templateId = "templateId_example"; // String | The id of the template to get objects for
+String filterNameSearch = "filterNameSearch_example"; // String | Filter for items whose name starts with a given string.
 Integer size = 25; // Integer | The number of objects returned per page
 Integer page = 1; // Integer | The number of the page returned, starting with 1
 String order = "id:ASC"; // String | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
 try {
-    PageResourceObjectResource result = apiInstance.getObjectItems(templateId, size, page, order);
+    PageResourceObjectResource result = apiInstance.getObjectItems(templateId, filterNameSearch, size, page, order);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ObjectsApi#getObjectItems");
@@ -357,6 +358,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **templateId** | **String**| The id of the template to get objects for |
+ **filterNameSearch** | **String**| Filter for items whose name starts with a given string. | [optional]
  **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
  **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
  **order** | **String**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]

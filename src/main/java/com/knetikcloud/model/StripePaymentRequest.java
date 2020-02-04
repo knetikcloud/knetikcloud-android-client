@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * StripePaymentRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-09T14:18:22.878-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-04T16:12:24.234-05:00")
 public class StripePaymentRequest {
   @SerializedName("amount")
   private BigDecimal amount = null;

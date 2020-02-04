@@ -123,6 +123,7 @@ public interface UsersInventoryApi {
    * List and search entitlement items
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
    * @param filterTemplate Filter for entitlements using a specified template (optional)
+   * @param filterNameSearch Filter for items whose name starts with a given string. (optional)
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
@@ -130,7 +131,7 @@ public interface UsersInventoryApi {
    */
   @GET("entitlements")
   Call<PageResourceEntitlementItem> getEntitlementItems(
-    @retrofit2.http.Query("filter_template") String filterTemplate, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page, @retrofit2.http.Query("order") String order
+    @retrofit2.http.Query("filter_template") String filterTemplate, @retrofit2.http.Query("filter_name_search") String filterNameSearch, @retrofit2.http.Query("size") Integer size, @retrofit2.http.Query("page") Integer page, @retrofit2.http.Query("order") String order
   );
 
   /**

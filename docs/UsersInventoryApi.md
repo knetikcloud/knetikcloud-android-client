@@ -438,7 +438,7 @@ Name | Type | Description  | Notes
 
 <a name="getEntitlementItems"></a>
 # **getEntitlementItems**
-> PageResourceEntitlementItem getEntitlementItems(filterTemplate, size, page, order)
+> PageResourceEntitlementItem getEntitlementItems(filterTemplate, filterNameSearch, size, page, order)
 
 List and search entitlement items
 
@@ -465,11 +465,12 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 UsersInventoryApi apiInstance = new UsersInventoryApi();
 String filterTemplate = "filterTemplate_example"; // String | Filter for entitlements using a specified template
+String filterNameSearch = "filterNameSearch_example"; // String | Filter for items whose name starts with a given string.
 Integer size = 25; // Integer | The number of objects returned per page
 Integer page = 1; // Integer | The number of the page returned, starting with 1
 String order = "id:ASC"; // String | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
 try {
-    PageResourceEntitlementItem result = apiInstance.getEntitlementItems(filterTemplate, size, page, order);
+    PageResourceEntitlementItem result = apiInstance.getEntitlementItems(filterTemplate, filterNameSearch, size, page, order);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersInventoryApi#getEntitlementItems");
@@ -482,6 +483,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filterTemplate** | **String**| Filter for entitlements using a specified template | [optional]
+ **filterNameSearch** | **String**| Filter for items whose name starts with a given string. | [optional]
  **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
  **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
  **order** | **String**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]

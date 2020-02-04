@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * OAuth2ProviderResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-09T14:18:22.878-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-04T16:12:24.234-05:00")
 public class OAuth2ProviderResource {
   /**
    * The grant type chosen when creating your client with the provider. Typically authorization_code for maximum security.

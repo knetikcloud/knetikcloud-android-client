@@ -131,10 +131,11 @@ public class UsersInventoryApiTest {
     @Test
     public void getEntitlementItemsTest() {
         String filterTemplate = null;
+        String filterNameSearch = null;
         Integer size = null;
         Integer page = null;
         String order = null;
-        // PageResourceEntitlementItem response = api.getEntitlementItems(filterTemplate, size, page, order);
+        // PageResourceEntitlementItem response = api.getEntitlementItems(filterTemplate, filterNameSearch, size, page, order);
 
         // TODO: test validations
     }
