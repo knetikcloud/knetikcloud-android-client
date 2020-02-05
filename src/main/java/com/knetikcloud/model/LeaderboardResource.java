@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * LeaderboardResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-04T16:12:24.234-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-05T11:01:01.795-05:00")
 public class LeaderboardResource {
   @SerializedName("entries")
   private List<LeaderboardEntryResource> entries = null;
